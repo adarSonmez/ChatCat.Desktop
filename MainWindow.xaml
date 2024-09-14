@@ -5,6 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="ChatCat Desktop" Height="450" Width="800">
-    <Grid>
-    </Grid>
+
+    <StackPanel>
+        <TextBlock Text="Hello, World!" FontSize="40" FontFamily="{StaticResource LatoRegular}" />
+        <TextBlock Text="Hello, World!" FontSize="40" FontFamily="{StaticResource LatoThin}" />
+        <TextBlock Text="Hello, World!" FontSize="40" FontFamily="{StaticResource LatoLight}" />
+        <TextBlock Text="Hello, World!" FontSize="40" FontFamily="{StaticResource LatoBold}" />
+        <TextBlock Text="Hello, World!" FontSize="40" FontFamily="{StaticResource LatoBlack}" />
+        <TextBlock Text="Hello, World!" FontSize="40" FontFamily="{StaticResource LatoLightItalic}" />
+        <TextBlock Text="Hello, World!" FontSize="40" FontFamily="{StaticResource LatoBoldItalic}" />
+        <TextBlock Text="Hello, World!" FontSize="40" FontFamily="{StaticResource LatoBlackItalic}" />
+    </StackPanel>
 </Window>

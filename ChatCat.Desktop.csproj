@@ -10,7 +10,57 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\Lato\Lato-Black.ttf" />
+    <None Remove="Fonts\Lato\Lato-BlackItalic.ttf" />
+    <None Remove="Fonts\Lato\Lato-Bold.ttf" />
+    <None Remove="Fonts\Lato\Lato-BoldItalic.ttf" />
+    <None Remove="Fonts\Lato\Lato-Hairline.ttf" />
+    <None Remove="Fonts\Lato\Lato-HairlineItalic.ttf" />
+    <None Remove="Fonts\Lato\Lato-Italic.ttf" />
+    <None Remove="Fonts\Lato\Lato-Light.ttf" />
+    <None Remove="Fonts\Lato\Lato-LightItalic.ttf" />
+    <None Remove="Fonts\Lato\Lato-Regular.ttf" />
+    <None Remove="Fonts\Lato\Lato-Thin.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="Images\Logos\favicon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\Lato\Lato-Black.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Lato\Lato-BlackItalic.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Lato\Lato-Bold.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Lato\Lato-BoldItalic.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Lato\Lato-Hairline.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Lato\Lato-HairlineItalic.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Lato\Lato-Italic.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Lato\Lato-Light.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Lato\Lato-LightItalic.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Lato\Lato-Regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Lato\Lato-Thin.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
