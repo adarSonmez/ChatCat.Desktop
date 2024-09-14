@@ -21,6 +21,8 @@
     <None Remove="Fonts\Lato\Lato-LightItalic.ttf" />
     <None Remove="Fonts\Lato\Lato-Regular.ttf" />
     <None Remove="Fonts\Lato\Lato-Thin.ttf" />
+    <None Remove="Images\Logos\logo-small.png" />
+    <None Remove="Images\Logos\logo.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -59,6 +61,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Fonts\Lato\Lato-Thin.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Logos\logo-small.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Logos\logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
