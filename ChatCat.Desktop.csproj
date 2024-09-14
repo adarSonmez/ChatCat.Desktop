@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Images\Logo\favicon.ico" />
+    <Content Include="Images\Logos\favicon.ico" />
   </ItemGroup>
 
 </Project>
