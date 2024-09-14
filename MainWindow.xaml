@@ -4,10 +4,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="ChatCat Desktop" Height="450" Width="800">
+        Name="StartupWindow"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        Title="ChatCat Desktop" Height="600" Width="900">
 
-    <StackPanel>
-        <Button Content="Hello, World!" />
-        <TextBlock Text="Hello, World!" />
-    </StackPanel>
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            GlassFrameThickness="0"
+            CaptionHeight="{Binding TitleBarHeight}"
+            ResizeBorderThickness="{Binding BorderRadiusThickness}" />
+    </WindowChrome.WindowChrome>
+
+    <Grid></Grid>
 </Window>
