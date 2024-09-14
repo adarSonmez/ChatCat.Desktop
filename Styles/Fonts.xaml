@@ -7,11 +7,30 @@
     <FontFamily x:Key="LatoBold">/Fonts/Lato/#Lato Bold</FontFamily>
     <FontFamily x:Key="LatoBlack">/Fonts/Lato/#Lato Black</FontFamily>
     <FontFamily x:Key="LatoHairline">/Fonts/Lato/#Lato Hairline</FontFamily>
-    
+
     <!-- Italic fonts -->
     <FontFamily x:Key="LatoThinItalic">/Fonts/Lato/#Lato Thin Italic</FontFamily>
     <FontFamily x:Key="LatoLightItalic">/Fonts/Lato/#Lato Light Italic</FontFamily>
     <FontFamily x:Key="LatoBoldItalic">/Fonts/Lato/#Lato Bold Italic</FontFamily>
     <FontFamily x:Key="LatoBlackItalic">/Fonts/Lato/#Lato Black Italic</FontFamily>
     <FontFamily x:Key="LatoHairlineItalic">/Fonts/Lato/#Lato Hairline Italic</FontFamily>
+
+    <Style TargetType="{x:Type Control}" x:Key="BaseControlStyle">
+        <Setter Property="FontFamily" Value="{StaticResource LatoThin}" />
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="BaseTextBoxStyle">
+        <Setter Property="FontFamily" Value="{StaticResource LatoThin}" />
+    </Style>
+
+    <Style TargetType="{x:Type Label}" BasedOn="{StaticResource BaseControlStyle}" />
+    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseControlStyle}" />
+    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseControlStyle}" />
+    <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource BaseControlStyle}" />
+    <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource BaseControlStyle}" />
+    <Style TargetType="{x:Type ListBox}" BasedOn="{StaticResource BaseControlStyle}" />
+    <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource BaseControlStyle}" />
+    <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource BaseControlStyle}" />
+    <Style TargetType="{x:Type DatePicker}" BasedOn="{StaticResource BaseControlStyle}" />
+    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBoxStyle}" />
 </ResourceDictionary>

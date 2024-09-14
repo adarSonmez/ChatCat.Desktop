@@ -1,4 +1,32 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
+    <Color x:Key="PrimaryColor">#FF6200EE</Color>
+    <Color x:Key="SecondaryColor">#FF3700B3</Color>
+    <Color x:Key="AccentColor">#FF03DAC6</Color>
+    <Color x:Key="ErrorColor">#FFB00020</Color>
+    <Color x:Key="WarningColor">#FFFFAB00</Color>
+    <Color x:Key="InfoColor">#FF018786</Color>
+    <Color x:Key="SuccessColor">#FF00C853</Color>
+
+    <Color x:Key="BackgroundLightColor">#FFFFFFFF</Color>
+    <Color x:Key="BackgroundDarkColor">#FF000000</Color>
+    <Color x:Key="ForegroundLightColor">#FF000000</Color>
+    <Color x:Key="ForegroundDarkColor">#FFFFFFFF</Color>
+    <Color x:Key="BorderLightColor">#FF000000</Color>
+    <Color x:Key="BorderDarkColor">#FFFFFFFF</Color>
+
+    <SolidColorBrush x:Key="PrimaryColorBrush" Color="{StaticResource PrimaryColor}" />
+    <SolidColorBrush x:Key="SecondaryColorBrush" Color="{StaticResource SecondaryColor}" />
+    <SolidColorBrush x:Key="AccentColorBrush" Color="{StaticResource AccentColor}" />
+    <SolidColorBrush x:Key="ErrorColorBrush" Color="{StaticResource ErrorColor}" />
+    <SolidColorBrush x:Key="WarningColorBrush" Color="{StaticResource WarningColor}" />
+    <SolidColorBrush x:Key="InfoColorBrush" Color="{StaticResource InfoColor}" />
+    <SolidColorBrush x:Key="SuccessColorBrush" Color="{StaticResource SuccessColor}" />
+
+    <SolidColorBrush x:Key="BackgroundLightColorBrush" Color="{StaticResource BackgroundLightColor}" />
+    <SolidColorBrush x:Key="BackgroundDarkColorBrush" Color="{StaticResource BackgroundDarkColor}" />
+    <SolidColorBrush x:Key="ForegroundLightColorBrush" Color="{StaticResource ForegroundLightColor}" />
+    <SolidColorBrush x:Key="ForegroundDarkColorBrush" Color="{StaticResource ForegroundDarkColor}" />
+    <SolidColorBrush x:Key="BorderLightColorBrush" Color="{StaticResource BorderLightColor}" />
+    <SolidColorBrush x:Key="BorderDarkColorBrush" Color="{StaticResource BorderDarkColor}" />
 </ResourceDictionary>
