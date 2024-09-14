@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon>Images\Logo\favicon.ico</ApplicationIcon>
+    <ApplicationIcon>Images\Logos\favicon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>

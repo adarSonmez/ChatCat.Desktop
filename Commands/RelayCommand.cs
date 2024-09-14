@@ -22,7 +22,11 @@ namespace ChatCat.Desktop.Commands
         }
 
         /// <inheritdoc/>
-        public event EventHandler? CanExecuteChanged;
+        public event EventHandler? CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
 
         /// <inheritdoc/>
         public bool CanExecute(object? parameter)

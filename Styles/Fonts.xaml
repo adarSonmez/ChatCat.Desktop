@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <FontFamily x:Key="LatoRegular">pack://application:,,,/Fonts/#Lato Black</FontFamily>
+    <FontFamily x:Key="LatoLight">pack://application:,,,/Fonts/#Lato Light</FontFamily>
+    <FontFamily x:Key="LatoBold">pack://application:,,,/Fonts/#Lato Bold</FontFamily>
+    <FontFamily x:Key="LatoThin">pack://application:,,,/Fonts/#Lato Thin</FontFamily>
+    <FontFamily x:Key="LatoHairline">pack://application:,,,/Fonts/#Lato Hairline</FontFamily>
+
+    <FontFamily x:Key="LatoRegularItalic">pack://application:,,,/Fonts/#Lato Black Italic</FontFamily>
+    <FontFamily x:Key="LatoLightItalic">pack://application:,,,/Fonts/#Lato Light Italic</FontFamily>
+    <FontFamily x:Key="LatoBoldItalic">pack://application:,,,/Fonts/#Lato Bold Italic</FontFamily>
+    <FontFamily x:Key="LatoThinItalic">pack://application:,,,/Fonts/#Lato Thin Italic</FontFamily>
+    <FontFamily x:Key="LatoHairlineItalic">pack://application:,,,/Fonts/#Lato Hairline Italic</FontFamily>
+</ResourceDictionary>
