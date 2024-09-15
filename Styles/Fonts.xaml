@@ -15,14 +15,16 @@
     <FontFamily x:Key="LatoBlackItalic">/Fonts/Lato/#Lato Black Italic</FontFamily>
     <FontFamily x:Key="LatoHairlineItalic">/Fonts/Lato/#Lato Hairline Italic</FontFamily>
 
+    <!-- Base styles -->
     <Style TargetType="{x:Type Control}" x:Key="BaseControlStyle">
         <Setter Property="FontFamily" Value="{StaticResource LatoThin}" />
     </Style>
 
-    <Style TargetType="{x:Type TextBlock}" x:Key="BaseTextBoxStyle">
+    <Style TargetType="{x:Type TextBlock}" x:Key="BaseTextBlockStyle">
         <Setter Property="FontFamily" Value="{StaticResource LatoThin}" />
     </Style>
 
+    <!-- Derived styles -->
     <Style TargetType="{x:Type Label}" BasedOn="{StaticResource BaseControlStyle}" />
     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseControlStyle}" />
     <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseControlStyle}" />
@@ -32,5 +34,5 @@
     <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource BaseControlStyle}" />
     <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource BaseControlStyle}" />
     <Style TargetType="{x:Type DatePicker}" BasedOn="{StaticResource BaseControlStyle}" />
-    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBoxStyle}" />
+    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlockStyle}" />
 </ResourceDictionary>

@@ -6,17 +6,9 @@
         <ResourceDictionary Source="Fonts.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="{x:Type TextBlock}" x:Key="TitleTextBlock" BasedOn="{StaticResource BaseTextBoxStyle}">
+    <!-- Title TextBlock Style -->
+    <Style TargetType="{x:Type TextBlock}" x:Key="TitleTextBlockStyle" BasedOn="{StaticResource BaseTextBlockStyle}">
         <Setter Property="Padding" Value="6" />
-
-        <Setter Property="Foreground">
-            <Setter.Value>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Offset="0" Color="{StaticResource PrimaryColor}" />
-                    <GradientStop Offset="0.5" Color="{StaticResource SecondaryColor}" />
-                    <GradientStop Offset="1" Color="{StaticResource AccentColor}" />
-                </LinearGradientBrush>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="Foreground" Value="{StaticResource TitleTextGradientBrush}" />
     </Style>
 </ResourceDictionary>

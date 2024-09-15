@@ -22,8 +22,11 @@ namespace ChatCat.Desktop.ViewModels
             get => _mainWindow;
             set
             {
-                _mainWindow = value;
-                OnPropertyChanged(nameof(MainWindow));
+                if (_mainWindow != value)
+                {
+                    _mainWindow = value;
+                    OnPropertyChanged();
+                }
             }
         }
 
@@ -78,6 +81,10 @@ namespace ChatCat.Desktop.ViewModels
 
         #region Private Methods
 
+        /// <summary>
+        /// Gets the current mouse position relative to the screen.
+        /// </summary>
+        /// <returns>The mouse position.</returns>
         private Point GetMousePosition()
         {
             var position = Mouse.GetPosition(_mainWindow);

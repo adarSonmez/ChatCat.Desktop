@@ -23,7 +23,7 @@
                             <!-- Main window outline -->
                             <Grid>
                                 <!-- Main window border with drop shadow -->
-                                <Border CornerRadius="{Binding WindowCornerRadius, FallbackValue=12}" Background="{StaticResource BackgroundLightColorBrush}">
+                                <Border CornerRadius="{Binding WindowCornerRadius, FallbackValue=12}" Background="{StaticResource BackgroundColorBrush}">
                                     <Border.Effect>
                                         <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="Black" Opacity="0.5" />
                                     </Border.Effect>
@@ -46,35 +46,25 @@
                                         </Grid.ColumnDefinitions>
 
                                         <!-- App Icon -->
-                                        <Button Grid.Column="0" Command="{Binding MenuCommand}" Style="{StaticResource SystemIconButton}">
+                                        <Button Grid.Column="0" Command="{Binding MenuCommand}" Style="{StaticResource SystemIconButtonStyle}">
                                             <Image Source="Images/Logos/logo-small.png" />
                                         </Button>
 
                                         <!-- Window title -->
                                         <Viewbox Grid.Column="1">
-                                            <TextBlock Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Title}" Style="{StaticResource TitleTextBlock}" />
+                                            <TextBlock Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Title}" Style="{StaticResource TitleTextBlockStyle}" />
                                         </Viewbox>
 
                                         <!-- Window buttons -->
                                         <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
-                                            <Button Command="{Binding MinimizeCommand}" Content="_" Style="{StaticResource WindowControlButton}" />
-                                            <Button Command="{Binding MaximizeCommand}" Content="□" Style="{StaticResource WindowControlButton}" />
-                                            <Button Command="{Binding CloseCommand}" Content="x" Style="{StaticResource WindowControlButton}" />
+                                            <Button Command="{Binding MinimizeCommand}" Content="_" Style="{StaticResource WindowControlButtonStyle}" />
+                                            <Button Command="{Binding MaximizeCommand}" Content="□" Style="{StaticResource WindowControlButtonStyle}" />
+                                            <Button Command="{Binding CloseCommand}" Content="x" Style="{StaticResource WindowCloseControlButtonStyle}" />
                                         </StackPanel>
                                     </Grid>
 
                                     <!-- Shadow under title bar -->
-                                    <Border Grid.Row="1" Height="1" BorderThickness="0 0.4 0 0">
-                                        <Border.BorderBrush>
-                                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                                <GradientStop Offset="0" Color="{StaticResource BackgroundLightColor}" />
-                                                <GradientStop Offset="0.25" Color="{StaticResource PrimaryColor}" />
-                                                <GradientStop Offset="0.5" Color="{StaticResource SecondaryColor}" />
-                                                <GradientStop Offset="0.75" Color="{StaticResource AccentColor}" />
-                                                <GradientStop Offset="1" Color="{StaticResource BackgroundLightColor}" />
-                                            </LinearGradientBrush>
-                                        </Border.BorderBrush>
-
+                                    <Border Grid.Row="1" Height="1" BorderThickness="0 0.4 0 0" BorderBrush="{StaticResource HorizantalLineGradientBrush}">
                                         <Border.Effect>
                                             <DropShadowEffect ShadowDepth="0" BlurRadius="6" Color="Gray" Opacity=".1" />
                                         </Border.Effect>

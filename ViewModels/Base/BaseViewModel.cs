@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace ChatCat.Desktop.ViewModels.Base
 {
@@ -7,15 +8,40 @@ namespace ChatCat.Desktop.ViewModels.Base
     /// </summary>
     internal class BaseViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
+        private volatile PropertyChangedEventHandler? _propertyChanged;
+
+        public event PropertyChangedEventHandler? PropertyChanged
+        {
+            add
+            {
+                lock (this)
+                {
+                    _propertyChanged += value;
+                }
+            }
+            remove
+            {
+                lock (this)
+                {
+                    _propertyChanged -= value;
+                }
+            }
+        }
 
         /// <summary>
         /// Raises the PropertyChanged event for the specified property name.
         /// </summary>
-        /// <param name="propertyName">The name of the property that changed.</param>
-        protected virtual void OnPropertyChanged(string propertyName)
+        /// <param name="propertyName">The name of the property that changed. This is optional and will be automatically provided by the compiler if not specified.</param>
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            // Capture a local reference to ensure thread-safety
+            PropertyChangedEventHandler? handler;
+            lock (this)
+            {
+                handler = _propertyChanged;
+            }
+
+            handler?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

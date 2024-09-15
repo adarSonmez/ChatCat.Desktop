@@ -1,15 +1,48 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ChatCat.Desktop.Converters"
+                    xmlns:enums="clr-namespace:ChatCat.Desktop.Constants.Enums">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Colors.xaml" />
         <ResourceDictionary Source="Fonts.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="{x:Type Button}" x:Key="HoverlessButton">
+    <!-- Base Button Style -->
+    <Style TargetType="{x:Type Button}" x:Key="BaseButtonStyle">
+        <Setter Property="FontFamily" Value="{StaticResource LatoRegular}" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Padding" Value="10,5" />
+        <Setter Property="Background" Value="{StaticResource PrimaryColorBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource ForegroundColorBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource BorderColorBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Padding="{TemplateBinding Padding}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource AccentColorBrush}" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{StaticResource SecondaryColorBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- Hoverless Button Style -->
+    <Style TargetType="{x:Type Button}" x:Key="HoverlessButtonStyle" BasedOn="{StaticResource BaseButtonStyle}">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
-
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -21,22 +54,31 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Transparent" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="Transparent" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
-    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource HoverlessButton}" x:Key="SystemIconButton">
+    <!-- System Icon Button Style -->
+    <Style TargetType="{x:Type Button}" x:Key="SystemIconButtonStyle" BasedOn="{StaticResource HoverlessButtonStyle}">
         <Setter Property="Margin" Value="6 0 0 0" />
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
     </Style>
 
-    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseControlStyle}" x:Key="WindowControlButton">
+    <!-- Window Control Button Style -->
+    <Style TargetType="{x:Type Button}" x:Key="WindowControlButtonStyle" BasedOn="{StaticResource BaseButtonStyle}">
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Foreground" Value="{StaticResource ForegroundLightColorBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource ForegroundColorBrush}" />
         <Setter Property="FontSize" Value="22" />
-        <Setter Property="Width" Value="36" />
+        <Setter Property="Width" Value="40" />
         <Setter Property="Padding" Value="6" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
-
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -47,10 +89,29 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="#EEEEEE" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="{x:Type Button}" x:Key="WindowCloseControlButtonStyle" BasedOn="{StaticResource WindowControlButtonStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}"
+                            Padding="{TemplateBinding Padding}"
+                            CornerRadius="{Binding DataContext.WindowCornerRadius, RelativeSource={RelativeSource AncestorType=Window}, Converter={local:CornerRadiusConverter}, ConverterParameter={x:Static enums:CornerType.TopRight}}">
+                        <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#FFEE0000" />
+                <Setter Property="Foreground" Value="White" />
             </Trigger>
         </Style.Triggers>
     </Style>
