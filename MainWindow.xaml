@@ -4,6 +4,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChatCat.Desktop"
+        xmlns:converters="clr-namespace:ChatCat.Desktop.Converters"
+        xmlns:enums="clr-namespace:ChatCat.Desktop.Constants.Enums"
         mc:Ignorable="d"
         Name="StartupWindow"
         WindowStyle="None"
@@ -68,6 +70,12 @@
                                         <Border.Effect>
                                             <DropShadowEffect ShadowDepth="0" BlurRadius="6" Color="Gray" Opacity=".1" />
                                         </Border.Effect>
+                                    </Border>
+
+                                    <Border Grid.Row="2"
+                                            Background="#eee"
+                                            CornerRadius="{Binding WindowCornerRadius, Converter={converters:CornerRadiusConverter}, ConverterParameter={x:Static enums:CornerType.Bottom}}">
+                                        <ContentPresenter Content="{TemplateBinding Content}" />
                                     </Border>
                                 </Grid>
                             </Grid>

@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:ChatCat.Desktop.Converters"
+                    xmlns:local="clr-namespace:ChatCat.Desktop"
+                    xmlns:converters="clr-namespace:ChatCat.Desktop.Converters"
                     xmlns:enums="clr-namespace:ChatCat.Desktop.Constants.Enums">
 
     <ResourceDictionary.MergedDictionaries>
@@ -102,7 +103,7 @@
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="{TemplateBinding Background}"
                             Padding="{TemplateBinding Padding}"
-                            CornerRadius="{Binding DataContext.WindowCornerRadius, RelativeSource={RelativeSource AncestorType=Window}, Converter={local:CornerRadiusConverter}, ConverterParameter={x:Static enums:CornerType.TopRight}}">
+                            CornerRadius="{Binding DataContext.WindowCornerRadius, RelativeSource={RelativeSource AncestorType=Window}, Converter={converters:CornerRadiusConverter}, ConverterParameter={x:Static enums:CornerType.TopRight}}">
                         <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" />
                     </Border>
                 </ControlTemplate>
