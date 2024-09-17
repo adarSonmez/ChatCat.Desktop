@@ -1,5 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:system="clr-namespace:System;assembly=mscorlib">
     <!-- Regular fonts -->
     <FontFamily x:Key="LatoRegular">/Fonts/Lato/#Lato Regular</FontFamily>
     <FontFamily x:Key="LatoThin">/Fonts/Lato/#Lato Thin</FontFamily>
@@ -35,4 +35,13 @@
     <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource BaseControlStyle}" />
     <Style TargetType="{x:Type DatePicker}" BasedOn="{StaticResource BaseControlStyle}" />
     <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlockStyle}" />
+
+    <!-- Font sizes -->
+    <system:Double x:Key="FontSizeXSmall">10</system:Double>
+    <system:Double x:Key="FontSizeSmall">12</system:Double>
+    <system:Double x:Key="FontSizeNormal">16</system:Double>
+    <system:Double x:Key="FontSizeLarge">22</system:Double>
+    <system:Double x:Key="FontSizeXLarge">28</system:Double>
+    <system:Double x:Key="FontSizeXXLarge">36</system:Double>
+    <system:Double x:Key="FontSizeXXXLarge">48</system:Double>
 </ResourceDictionary>
