@@ -11,14 +11,20 @@
     <!-- Base styles -->
     <Style TargetType="{x:Type Control}" x:Key="BaseControlStyle">
         <Setter Property="FontFamily" Value="{StaticResource LatoRegular}" />
-    </Style>
-
-    <!-- TextBox style -->
-    <Style x:Key="BaseTextBoxStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseControlStyle}">
         <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}" />
         <Setter Property="Padding" Value="4" />
         <Setter Property="BorderThickness" Value="0 0 0 2" />
         <Setter Property="BorderBrush" Value="{StaticResource GrayCatColorBrush}" />
+
+        <Style.Triggers>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="BorderBrush" Value="{StaticResource PrimaryColorBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- TextBox style -->
+    <Style x:Key="BaseTextBoxStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseControlStyle}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Control}">
@@ -40,56 +46,41 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Style.Triggers>
-            <Trigger Property="IsFocused" Value="True">
-                <Setter Property="BorderBrush" Value="{StaticResource PrimaryColorBrush}" />
-            </Trigger>
-        </Style.Triggers>
     </Style>
 
     <!-- PasswordBox style -->
     <Style x:Key="BasePasswordBoxStyle" TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource BaseControlStyle}">
-        <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}" />
-        <Setter Property="Padding" Value="4" />
-        <Setter Property="BorderThickness" Value="0 0 0 2" />
-        <Setter Property="BorderBrush" Value="{StaticResource GrayCatColorBrush}" />
         <Setter Property="attcp:PasswordBoxProperty.MonitorPassword" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Control}">
+                <ControlTemplate TargetType="{x:Type PasswordBox}">
                     <Border Background="White"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            Padding="{TemplateBinding Padding}">
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Padding="{TemplateBinding Padding}">
                         <Grid>
                             <ScrollViewer x:Name="PART_ContentHost" />
                             <TextBlock
-                                Text="{TemplateBinding Tag}"
-                                Foreground="Gray"
-                                Margin="{TemplateBinding Padding}"
-                                VerticalAlignment="Center"
-                                IsHitTestVisible="False" >
+                            Text="{TemplateBinding Tag}"
+                            Foreground="Gray"
+                            Margin="{TemplateBinding Padding}"
+                            VerticalAlignment="Center"
+                            IsHitTestVisible="False">
                                 <TextBlock.Style>
                                     <Style TargetType="{x:Type TextBlock}">
-                                        <Setter Property="Visibility" Value="Collapsed" />
+                                        <Setter Property="Visibility" Value="Visible" />
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{Binding (attcp:PasswordBoxProperty.HasText), RelativeSource={RelativeSource TemplatedParent}}" Value="False">
-                                                <Setter Property="Visibility" Value="Visible" />
+                                            <DataTrigger Binding="{Binding Path=(attcp:PasswordBoxProperty.HasText), RelativeSource={RelativeSource TemplatedParent}}" Value="True">
+                                                <Setter Property="Visibility" Value="Collapsed" />
                                             </DataTrigger>
                                         </Style.Triggers>
                                     </Style>
                                 </TextBlock.Style>
                             </TextBlock>
-                            
                         </Grid>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Style.Triggers>
-            <Trigger Property="IsFocused" Value="True">
-                <Setter Property="BorderBrush" Value="{StaticResource PrimaryColorBrush}" />
-            </Trigger>
-        </Style.Triggers>
     </Style>
 </ResourceDictionary>

@@ -46,8 +46,8 @@
                             Tag="Username"
                             Margin="0,0,0,10" />
                         <PasswordBox
-                            Style="{StaticResource BasePasswordBoxStyle}"
                             Tag="Password"
+                            Style="{StaticResource BasePasswordBoxStyle}"
                             Margin="0,0,0,10" />
                         <Button
                             Style="{StaticResource BaseButtonStyle}"

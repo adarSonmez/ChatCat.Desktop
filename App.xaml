@@ -13,9 +13,8 @@
                 <!-- Specific styles should come after general styles -->
                 <ResourceDictionary Source="Styles/Texts.xaml" />
                 <ResourceDictionary Source="Styles/Buttons.xaml" />
+                <ResourceDictionary Source="Styles/Inputs.xaml" />
                 <ResourceDictionary Source="Styles/Windows.xaml" />
-                <ResourceDictionary Source="Styles/Controls.xaml" />
-
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
