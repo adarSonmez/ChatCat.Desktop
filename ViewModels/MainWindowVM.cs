@@ -1,4 +1,5 @@
 ﻿using ChatCat.Desktop.Commands;
+using ChatCat.Desktop.DataModels;
 using ChatCat.Desktop.ViewModels.Base;
 using System.Windows;
 using System.Windows.Input;
@@ -34,7 +35,6 @@ namespace ChatCat.Desktop.ViewModels
         public Thickness OuterMarginSizeThickness => new(OuterMarginSize);
         public CornerRadius WindowCornerRadius => new(WindowRadiusSize);
         public GridLength TitleHeightGridLength => new(TitleBarHeight + ResizeBorderSize);
-
         public int TitleBarHeight { get; set; } = 32;
         public int ResizeBorderSize { get; set; } = 12;
 
@@ -49,6 +49,8 @@ namespace ChatCat.Desktop.ViewModels
             get => _mainWindow.WindowState == WindowState.Maximized ? 0 : _outerMarginSize;
             set => _outerMarginSize = value;
         }
+
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
 
         #endregion Public Properties
 
