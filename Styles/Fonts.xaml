@@ -15,27 +15,6 @@
     <FontFamily x:Key="LatoBlackItalic">/Fonts/Lato/#Lato Black Italic</FontFamily>
     <FontFamily x:Key="LatoHairlineItalic">/Fonts/Lato/#Lato Hairline Italic</FontFamily>
 
-    <!-- Base styles -->
-    <Style TargetType="{x:Type Control}" x:Key="BaseControlStyle">
-        <Setter Property="FontFamily" Value="{StaticResource LatoThin}" />
-    </Style>
-
-    <Style TargetType="{x:Type TextBlock}" x:Key="BaseTextBlockStyle">
-        <Setter Property="FontFamily" Value="{StaticResource LatoThin}" />
-    </Style>
-
-    <!-- Derived styles -->
-    <Style TargetType="{x:Type Label}" BasedOn="{StaticResource BaseControlStyle}" />
-    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseControlStyle}" />
-    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseControlStyle}" />
-    <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource BaseControlStyle}" />
-    <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource BaseControlStyle}" />
-    <Style TargetType="{x:Type ListBox}" BasedOn="{StaticResource BaseControlStyle}" />
-    <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource BaseControlStyle}" />
-    <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource BaseControlStyle}" />
-    <Style TargetType="{x:Type DatePicker}" BasedOn="{StaticResource BaseControlStyle}" />
-    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlockStyle}" />
-
     <!-- Font sizes -->
     <system:Double x:Key="FontSizeXSmall">10</system:Double>
     <system:Double x:Key="FontSizeSmall">12</system:Double>

@@ -6,23 +6,24 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Colors.xaml" />
         <ResourceDictionary Source="Fonts.xaml" />
+        <ResourceDictionary Source="Texts.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <!-- Base Button Style -->
     <Style TargetType="{x:Type Button}" x:Key="BaseButtonStyle">
-        <Setter Property="FontFamily" Value="{StaticResource LatoRegular}" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}" />
         <Setter Property="Padding" Value="10,5" />
         <Setter Property="Background" Value="{StaticResource PrimaryColorBrush}" />
-        <Setter Property="Foreground" Value="{StaticResource ForegroundColorBrush}" />
-        <Setter Property="BorderBrush" Value="{StaticResource BorderColorBrush}" />
+        <Setter Property="Foreground" Value="White" />
         <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{StaticResource GrayCatColorBrush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="10"
                             Padding="{TemplateBinding Padding}">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
@@ -35,6 +36,10 @@
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Background" Value="{StaticResource SecondaryColorBrush}" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="{StaticResource DisabledColorBrush}" />
+                <Setter Property="Foreground" Value="Black" />
             </Trigger>
         </Style.Triggers>
     </Style>
