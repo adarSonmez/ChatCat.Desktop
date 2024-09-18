@@ -1,25 +1,24 @@
 ﻿using ChatCat.Desktop.Constants.Enums;
+using ChatCat.Desktop.Converters.ValueConverters.Base;
 using System.Globalization;
 using System.Windows;
-using System.Windows.Data;
-using System.Windows.Markup;
 
-namespace ChatCat.Desktop.Converters
+namespace ChatCat.Desktop.Converters.ValueConverters
 {
     /// <summary>
     /// Converts a <see cref="CornerRadius"/> value based on the specified <see cref="CornerType"/>.
     /// </summary>
-    public class CornerRadiusConverter : MarkupExtension, IValueConverter
+    internal class CornerRadiusValueConverter : BaseValueConverter<CornerRadiusValueConverter>
     {
-        /// <<summary>
+        /// <summary>
         /// Converts a <see cref="CornerRadius"/> value based on the specified <see cref="CornerType"/>.
         /// </summary>
         /// <param name="value">The <see cref="CornerRadius"/> value to convert.</param>
         /// <param name="targetType">The type of the binding target property.</param>
         /// <param name="parameter">The converter parameter to use.</param>
         /// <param name="culture">The culture to use in the converter.</param>
-        /// <returns>The converted <see cref="CornerRadius"/> value.</returns>>
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        /// <returns>The converted <see cref="CornerRadius"/> value.</returns>
+        public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value is CornerRadius cornerRadius && parameter is CornerType cornerType)
             {
@@ -71,19 +70,9 @@ namespace ChatCat.Desktop.Converters
         /// <param name="parameter">The converter parameter to use.</param>
         /// <param name="culture">The culture to use in the converter.</param>
         /// <returns>The converted back <see cref="CornerRadius"/> value.</returns>
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Provides a value converter by returning the instance of this converter.
-        /// </summary>
-        /// <param name="serviceProvider">The service provider.</param>
-        /// <returns>The instance of this converter.</returns>
-        public override object ProvideValue(IServiceProvider serviceProvider)
-        {
-            return this;
         }
     }
 }
