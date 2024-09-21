@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Media;
 using System.Windows.Media.Animation;
 
 namespace ChatCat.Desktop.Extensions
@@ -47,6 +48,46 @@ namespace ChatCat.Desktop.Extensions
             Storyboard.SetTargetProperty(slideAnimation, new PropertyPath("Margin"));
             storyboard.Children.Add(slideAnimation);
         }
+
+        /// <summary>
+        /// Adds a slide-in animation from the bottom to the storyboard.
+        /// </summary>
+        /// <param name="storyboard">The storyboard to which the animation will be added.</param>
+        /// <param name="duration">The duration of the animation.</param>
+        /// <param name="windowHeight">The height of the window for calculating the slide distance.</param>
+        public static void AddSlideFromBottom(this Storyboard storyboard, float duration, double windowHeight)
+        {
+            var slideAnimation = new ThicknessAnimation
+            {
+                Duration = new Duration(TimeSpan.FromSeconds(duration)),
+                From = new Thickness(0, windowHeight, 0, -windowHeight),
+                To = new Thickness(0)
+            };
+
+            Storyboard.SetTargetProperty(slideAnimation, new PropertyPath("Margin"));
+            storyboard.Children.Add(slideAnimation);
+        }
+
+        /// <summary>
+        /// Adds a slide-out animation to the top to the storyboard.
+        /// </summary>
+        /// <param name="storyboard">The storyboard to which the animation will be added.</param>
+        /// <param name="duration">The duration of the animation.</param>
+        /// <param name="windowHeight">The height of the window for calculating the slide distance.</param>
+        public static void AddSlideToTop(this Storyboard storyboard, float duration, double windowHeight)
+        {
+            var slideAnimation = new ThicknessAnimation
+            {
+                Duration = new Duration(TimeSpan.FromSeconds(duration)),
+                From = new Thickness(0),
+                To = new Thickness(0, -windowHeight, 0, windowHeight)
+            };
+
+            Storyboard.SetTargetProperty(slideAnimation, new PropertyPath("Margin"));
+            storyboard.Children.Add(slideAnimation);
+        }
+
+        #endregion Slide Animations
 
         #region Fade Animations
 
