@@ -50,7 +50,7 @@
 
     <!-- PasswordBox style -->
     <Style x:Key="BasePasswordBoxStyle" TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource BaseControlStyle}">
-        <Setter Property="attcp:PasswordBoxProperty.MonitorPassword" Value="True" />
+        <Setter Property="attcp:PasswordBoxAttachedProperty.MonitorPassword" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type PasswordBox}">
@@ -70,7 +70,7 @@
                                     <Style TargetType="{x:Type TextBlock}">
                                         <Setter Property="Visibility" Value="Visible" />
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Path=(attcp:PasswordBoxProperty.HasText), RelativeSource={RelativeSource TemplatedParent}}" Value="True">
+                                            <DataTrigger Binding="{Binding Path=(attcp:PasswordBoxAttachedProperty.HasText), RelativeSource={RelativeSource TemplatedParent}}" Value="True">
                                                 <Setter Property="Visibility" Value="Collapsed" />
                                             </DataTrigger>
                                         </Style.Triggers>

@@ -6,7 +6,7 @@ namespace ChatCat.Desktop.AttachedProperties
     /// <summary>
     /// Provides attached properties for the <see cref="PasswordBox"/> control.
     /// </summary>
-    internal class PasswordBoxProperty
+    internal class PasswordBoxAttachedProperty
     {
         #region Dependency Properties
 
@@ -16,7 +16,7 @@ namespace ChatCat.Desktop.AttachedProperties
         public static readonly DependencyProperty MonitorPasswordProperty = DependencyProperty.RegisterAttached(
             "MonitorPassword",
             typeof(bool),
-            typeof(PasswordBoxProperty),
+            typeof(PasswordBoxAttachedProperty),
             new PropertyMetadata(false, OnMonitorPasswordChangedChanged));
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace ChatCat.Desktop.AttachedProperties
         public static readonly DependencyProperty HasTextProperty = DependencyProperty.RegisterAttached(
             "HasText",
             typeof(bool),
-            typeof(PasswordBoxProperty),
+            typeof(PasswordBoxAttachedProperty),
             new PropertyMetadata(false));
 
         #endregion Dependency Properties
