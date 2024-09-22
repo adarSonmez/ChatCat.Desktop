@@ -9,7 +9,7 @@ namespace ChatCat.Desktop.Converters.ValueConverters
     /// <summary>
     /// Converts an application page enum value to its corresponding page object.
     /// </summary>
-    internal class ApplicationPageValueConverter : BaseValueConverter<ApplicationPageValueConverter>
+    public class ApplicationPageValueConverter : BaseValueConverter<ApplicationPageValueConverter>
     {
         /// <summary>
         /// Converts the specified value to its corresponding page object.

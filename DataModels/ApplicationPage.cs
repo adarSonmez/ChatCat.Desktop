@@ -1,6 +1,6 @@
 ﻿namespace ChatCat.Desktop.DataModels
 {
-    internal enum ApplicationPage
+    public enum ApplicationPage
     {
         Login
     }

@@ -1,15 +1,36 @@
-﻿using System.ComponentModel;
+﻿using ChatCat.Desktop.Extensions;
+using System.ComponentModel;
+using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 
 namespace ChatCat.Desktop.ViewModels.Base
 {
     /// <summary>
-    /// Base view model class that implements the INotifyPropertyChanged interface.
+    /// Base view model class that implements the <see cref="INotifyPropertyChanged"/> interface to support data binding in WPF applications.
     /// </summary>
-    internal class BaseViewModel : INotifyPropertyChanged
+    public class BaseViewModel : INotifyPropertyChanged
     {
+        #region Fields
+
+        /// <summary>
+        /// Lock object used to ensure thread-safety when checking and updating property values.
+        /// </summary>
+        private readonly object _propertyValueCheckLock = new object();
+
+        /// <summary>
+        /// Backing field for the <see cref="PropertyChanged"/> event handler.
+        /// This ensures the handler is managed in a thread-safe manner.
+        /// </summary>
         private volatile PropertyChangedEventHandler? _propertyChanged;
 
+        #endregion Fields
+
+        #region INotifyPropertyChanged Implementation
+
+        /// <summary>
+        /// Event triggered whenever a property value changes.
+        /// This is used to notify the UI of changes in the view model.
+        /// </summary>
         public event PropertyChangedEventHandler? PropertyChanged
         {
             add
@@ -29,12 +50,12 @@ namespace ChatCat.Desktop.ViewModels.Base
         }
 
         /// <summary>
-        /// Raises the PropertyChanged event for the specified property name.
+        /// Raises the <see cref="PropertyChanged"/> event for a given property.
+        /// This method is typically called within property setters to notify the UI of a change.
         /// </summary>
-        /// <param name="propertyName">The name of the property that changed. This is optional and will be automatically provided by the compiler if not specified.</param>
+        /// <param name="propertyName">The name of the property that changed. Automatically provided if not explicitly specified due to <see cref="CallerMemberNameAttribute"/>.</param>
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            // Capture a local reference to ensure thread-safety
             PropertyChangedEventHandler? handler;
             lock (this)
             {
@@ -43,5 +64,42 @@ namespace ChatCat.Desktop.ViewModels.Base
 
             handler?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        #endregion INotifyPropertyChanged Implementation
+
+        #region Command Handling
+
+        /// <summary>
+        /// Executes a command asynchronously, ensuring it cannot be run if the <paramref name="updatingFlag"/> is true.
+        /// </summary>
+        /// <typeparam name="T">The return type of the asynchronous operation.</typeparam>
+        /// <param name="updatingFlag">An expression that evaluates to a boolean flag indicating if the command is currently executing.</param>
+        /// <param name="action">The asynchronous action to execute.</param>
+        /// <param name="defaultValue">The default value to return if the command cannot be executed.</param>
+        /// <returns>The result of the asynchronous operation, or the default value if the command is already running.</returns>
+        protected async Task<T?> RunCommandAsync<T>(Expression<Func<bool>> updatingFlag, Func<Task<T?>> action, T? defaultValue = default)
+        {
+            // Ensure thread-safety when checking and updating the flag
+            lock (_propertyValueCheckLock)
+            {
+                // If the command is already executing, return the default value
+                if (updatingFlag.GetPropertyValue())
+                    return defaultValue;
+
+                updatingFlag.SetPropertyValue(true);
+            }
+
+            try
+            {
+                return await action();
+            }
+            finally
+            {
+                // Reset the flag to indicate the command has completed
+                updatingFlag.SetPropertyValue(false);
+            }
+        }
+
+        #endregion Command Handling
     }
 }

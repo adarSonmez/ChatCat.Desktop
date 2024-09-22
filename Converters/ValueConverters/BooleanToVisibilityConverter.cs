@@ -7,7 +7,7 @@ namespace ChatCat.Desktop.Converters.ValueConverters
     /// <summary>
     /// Converts a boolean value to a visibility value.
     /// </summary>
-    internal class BooleanToVisibilityConverter : BaseValueConverter<BooleanToVisibilityConverter>
+    public class BooleanToVisibilityConverter : BaseValueConverter<BooleanToVisibilityConverter>
     {
         /// <summary>
         /// Converts a boolean value to a visibility value.

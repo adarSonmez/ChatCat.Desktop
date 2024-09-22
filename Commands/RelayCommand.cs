@@ -5,7 +5,7 @@ namespace ChatCat.Desktop.Commands
     /// <summary>
     /// Represents a command that relays its functionality to delegates.
     /// </summary>
-    internal class RelayCommand : ICommand
+    public class RelayCommand : ICommand
     {
         private readonly Predicate<object?>? _canExecute;
         private readonly Action<object?> _execute;

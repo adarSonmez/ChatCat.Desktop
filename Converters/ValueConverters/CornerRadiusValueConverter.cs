@@ -8,7 +8,7 @@ namespace ChatCat.Desktop.Converters.ValueConverters
     /// <summary>
     /// Converts a <see cref="CornerRadius"/> value based on the specified <see cref="CornerType"/>.
     /// </summary>
-    internal class CornerRadiusValueConverter : BaseValueConverter<CornerRadiusValueConverter>
+    public class CornerRadiusValueConverter : BaseValueConverter<CornerRadiusValueConverter>
     {
         /// <summary>
         /// Converts a <see cref="CornerRadius"/> value based on the specified <see cref="CornerType"/>.

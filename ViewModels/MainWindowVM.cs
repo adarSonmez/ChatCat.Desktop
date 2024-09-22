@@ -6,7 +6,7 @@ using System.Windows.Input;
 
 namespace ChatCat.Desktop.ViewModels
 {
-    internal class MainWindowVM : BaseViewModel
+    public class MainWindowVM : BaseViewModel
     {
         #region Private Fields
 

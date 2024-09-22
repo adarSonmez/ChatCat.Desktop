@@ -8,7 +8,7 @@ namespace ChatCat.Desktop.Converters.ValueConverters.Base
     /// Base class for value converters in the ChatCat.Desktop.Converters.Base namespace.
     /// </summary>
     /// <typeparam name="T">The derived class type.</typeparam>
-    internal abstract class BaseValueConverter<T> : MarkupExtension, IValueConverter
+    public abstract class BaseValueConverter<T> : MarkupExtension, IValueConverter
         where T : class, new()
     {
         #region Private Fields
