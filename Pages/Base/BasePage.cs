@@ -1,38 +1,53 @@
 ﻿using ChatCat.Desktop.Animations;
 using ChatCat.Desktop.Extensions;
+using ChatCat.Desktop.ViewModels.Base;
 using System.Windows;
 using System.Windows.Controls;
 
 namespace ChatCat.Desktop.Pages
 {
-    /// <summary>
-    /// Base class for pages in the application, providing animation capabilities.
-    /// </summary>
-    public class BasePage : Page
+    public class BasePage<VM> : Page
+        where VM : BaseViewModel, new()
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BasePage"/> class.
-        /// </summary>
+        private VM _viewModel = new();
+
         public BasePage()
         {
             if (PageLoadAnimation != PageAnimation.None)
             {
                 Visibility = Visibility.Collapsed;
+                Loaded += BasePage_Loaded;
             }
 
-            Loaded += BasePage_Loaded;
+            if (PageUnloadAnimation != PageAnimation.None)
+            {
+                Unloaded += BasePage_Unloaded;
+            }
+
+            DataContext = _viewModel;
+        }
+
+        public VM ViewModel
+        {
+            get
+            {
+                return _viewModel;
+            }
+            set
+            {
+                if (_viewModel == value)
+                    return;
+
+                _viewModel = value;
+
+                DataContext = _viewModel;
+            }
         }
 
         protected virtual float SlideSeconds { get; set; } = 0.8f;
         protected virtual PageAnimation PageLoadAnimation { get; set; } = PageAnimation.None;
         protected virtual PageAnimation PageUnloadAnimation { get; set; } = PageAnimation.None;
 
-        /// <summary>
-        /// Begins the specified animation for the page.
-        /// </summary>
-        /// <param name="animation">The animation to perform.</param>
-        /// <param name="seconds">The duration of the animation.</param>
-        /// <returns>A task representing the asynchronous operation.</returns>
         private async Task BeginAnimationAsync(PageAnimation animation, float seconds)
         {
             switch (animation)

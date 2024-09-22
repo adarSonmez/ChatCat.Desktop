@@ -1,14 +1,13 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
-using System.Threading.Tasks;
 
 namespace ChatCat.Desktop.Extensions
 {
     /// <summary>
     /// Provides extension methods for animating pages in the application.
     /// </summary>
-    internal static class PageExtensions
+    public static class PageExtensions
     {
         #region Page Animations
 

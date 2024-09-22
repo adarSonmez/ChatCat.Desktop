@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Media;
 using System.Windows.Media.Animation;
 
 namespace ChatCat.Desktop.Extensions
@@ -7,7 +6,7 @@ namespace ChatCat.Desktop.Extensions
     /// <summary>
     /// Provides extension methods for creating and managing storyboards for animations.
     /// </summary>
-    internal static class StoryboardExtensions
+    public static class StoryboardExtensions
     {
         #region Slide Animations
 
