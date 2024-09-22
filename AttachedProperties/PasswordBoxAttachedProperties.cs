@@ -6,7 +6,7 @@ namespace ChatCat.Desktop.AttachedProperties
     /// <summary>
     /// Provides attached properties for the <see cref="PasswordBox"/> control.
     /// </summary>
-    internal class PasswordBoxAttachedProperty
+    public class PasswordBoxAttachedProperty
     {
         #region Dependency Properties
 
