@@ -13,16 +13,8 @@ namespace ChatCat.Desktop.Pages
 
         public BasePage()
         {
-            if (PageLoadAnimation != PageAnimation.None)
-            {
-                Visibility = Visibility.Collapsed;
-                Loaded += BasePage_Loaded;
-            }
-
-            if (PageUnloadAnimation != PageAnimation.None)
-            {
-                Unloaded += BasePage_Unloaded;
-            }
+            Loaded += BasePage_Loaded;
+            Unloaded += BasePage_Unloaded;
 
             DataContext = _viewModel;
         }
@@ -71,6 +63,10 @@ namespace ChatCat.Desktop.Pages
                     await this.SlideAndFadeOutToLeftAsync(seconds);
                     break;
 
+                case PageAnimation.SlideAndFadeInFromLeft:
+                    await this.SlideAndFadeInFromLeftAsync(seconds);
+                    break;
+
                 default:
                     break;
             }
@@ -80,6 +76,7 @@ namespace ChatCat.Desktop.Pages
         {
             if (PageLoadAnimation != PageAnimation.None)
             {
+                Visibility = Visibility.Collapsed;
                 await BeginAnimationAsync(PageLoadAnimation, SlideSeconds);
             }
         }
@@ -88,6 +85,7 @@ namespace ChatCat.Desktop.Pages
         {
             if (PageUnloadAnimation != PageAnimation.None)
             {
+                Visibility = Visibility.Visible;
                 await BeginAnimationAsync(PageUnloadAnimation, SlideSeconds);
             }
         }

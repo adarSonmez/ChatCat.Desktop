@@ -49,6 +49,46 @@ namespace ChatCat.Desktop.Extensions
         }
 
         /// <summary>
+        /// Adds a slide-in animation from the left to the storyboard.
+        /// </summary>
+        /// <param name="storyboard">The storyboard to which the animation will be added.</param>
+        /// <param name="duration">The duration of the animation.</param>
+        /// <param name="windowWidth">The width of the window for calculating the slide distance.</param>
+        /// <returns>The storyboard with the slide-in animation added.</returns>
+        public static void AddSlideFromLeft(this Storyboard storyboard, float duration, double windowWidth)
+        {
+            var slideAnimation = new ThicknessAnimation
+            {
+                Duration = new Duration(TimeSpan.FromSeconds(duration)),
+                From = new Thickness(-windowWidth, 0, windowWidth, 0),
+                To = new Thickness(0)
+            };
+
+            Storyboard.SetTargetProperty(slideAnimation, new PropertyPath("Margin"));
+            storyboard.Children.Add(slideAnimation);
+        }
+
+        /// <summary>
+        /// Adds a slide-out animation to the right to the storyboard.
+        /// </summary>
+        /// <param name="storyboard">The storyboard to which the animation will be added.</param>
+        /// <param name="duration">The duration of the animation.</param>
+        /// <param name="windowWidth">The width of the window for calculating the slide distance.</param>
+        /// <returns>The storyboard with the slide-out animation added.</returns>
+        public static void AddSlideToRight(this Storyboard storyboard, float duration, double windowWidth)
+        {
+            var slideAnimation = new ThicknessAnimation
+            {
+                Duration = new Duration(TimeSpan.FromSeconds(duration)),
+                From = new Thickness(0),
+                To = new Thickness(windowWidth, 0, -windowWidth, 0)
+            };
+
+            Storyboard.SetTargetProperty(slideAnimation, new PropertyPath("Margin"));
+            storyboard.Children.Add(slideAnimation);
+        }
+
+        /// <summary>
         /// Adds a slide-in animation from the bottom to the storyboard.
         /// </summary>
         /// <param name="storyboard">The storyboard to which the animation will be added.</param>

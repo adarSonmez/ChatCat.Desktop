@@ -35,7 +35,7 @@
                         <DropShadowEffect
                             ShadowDepth="0"
                             BlurRadius="7"
-                            Color="{StaticResource BlueCatDark}"
+                            Color="Black"
                             Opacity="0.3" />
                     </Border.Effect>
 
@@ -67,6 +67,10 @@
                             Text="Don't have an account?"
                             Style="{StaticResource BaseTextBlockStyle}"
                             Margin="0,0,0,10" />
+
+                        <Label
+                            Content="&#xf00c;"
+                            FontFamily="{StaticResource FontAwesomeSolid}" />
                     </StackPanel>
                 </Border>
             </StackPanel>

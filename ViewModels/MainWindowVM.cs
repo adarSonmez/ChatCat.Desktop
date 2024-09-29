@@ -1,5 +1,5 @@
 ﻿using ChatCat.Desktop.Commands;
-using ChatCat.Desktop.DataModels;
+using ChatCat.Desktop.Constants.Enums;
 using ChatCat.Desktop.ViewModels.Base;
 using System.Windows;
 using System.Windows.Input;
@@ -50,7 +50,7 @@ namespace ChatCat.Desktop.ViewModels
             set => _outerMarginSize = value;
         }
 
-        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Chat;
 
         #endregion Public Properties
 

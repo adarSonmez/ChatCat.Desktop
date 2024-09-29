@@ -10,5 +10,6 @@
         FadeOut,
         SlideAndFadeInFromRight,
         SlideAndFadeOutToLeft,
+        SlideAndFadeInFromLeft,
     }
 }

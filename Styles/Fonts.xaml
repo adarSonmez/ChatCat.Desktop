@@ -23,4 +23,9 @@
     <system:Double x:Key="FontSizeXLarge">28</system:Double>
     <system:Double x:Key="FontSizeXXLarge">36</system:Double>
     <system:Double x:Key="FontSizeXXXLarge">48</system:Double>
+
+    <!-- Font Awesome -->
+    <FontFamily x:Key="FontAwesomeBrands">/Fonts/FontAwesome/#Font Awesome 6 Brands Regular</FontFamily>
+    <FontFamily x:Key="FontAwesomeSolid">/Fonts/FontAwesome/#Font Awesome 6 Free Solid</FontFamily>
+    <FontFamily x:Key="FontAwesomeRegular">/Fonts/FontAwesome/#Font Awesome 6 Free Regular</FontFamily>
 </ResourceDictionary>

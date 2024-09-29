@@ -10,9 +10,10 @@ namespace ChatCat.Desktop.Pages
     {
         public LoginPage()
         {
-            InitializeComponent();
             PageLoadAnimation = PageAnimation.FadeIn;
             PageUnloadAnimation = PageAnimation.FadeOut;
+
+            InitializeComponent();
         }
     }
 }

@@ -19,34 +19,10 @@
     <Color x:Key="LightGrayColor">#FFE0E0E0</Color>
     <Color x:Key="DarkGrayColor">#FF616161</Color>
 
-    <!-- Common Colors -->
-    <Color x:Key="RedCatLight">#F07272</Color>
-    <Color x:Key="RedCat">#E74C3C</Color>
-    <Color x:Key="RedCatDark">#C0392B</Color>
-    <Color x:Key="GreenCatLight">#2ECC71</Color>
-    <Color x:Key="GreenCat">#27AE60</Color>
-    <Color x:Key="GreenCatDark">#229954</Color>
-    <Color x:Key="BlueCatLight">#3498DB</Color>
-    <Color x:Key="BlueCat">#2980B9</Color>
-    <Color x:Key="BlueCatDark">#2471A3</Color>
-    <Color x:Key="YellowCatLight">#F1C40F</Color>
-    <Color x:Key="YellowCat">#F39C12</Color>
-    <Color x:Key="YellowCatDark">#D68910</Color>
-    <Color x:Key="OrangeCatLight">#E67E22</Color>
-    <Color x:Key="OrangeCat">#D35400</Color>
-    <Color x:Key="OrangeCatDark">#BA4A00</Color>
-    <Color x:Key="GrayCatLight">#95A5A6</Color>
-    <Color x:Key="GrayCat">#7F8C8D</Color>
-    <Color x:Key="GrayCatDark">#707B7C</Color>
-    <Color x:Key="PurpleCatLight">#9B59B6</Color>
-    <Color x:Key="PurpleCat">#8E44AD</Color>
-    <Color x:Key="PurpleCatDark">#7D3C98</Color>
-    <Color x:Key="TurquoiseCatLight">#1ABC9C</Color>
-    <Color x:Key="TurquoiseCat">#16A085</Color>
-    <Color x:Key="TurquoiseCatDark">#138D75</Color>
-    <Color x:Key="PinkCatLight">#F990aB</Color>
-    <Color x:Key="PinkCat">#F62459</Color>
-    <Color x:Key="PinkCatDark">#D91E18</Color>
+    <!-- Component Specific Colors -->
+    <Color x:Key="TopChatMenuIconColor">#01BBD1</Color>
+    <Color x:Key="TopChatMenuIconColorHover">#008AA8</Color>
+    <Color x:Key="TopChatMenuIconColorDark">#005D6A</Color>
 
     <!-- Primary Brushes -->
     <SolidColorBrush x:Key="PrimaryColorBrush" Color="{StaticResource PrimaryColor}" />
@@ -67,34 +43,10 @@
     <SolidColorBrush x:Key="LightGrayColorBrush" Color="{StaticResource LightGrayColor}" />
     <SolidColorBrush x:Key="DarkGrayColorBrush" Color="{StaticResource DarkGrayColor}" />
 
-    <!-- Common Color Brushes -->
-    <SolidColorBrush x:Key="RedCatLightColorBrush" Color="{StaticResource RedCatLight}" />
-    <SolidColorBrush x:Key="RedCatColorBrush" Color="{StaticResource RedCat}" />
-    <SolidColorBrush x:Key="RedCatDarkColorBrush" Color="{StaticResource RedCatDark}" />
-    <SolidColorBrush x:Key="GreenCatLightColorBrush" Color="{StaticResource GreenCatLight}" />
-    <SolidColorBrush x:Key="GreenCatColorBrush" Color="{StaticResource GreenCat}" />
-    <SolidColorBrush x:Key="GreenCatDarkColorBrush" Color="{StaticResource GreenCatDark}" />
-    <SolidColorBrush x:Key="BlueCatLightColorBrush" Color="{StaticResource BlueCatLight}" />
-    <SolidColorBrush x:Key="BlueCatColorBrush" Color="{StaticResource BlueCat}" />
-    <SolidColorBrush x:Key="BlueCatDarkColorBrush" Color="{StaticResource BlueCatDark}" />
-    <SolidColorBrush x:Key="YellowCatLightColorBrush" Color="{StaticResource YellowCatLight}" />
-    <SolidColorBrush x:Key="YellowCatColorBrush" Color="{StaticResource YellowCat}" />
-    <SolidColorBrush x:Key="YellowCatDarkColorBrush" Color="{StaticResource YellowCatDark}" />
-    <SolidColorBrush x:Key="OrangeCatLightColorBrush" Color="{StaticResource OrangeCatLight}" />
-    <SolidColorBrush x:Key="OrangeCatColorBrush" Color="{StaticResource OrangeCat}" />
-    <SolidColorBrush x:Key="OrangeCatDarkColorBrush" Color="{StaticResource OrangeCatDark}" />
-    <SolidColorBrush x:Key="GrayCatLightColorBrush" Color="{StaticResource GrayCatLight}" />
-    <SolidColorBrush x:Key="GrayCatColorBrush" Color="{StaticResource GrayCat}" />
-    <SolidColorBrush x:Key="GrayCatDarkColorBrush" Color="{StaticResource GrayCatDark}" />
-    <SolidColorBrush x:Key="PurpleCatLightColorBrush" Color="{StaticResource PurpleCatLight}" />
-    <SolidColorBrush x:Key="PurpleCatColorBrush" Color="{StaticResource PurpleCat}" />
-    <SolidColorBrush x:Key="PurpleCatDarkColorBrush" Color="{StaticResource PurpleCatDark}" />
-    <SolidColorBrush x:Key="TurquoiseCatLightColorBrush" Color="{StaticResource TurquoiseCatLight}" />
-    <SolidColorBrush x:Key="TurquoiseCatColorBrush" Color="{StaticResource TurquoiseCat}" />
-    <SolidColorBrush x:Key="TurquoiseCatDarkColorBrush" Color="{StaticResource TurquoiseCatDark}" />
-    <SolidColorBrush x:Key="PinkCatLightColorBrush" Color="{StaticResource PinkCatLight}" />
-    <SolidColorBrush x:Key="PinkCatColorBrush" Color="{StaticResource PinkCat}" />
-    <SolidColorBrush x:Key="PinkCatDarkColorBrush" Color="{StaticResource PinkCatDark}" />
+    <!-- Component Specific Brushes -->
+    <SolidColorBrush x:Key="TopChatMenuIconColorBrush" Color="{StaticResource TopChatMenuIconColor}" />
+    <SolidColorBrush x:Key="TopChatMenuIconColorBrushHover" Color="{StaticResource TopChatMenuIconColorHover}" />
+    <SolidColorBrush x:Key="TopChatMenuIconColorBrushDark" Color="{StaticResource TopChatMenuIconColorDark}" />
 
     <!-- Gradient Brushes -->
     <LinearGradientBrush x:Key="TitleTextGradientBrush" StartPoint="0,0" EndPoint="1,1">

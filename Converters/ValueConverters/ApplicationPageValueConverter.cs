@@ -1,5 +1,5 @@
-﻿using ChatCat.Desktop.Converters.ValueConverters.Base;
-using ChatCat.Desktop.DataModels;
+﻿using ChatCat.Desktop.Constants.Enums;
+using ChatCat.Desktop.Converters.ValueConverters.Base;
 using ChatCat.Desktop.Pages;
 using System.Diagnostics;
 using System.Globalization;
@@ -25,6 +25,9 @@ namespace ChatCat.Desktop.Converters.ValueConverters
             {
                 case ApplicationPage.Login:
                     return new LoginPage();
+
+                case ApplicationPage.Chat:
+                    return new ChatPage();
 
                 default:
                     Debugger.Break();

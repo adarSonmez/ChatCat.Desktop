@@ -50,6 +50,44 @@ namespace ChatCat.Desktop.Extensions
         }
 
         /// <summary>
+        /// Animates the page by sliding in from the left while fading in.
+        /// </summary>
+        /// <param name="page">The page to animate.</param>
+        /// <param name="seconds">The duration of the animation in seconds.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        public static async Task SlideAndFadeInFromLeftAsync(this Page page, float seconds)
+        {
+            var sb = new Storyboard();
+
+            sb.AddSlideFromLeft(seconds, page.WindowWidth);
+            sb.AddFadeIn(seconds);
+            sb.Begin(page);
+
+            page.Visibility = Visibility.Visible;
+
+            await Task.Delay((int)(seconds * 1000));
+        }
+
+        /// <summary>
+        /// Animates the page by sliding out to the right while fading out.
+        /// </summary>
+        /// <param name="page">The page to animate.</param>
+        /// <param name="seconds">The duration of the animation in seconds.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
+        public static async Task SlideAndFadeOutToRightAsync(this Page page, float seconds)
+        {
+            var sb = new Storyboard();
+
+            sb.AddSlideToRight(seconds, page.WindowWidth);
+            sb.AddFadeOut(seconds);
+            sb.Begin(page);
+
+            // Wait for the animation to complete before changing visibility
+            await Task.Delay((int)(seconds * 1000));
+            page.Visibility = Visibility.Collapsed;
+        }
+
+        /// <summary>
         /// Fades the page in, making it visible.
         /// </summary>
         /// <param name="page">The page to animate.</param>
