@@ -19,7 +19,9 @@
         </Grid.ColumnDefinitions>
 
         <!-- Left Side -->
-        <controls:SideMenuControl Grid.Column="0" />
+        <controls:SideMenuControl Grid.Column="0">
+            <controls:ChatListControl />
+        </controls:SideMenuControl>
 
         <!-- Right Side (Main Content) -->
         <Grid Grid.Column="1" Background="Transparent">

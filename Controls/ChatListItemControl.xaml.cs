@@ -3,11 +3,11 @@
 namespace ChatCat.Desktop.Controls
 {
     /// <summary>
-    /// Interaction logic for SideMenuControl.xaml
+    /// Interaction logic for ChatListItemControl.xaml
     /// </summary>
-    public partial class SideMenuControl : UserControl
+    public partial class ChatListItemControl : UserControl
     {
-        public SideMenuControl()
+        public ChatListItemControl()
         {
             InitializeComponent();
         }
