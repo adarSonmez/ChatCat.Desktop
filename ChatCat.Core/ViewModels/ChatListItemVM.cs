@@ -1,6 +1,6 @@
-﻿using ChatCat.Desktop.ViewModels.Base;
+﻿using ChatCat.Core.ViewModels.Base;
 
-namespace ChatCat.Desktop.ViewModels
+namespace ChatCat.Core.ViewModels
 {
     public class ChatListVM : BaseViewModel
     {

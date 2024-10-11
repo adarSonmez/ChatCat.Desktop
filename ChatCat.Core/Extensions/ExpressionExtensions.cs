@@ -1,7 +1,7 @@
 ﻿using System.Linq.Expressions;
 using System.Reflection;
 
-namespace ChatCat.Desktop.Extensions
+namespace ChatCat.Core.Extensions
 {
     /// <summary>
     /// Provides extension methods for working with expressions to get and set property values dynamically.

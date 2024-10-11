@@ -1,11 +1,8 @@
-﻿using ChatCat.Desktop.Commands;
-using ChatCat.Desktop.Constants.Enums;
-using ChatCat.Desktop.ViewModels.Base;
-using System.Windows;
-using System.Windows.Controls;
+﻿using ChatCat.Core.Commands;
+using ChatCat.Core.ViewModels.Base;
 using System.Windows.Input;
 
-namespace ChatCat.Desktop.ViewModels
+namespace ChatCat.Core.ViewModels
 {
     public class RegisterPageVM : BaseViewModel
     {
@@ -59,7 +56,7 @@ namespace ChatCat.Desktop.ViewModels
                 await Task.Delay(1000);
 
                 var username = Username;
-                var password = (parameter as PasswordBox)?.SecurePassword;
+                var password = (parameter as dynamic)?.SecurePassword;
 
                 return await Task.FromResult(true);
             });
@@ -67,7 +64,7 @@ namespace ChatCat.Desktop.ViewModels
 
         private async Task NavigateToLoginPageAsync()
         {
-            ((MainWindowVM)Application.Current.MainWindow.DataContext).CurrentPage = ApplicationPage.Login;
+            //((MainWindowVM)Application.Current.MainWindow.DataContext).CurrentPage = ApplicationPage.Login;
             await Task.CompletedTask;
         }
 

@@ -4,7 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChatCat.Desktop"
-        xmlns:enums="clr-namespace:ChatCat.Desktop.Constants.Enums"
+        xmlns:enums="clr-namespace:ChatCat.Core.Constants.Enums;assembly=ChatCat.Core"
         xmlns:vconv="clr-namespace:ChatCat.Desktop.Converters.ValueConverters"
         mc:Ignorable="d"
         Name="StartupWindow"

@@ -1,4 +1,4 @@
-﻿namespace ChatCat.Desktop.Animations
+﻿namespace ChatCat.Core.Constants.Enums
 {
     /// <summary>
     /// Represents the different types of page animations.

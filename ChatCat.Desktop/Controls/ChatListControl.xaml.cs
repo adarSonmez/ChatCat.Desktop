@@ -1,4 +1,4 @@
-﻿using ChatCat.Desktop.ViewModels;
+﻿using ChatCat.Core.ViewModels;
 using System.Windows.Controls;
 
 namespace ChatCat.Desktop.Controls

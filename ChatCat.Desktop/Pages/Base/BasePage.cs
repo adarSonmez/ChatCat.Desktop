@@ -1,6 +1,6 @@
-﻿using ChatCat.Desktop.Animations;
+﻿using ChatCat.Core.Constants.Enums;
+using ChatCat.Core.ViewModels.Base;
 using ChatCat.Desktop.Extensions;
-using ChatCat.Desktop.ViewModels.Base;
 using System.Windows;
 using System.Windows.Controls;
 

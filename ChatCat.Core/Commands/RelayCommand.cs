@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 
-namespace ChatCat.Desktop.Commands
+namespace ChatCat.Core.Commands
 {
     /// <summary>
     /// Represents a command that relays its functionality to delegates.
@@ -23,11 +23,7 @@ namespace ChatCat.Desktop.Commands
         }
 
         /// <inheritdoc/>
-        public event EventHandler? CanExecuteChanged
-        {
-            add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested -= value; }
-        }
+        public event EventHandler? CanExecuteChanged;
 
         /// <inheritdoc/>
         public bool CanExecute(object? parameter)

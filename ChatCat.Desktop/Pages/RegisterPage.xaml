@@ -1,13 +1,13 @@
 ﻿<local:BasePage
-        x:TypeArguments="vm:RegisterPageVM"
-        x:Class="ChatCat.Desktop.Pages.RegisterPage"
+    x:TypeArguments="vm:RegisterPageVM"
+    x:Class="ChatCat.Desktop.Pages.RegisterPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:attcp="clr-namespace:ChatCat.Desktop.AttachedProperties"
     xmlns:local="clr-namespace:ChatCat.Desktop.Pages"
-    xmlns:vm="clr-namespace:ChatCat.Desktop.ViewModels"
+    xmlns:vm="clr-namespace:ChatCat.Core.ViewModels"
     mc:Ignorable="d"
         d:DesignHeight="600" d:DesignWidth="600"
         Title="RegisterPage">

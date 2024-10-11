@@ -1,7 +1,7 @@
 ﻿using System.Runtime.InteropServices;
 using System.Security;
 
-namespace ChatCat.Desktop.Extensions
+namespace ChatCat.Core.Extensions
 {
     public static class SecureStringExtensions
     {

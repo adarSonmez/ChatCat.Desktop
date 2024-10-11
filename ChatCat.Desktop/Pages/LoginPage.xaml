@@ -7,7 +7,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:attcp="clr-namespace:ChatCat.Desktop.AttachedProperties"
         xmlns:local="clr-namespace:ChatCat.Desktop.Pages"
-        xmlns:vm="clr-namespace:ChatCat.Desktop.ViewModels"
+        xmlns:vm="clr-namespace:ChatCat.Core.ViewModels"
         mc:Ignorable="d"
         d:DesignHeight="600" d:DesignWidth="600"
         Title="LoginPage">

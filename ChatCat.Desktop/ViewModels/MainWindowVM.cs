@@ -1,6 +1,6 @@
-﻿using ChatCat.Desktop.Commands;
-using ChatCat.Desktop.Constants.Enums;
-using ChatCat.Desktop.ViewModels.Base;
+﻿using ChatCat.Core.Commands;
+using ChatCat.Core.Constants.Enums;
+using ChatCat.Core.ViewModels.Base;
 using System.Windows;
 using System.Windows.Input;
 

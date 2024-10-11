@@ -1,4 +1,4 @@
-﻿using ChatCat.Desktop.Constants.Enums;
+﻿using ChatCat.Core.Constants.Enums;
 using ChatCat.Desktop.Converters.ValueConverters.Base;
 using System.Globalization;
 using System.Windows;

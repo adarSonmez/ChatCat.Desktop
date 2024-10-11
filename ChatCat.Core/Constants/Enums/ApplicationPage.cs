@@ -1,4 +1,4 @@
-﻿namespace ChatCat.Desktop.Constants.Enums
+﻿namespace ChatCat.Core.Constants.Enums
 {
     public enum ApplicationPage
     {

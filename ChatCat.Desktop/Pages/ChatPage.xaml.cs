@@ -1,5 +1,5 @@
-﻿using ChatCat.Desktop.Animations;
-using ChatCat.Desktop.ViewModels;
+﻿using ChatCat.Core.Constants.Enums;
+using ChatCat.Core.ViewModels;
 
 namespace ChatCat.Desktop.Pages
 {
