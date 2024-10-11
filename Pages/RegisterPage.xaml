@@ -1,16 +1,16 @@
 ﻿<local:BasePage
-        x:TypeArguments="vm:LoginPageVM"
-        x:Class="ChatCat.Desktop.Pages.LoginPage"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:attcp="clr-namespace:ChatCat.Desktop.AttachedProperties"
-        xmlns:local="clr-namespace:ChatCat.Desktop.Pages"
-        xmlns:vm="clr-namespace:ChatCat.Desktop.ViewModels"
-        mc:Ignorable="d"
+        x:TypeArguments="vm:RegisterPageVM"
+        x:Class="ChatCat.Desktop.Pages.RegisterPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:attcp="clr-namespace:ChatCat.Desktop.AttachedProperties"
+    xmlns:local="clr-namespace:ChatCat.Desktop.Pages"
+    xmlns:vm="clr-namespace:ChatCat.Desktop.ViewModels"
+    mc:Ignorable="d"
         d:DesignHeight="600" d:DesignWidth="600"
-        Title="LoginPage">
+        Title="RegisterPage">
 
     <Grid MaxWidth="600" MaxHeight="600">
         <Grid.Background>
@@ -41,7 +41,7 @@
 
                     <StackPanel>
                         <TextBlock
-                            Text="Login"
+                            Text="Register"
                             Style="{StaticResource TitleTextBlockStyle}"
                             FontSize="{StaticResource FontSizeLarge}"
                             Margin="0,0,0,20" />
@@ -66,13 +66,16 @@
                         <TextBlock
                             Style="{StaticResource BaseTextBlockStyle}"
                             Margin="0,10,0,0">
-                            Don't have an account yet?
+                            <Run>Already have an account? </Run>
                             <Hyperlink
-                                Command="{Binding NavigateToRegisterCommand}"
-                                TextDecorations="Underline">
-                                Register
-                            </Hyperlink>
+                                Command="{Binding NavigateToLoginCommand}">
+                                Login.
+                                </Hyperlink>
                         </TextBlock>
+
+                        <Label
+                            Content="&#xf00c;"
+                            FontFamily="{StaticResource FontAwesomeSolid}" />
                     </StackPanel>
                 </Border>
             </StackPanel>

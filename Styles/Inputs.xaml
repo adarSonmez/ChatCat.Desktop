@@ -14,7 +14,7 @@
         <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}" />
         <Setter Property="Padding" Value="4" />
         <Setter Property="BorderThickness" Value="0 0 0 2" />
-        <Setter Property="BorderBrush" Value="{StaticResource GrayCatColorBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource DisabledColorBrush}" />
 
         <Style.Triggers>
             <Trigger Property="IsFocused" Value="True">

@@ -7,11 +7,11 @@ using System.Windows.Input;
 
 namespace ChatCat.Desktop.ViewModels
 {
-    public class LoginPageVM : BaseViewModel
+    public class RegisterPageVM : BaseViewModel
     {
         #region Private Fields
 
-        private bool _loginIsRunning;
+        private bool _registerIsRunning;
 
         #endregion Private Fields
 
@@ -19,14 +19,14 @@ namespace ChatCat.Desktop.ViewModels
 
         public string? Username { get; set; }
 
-        public bool LoginIsRunning
+        public bool RegisterIsRunning
         {
-            get => _loginIsRunning;
+            get => _registerIsRunning;
             set
             {
-                if (_loginIsRunning != value)
+                if (_registerIsRunning != value)
                 {
-                    _loginIsRunning = value;
+                    _registerIsRunning = value;
                     OnPropertyChanged();
                 }
             }
@@ -36,15 +36,15 @@ namespace ChatCat.Desktop.ViewModels
 
         #region Commands
 
-        public ICommand LoginCommand => new RelayCommand(async (parameter) => await LoginAsync(parameter));
+        public ICommand RegisterCommand => new RelayCommand(async (parameter) => await Register(parameter));
 
-        public ICommand NavigateToRegisterCommand => new RelayCommand(async (mull) => await NavigateToRegisterPageAsync());
+        public ICommand NavigateToLoginCommand => new RelayCommand(async (mull) => await NavigateToLoginPageAsync());
 
         #endregion Commands
 
         #region Constructors
 
-        public LoginPageVM()
+        public RegisterPageVM()
         {
         }
 
@@ -52,9 +52,9 @@ namespace ChatCat.Desktop.ViewModels
 
         #region Private Methods
 
-        private async Task LoginAsync(object? parameter)
+        private async Task Register(object? parameter)
         {
-            await RunCommandAsync(() => LoginIsRunning, async () =>
+            await RunCommandAsync(() => RegisterIsRunning, async () =>
             {
                 await Task.Delay(1000);
 
@@ -65,10 +65,9 @@ namespace ChatCat.Desktop.ViewModels
             });
         }
 
-        private async Task NavigateToRegisterPageAsync()
+        private async Task NavigateToLoginPageAsync()
         {
-            ((MainWindowVM)Application.Current.MainWindow.DataContext).CurrentPage = ApplicationPage.Register;
-
+            ((MainWindowVM)Application.Current.MainWindow.DataContext).CurrentPage = ApplicationPage.Login;
             await Task.CompletedTask;
         }
 

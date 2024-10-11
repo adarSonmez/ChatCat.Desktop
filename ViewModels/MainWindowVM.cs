@@ -13,6 +13,7 @@ namespace ChatCat.Desktop.ViewModels
         private Window _mainWindow;
         private int _outerMarginSize = 10;
         private int _windowRadiusSize = 12;
+        private ApplicationPage _currentPage;
 
         #endregion Private Fields
 
@@ -50,7 +51,18 @@ namespace ChatCat.Desktop.ViewModels
             set => _outerMarginSize = value;
         }
 
-        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Chat;
+        public ApplicationPage CurrentPage
+        {
+            get => _currentPage;
+            set
+            {
+                if (_currentPage != value)
+                {
+                    _currentPage = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         #endregion Public Properties
 
