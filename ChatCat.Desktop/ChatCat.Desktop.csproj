@@ -10,6 +10,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\FontAwesome\Font Awesome 6 Brands-Regular-400.otf" />
+    <None Remove="Fonts\FontAwesome\Font Awesome 6 Free-Regular-400.otf" />
+    <None Remove="Fonts\FontAwesome\Font Awesome 6 Free-Solid-900.otf" />
+    <None Remove="Fonts\Lato\Lato-Black.ttf" />
+    <None Remove="Fonts\Lato\Lato-BlackItalic.ttf" />
+    <None Remove="Fonts\Lato\Lato-Bold.ttf" />
+    <None Remove="Fonts\Lato\Lato-BoldItalic.ttf" />
+    <None Remove="Fonts\Lato\Lato-Hairline.ttf" />
+    <None Remove="Fonts\Lato\Lato-HairlineItalic.ttf" />
+    <None Remove="Fonts\Lato\Lato-Italic.ttf" />
+    <None Remove="Fonts\Lato\Lato-Light.ttf" />
+    <None Remove="Fonts\Lato\Lato-LightItalic.ttf" />
+    <None Remove="Fonts\Lato\Lato-Regular.ttf" />
+    <None Remove="Fonts\Lato\Lato-Thin.ttf" />
     <None Remove="Images\Backgrounds\login-bg.png" />
     <None Remove="Images\Logos\favicon.ico" />
     <None Remove="Images\Logos\logo-small.png" />
@@ -25,6 +39,48 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Fonts\FontAwesome\Font Awesome 6 Brands-Regular-400.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\FontAwesome\Font Awesome 6 Free-Regular-400.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\FontAwesome\Font Awesome 6 Free-Solid-900.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Lato\Lato-Black.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Lato\Lato-BlackItalic.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Lato\Lato-Bold.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Lato\Lato-BoldItalic.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Lato\Lato-Hairline.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Lato\Lato-HairlineItalic.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Lato\Lato-Italic.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Lato\Lato-Light.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Lato\Lato-LightItalic.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Lato\Lato-Regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Lato\Lato-Thin.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Backgrounds\login-bg.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

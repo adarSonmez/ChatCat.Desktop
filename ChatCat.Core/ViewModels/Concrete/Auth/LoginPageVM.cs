@@ -1,10 +1,14 @@
 ﻿using ChatCat.Core.Commands;
 using ChatCat.Core.Constants.Enums;
-using ChatCat.Core.ViewModels.Base;
+using ChatCat.Core.Utils.Locator;
+using ChatCat.Core.ViewModels.Abstract;
 using System.Windows.Input;
 
-namespace ChatCat.Core.ViewModels
+namespace ChatCat.Core.ViewModels.Concrete.Auth
 {
+    /// <summary>
+    /// The View Model for a login screen
+    /// </summary>
     public class LoginPageVM : BaseViewModel
     {
         #region Private Fields
@@ -36,17 +40,9 @@ namespace ChatCat.Core.ViewModels
 
         public ICommand LoginCommand => new RelayCommand(async (parameter) => await LoginAsync(parameter));
 
-        public ICommand NavigateToRegisterCommand => new RelayCommand(async (mull) => await NavigateToRegisterPageAsync());
+        public ICommand NavigateToRegisterCommand => new RelayCommand((_) => NavigateToRegisterPage());
 
         #endregion Commands
-
-        #region Constructors
-
-        public LoginPageVM()
-        {
-        }
-
-        #endregion Constructors
 
         #region Private Methods
 
@@ -63,11 +59,9 @@ namespace ChatCat.Core.ViewModels
             });
         }
 
-        private async Task NavigateToRegisterPageAsync()
+        private void NavigateToRegisterPage()
         {
-            // ((MainWindowVM)Application.Current.MainWindow.DataContext).CurrentPage = ApplicationPage.Register;
-
-            await Task.CompletedTask;
+            CoreLocator.ApplicationVM.CurrentPage = ApplicationPage.Register;
         }
 
         #endregion Private Methods

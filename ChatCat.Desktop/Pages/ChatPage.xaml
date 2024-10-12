@@ -1,5 +1,5 @@
 ﻿<local:BasePage
-        x:TypeArguments="vm:LoginPageVM"
+        x:TypeArguments="vm:ChatPageVM"
         x:Class="ChatCat.Desktop.Pages.ChatPage"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,7 +7,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChatCat.Desktop.Pages"
         xmlns:controls="clr-namespace:ChatCat.Desktop.Controls"
-        xmlns:vm="clr-namespace:ChatCat.Core.ViewModels"
+        xmlns:vm="clr-namespace:ChatCat.Core.ViewModels.Concrete.Chat;assembly=ChatCat.Core"
         mc:Ignorable="d"
         d:DesignHeight="600" d:DesignWidth="600"
         Title="Chat">

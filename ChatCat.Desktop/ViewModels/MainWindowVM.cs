@@ -1,11 +1,13 @@
 ﻿using ChatCat.Core.Commands;
-using ChatCat.Core.Constants.Enums;
-using ChatCat.Core.ViewModels.Base;
+using ChatCat.Core.ViewModels.Abstract;
 using System.Windows;
 using System.Windows.Input;
 
 namespace ChatCat.Desktop.ViewModels
 {
+    /// <summary>
+    /// The View Model for the main window of the application.
+    /// </summary>
     public class MainWindowVM : BaseViewModel
     {
         #region Private Fields
@@ -13,7 +15,6 @@ namespace ChatCat.Desktop.ViewModels
         private Window _mainWindow;
         private int _outerMarginSize = 10;
         private int _windowRadiusSize = 12;
-        private ApplicationPage _currentPage;
 
         #endregion Private Fields
 
@@ -49,19 +50,6 @@ namespace ChatCat.Desktop.ViewModels
         {
             get => _mainWindow.WindowState == WindowState.Maximized ? 0 : _outerMarginSize;
             set => _outerMarginSize = value;
-        }
-
-        public ApplicationPage CurrentPage
-        {
-            get => _currentPage;
-            set
-            {
-                if (_currentPage != value)
-                {
-                    _currentPage = value;
-                    OnPropertyChanged();
-                }
-            }
         }
 
         #endregion Public Properties

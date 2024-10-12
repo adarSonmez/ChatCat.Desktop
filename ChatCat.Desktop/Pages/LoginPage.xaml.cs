@@ -1,5 +1,5 @@
 ﻿using ChatCat.Core.Constants.Enums;
-using ChatCat.Core.ViewModels;
+using ChatCat.Core.ViewModels.Concrete.Auth;
 
 namespace ChatCat.Desktop.Pages
 {

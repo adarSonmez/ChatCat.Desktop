@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 
-namespace ChatCat.Core.ViewModels.Base
+namespace ChatCat.Core.ViewModels.Abstract
 {
     /// <summary>
     /// Base view model class that implements the <see cref="INotifyPropertyChanged"/> interface to support data binding in WPF applications.

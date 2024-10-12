@@ -4,10 +4,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChatCat.Desktop"
+        xmlns:locator="clr-namespace:ChatCat.Desktop.Utils.Locators"
         xmlns:enums="clr-namespace:ChatCat.Core.Constants.Enums;assembly=ChatCat.Core"
         xmlns:vconv="clr-namespace:ChatCat.Desktop.Converters.ValueConverters"
         mc:Ignorable="d"
-        Name="StartupWindow"
+        Name="MainAppWindow"
         WindowStyle="None"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
@@ -94,5 +95,5 @@
             ResizeBorderThickness="{Binding BorderRadiusThickness}" />
     </WindowChrome.WindowChrome>
 
-    <Frame Content="{Binding CurrentPage, Converter={vconv:ApplicationPageValueConverter}}" />
+    <Frame Content="{Binding CurrentPage, Source={x:Static locator:WpfLocator.ApplicationVM}, Converter={vconv:ApplicationPageValueConverter}}" />
 </Window>

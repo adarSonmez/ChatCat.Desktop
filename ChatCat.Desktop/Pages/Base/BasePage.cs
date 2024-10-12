@@ -1,5 +1,5 @@
 ﻿using ChatCat.Core.Constants.Enums;
-using ChatCat.Core.ViewModels.Base;
+using ChatCat.Core.ViewModels.Abstract;
 using ChatCat.Desktop.Extensions;
 using System.Windows;
 using System.Windows.Controls;

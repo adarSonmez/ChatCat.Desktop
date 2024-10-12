@@ -1,4 +1,5 @@
-﻿using ChatCat.Desktop.ViewModels;
+﻿using ChatCat.Core.ViewModels.Concrete.Application;
+using ChatCat.Desktop.ViewModels;
 using System.Windows;
 
 namespace ChatCat.Desktop

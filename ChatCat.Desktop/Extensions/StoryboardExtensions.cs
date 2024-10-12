@@ -5,7 +5,7 @@ namespace ChatCat.Desktop.Extensions
 {
     /// <summary>
     /// Provides extension methods for creating and managing storyboards for animations.
-    /// </summary>
+    /// </summary>s
     public static class StoryboardExtensions
     {
         #region Slide Animations

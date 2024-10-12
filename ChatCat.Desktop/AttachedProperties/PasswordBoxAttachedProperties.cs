@@ -69,11 +69,6 @@ namespace ChatCat.Desktop.AttachedProperties
 
         #region Setters and Getters
 
-        public static void SetMonitorPassword(PasswordBox passwordBox, bool value)
-        {
-            passwordBox.SetValue(MonitorPasswordProperty, value);
-        }
-
         public static bool GetMonitorPassword(PasswordBox passwordBox)
         {
             return (bool)passwordBox.GetValue(MonitorPasswordProperty);
@@ -82,6 +77,11 @@ namespace ChatCat.Desktop.AttachedProperties
         public static bool GetHasText(PasswordBox passwordBox)
         {
             return (bool)passwordBox.GetValue(HasTextProperty);
+        }
+
+        private static void SetMonitorPassword(PasswordBox passwordBox, bool value)
+        {
+            passwordBox.SetValue(MonitorPasswordProperty, value);
         }
 
         private static void SetHasText(PasswordBox passwordBox)
