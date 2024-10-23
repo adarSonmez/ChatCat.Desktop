@@ -9,11 +9,11 @@ namespace ChatCat.Core.ViewModels.Concrete.Chat
     {
         #region Public Properties
 
-        public required string UserName { get; set; }
+        public string UserName { get; set; } = default!;
 
-        public required string LastMessage { get; set; }
+        public string LastMessage { get; set; } = default!;
 
-        public required string Initials { get; set; }
+        public string Initials { get; set; } = default!;
 
         public bool IsSelected { get; set; } = false;
 

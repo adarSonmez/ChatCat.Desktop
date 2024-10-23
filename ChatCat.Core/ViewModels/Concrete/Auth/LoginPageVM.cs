@@ -55,6 +55,8 @@ namespace ChatCat.Core.ViewModels.Concrete.Auth
                 var username = Username;
                 var password = (parameter as dynamic)?.SecurePassword;
 
+                CoreLocator.ApplicationVM.CurrentPage = ApplicationPage.Chat;
+
                 return await Task.FromResult(true);
             });
         }

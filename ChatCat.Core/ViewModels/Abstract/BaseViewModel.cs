@@ -15,7 +15,7 @@ namespace ChatCat.Core.ViewModels.Abstract
         /// <summary>
         /// Lock object used to ensure thread-safety when checking and updating property values.
         /// </summary>
-        private readonly object _propertyValueCheckLock = new object();
+        private readonly object _propertyValueCheckLock = new();
 
         /// <summary>
         /// Backing field for the <see cref="PropertyChanged"/> event handler.

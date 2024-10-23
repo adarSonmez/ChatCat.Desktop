@@ -6,11 +6,19 @@ using System.Windows.Controls;
 
 namespace ChatCat.Desktop.Pages
 {
+    /// <summary>
+    /// A base class for WPF pages that provides ViewModel binding and page animations on load and unload.
+    /// </summary>
+    /// <typeparam name="VM">The type of the ViewModel that this page will bind to. The ViewModel must inherit from <see cref="BaseViewModel"/>.</typeparam>
     public class BasePage<VM> : Page
         where VM : BaseViewModel, new()
     {
         private VM _viewModel = new();
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BasePage{VM}"/> class.
+        /// Sets up ViewModel binding, and subscribes to the <see cref="Page.Loaded"/> and <see cref="Page.Unloaded"/> events.
+        /// </summary>
         public BasePage()
         {
             Loaded += BasePage_Loaded;
@@ -19,12 +27,13 @@ namespace ChatCat.Desktop.Pages
             DataContext = _viewModel;
         }
 
+        /// <summary>
+        /// Gets or sets the ViewModel for this page.
+        /// When the ViewModel is set, it automatically updates the <see cref="FrameworkElement.DataContext"/> of the page.
+        /// </summary>
         public VM ViewModel
         {
-            get
-            {
-                return _viewModel;
-            }
+            get => _viewModel;
             set
             {
                 if (_viewModel == value)
@@ -36,58 +45,58 @@ namespace ChatCat.Desktop.Pages
             }
         }
 
+        #region Page Animations
+
+        /// <summary>
+        /// Gets or sets the duration in seconds for the page animations (both load and unload animations).
+        /// The default value is 0.8 seconds.
+        /// </summary>
         protected virtual float SlideSeconds { get; set; } = 0.8f;
-        protected virtual PageAnimation PageLoadAnimation { get; set; } = PageAnimation.None;
-        protected virtual PageAnimation PageUnloadAnimation { get; set; } = PageAnimation.None;
 
-        private async Task BeginAnimationAsync(PageAnimation animation, float seconds)
-        {
-            switch (animation)
-            {
-                case PageAnimation.None:
-                    break;
+        /// <summary>
+        /// Gets or sets the type of animation that should play when the page is loaded.
+        /// The default value is <see cref="FrameworkAnimationType.None"/>, meaning no animation will play.
+        /// </summary>
+        protected virtual FrameworkAnimationType PageLoadAnimation { get; set; } = FrameworkAnimationType.None;
 
-                case PageAnimation.FadeIn:
-                    await this.FadeInAsync(seconds);
-                    break;
+        /// <summary>
+        /// Gets or sets the type of animation that should play when the page is unloaded.
+        /// The default value is <see cref="FrameworkAnimationType.None"/>, meaning no animation will play.
+        /// </summary>
+        protected virtual FrameworkAnimationType PageUnloadAnimation { get; set; } = FrameworkAnimationType.None;
 
-                case PageAnimation.FadeOut:
-                    await this.FadeOutAsync(seconds);
-                    break;
+        #endregion Page Animations
 
-                case PageAnimation.SlideAndFadeInFromRight:
-                    await this.SlideAndFadeInFromRightAsync(seconds);
-                    break;
+        #region Event Handlers
 
-                case PageAnimation.SlideAndFadeOutToLeft:
-                    await this.SlideAndFadeOutToLeftAsync(seconds);
-                    break;
-
-                case PageAnimation.SlideAndFadeInFromLeft:
-                    await this.SlideAndFadeInFromLeftAsync(seconds);
-                    break;
-
-                default:
-                    break;
-            }
-        }
-
+        /// <summary>
+        /// Handles the <see cref="Page.Loaded"/> event and starts the defined load animation if applicable.
+        /// </summary>
+        /// <param name="sender">The event sender (this page).</param>
+        /// <param name="e">Event data.</param>
         private async void BasePage_Loaded(object sender, RoutedEventArgs e)
         {
-            if (PageLoadAnimation != PageAnimation.None)
+            if (PageLoadAnimation != FrameworkAnimationType.None)
             {
                 Visibility = Visibility.Collapsed;
-                await BeginAnimationAsync(PageLoadAnimation, SlideSeconds);
+                await this.BeginAnimationAsync(PageLoadAnimation, SlideSeconds);
             }
         }
 
+        /// <summary>
+        /// Handles the <see cref="Page.Unloaded"/> event and starts the defined unload animation if applicable.
+        /// </summary>
+        /// <param name="sender">The event sender (this page).</param>
+        /// <param name="e">Event data.</param>
         private async void BasePage_Unloaded(object sender, RoutedEventArgs e)
         {
-            if (PageUnloadAnimation != PageAnimation.None)
+            if (PageUnloadAnimation != FrameworkAnimationType.None)
             {
                 Visibility = Visibility.Visible;
-                await BeginAnimationAsync(PageUnloadAnimation, SlideSeconds);
+                await this.BeginAnimationAsync(PageUnloadAnimation, SlideSeconds);
             }
         }
+
+        #endregion Event Handlers
     }
 }

@@ -1,5 +1,4 @@
-﻿using ChatCat.Core.Constants.Enums;
-using ChatCat.Core.ViewModels.Concrete.Chat;
+﻿using ChatCat.Core.ViewModels.Concrete.Chat;
 
 namespace ChatCat.Desktop.Pages
 {
@@ -10,9 +9,6 @@ namespace ChatCat.Desktop.Pages
     {
         public ChatPage()
         {
-            PageLoadAnimation = PageAnimation.SlideAndFadeInFromLeft;
-            PageUnloadAnimation = PageAnimation.SlideAndFadeOutToLeft;
-
             InitializeComponent();
         }
     }

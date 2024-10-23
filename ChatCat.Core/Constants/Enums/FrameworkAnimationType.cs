@@ -1,9 +1,9 @@
 ﻿namespace ChatCat.Core.Constants.Enums
 {
     /// <summary>
-    /// Represents the different types of page animations.
+    /// Represents the different types of framework animations that can be used
     /// </summary>
-    public enum PageAnimation
+    public enum FrameworkAnimationType
     {
         None,
         FadeIn,

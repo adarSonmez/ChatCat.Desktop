@@ -10,7 +10,7 @@ namespace ChatCat.Core.ViewModels.Concrete.Application
     {
         #region Private Fields
 
-        private ApplicationPage _currentPage = ApplicationPage.Login;
+        private ApplicationPage _currentPage = ApplicationPage.Chat;
 
         #endregion Private Fields
 
