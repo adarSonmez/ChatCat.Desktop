@@ -7,25 +7,27 @@ using System.Windows.Controls;
 namespace ChatCat.Desktop.Pages
 {
     /// <summary>
-    /// A base class for WPF pages that provides ViewModel binding and page animations on load and unload.
+    /// An generic base class for WPF pages that provides ViewModel binding and page animations on load and unload.
     /// </summary>
     /// <typeparam name="VM">The type of the ViewModel that this page will bind to. The ViewModel must inherit from <see cref="BaseViewModel"/>.</typeparam>
-    public class BasePage<VM> : Page
+    public class BasePage<VM> : BasePage
         where VM : BaseViewModel, new()
     {
         private VM _viewModel = new();
 
+        #region Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="BasePage{VM}"/> class.
-        /// Sets up ViewModel binding, and subscribes to the <see cref="Page.Loaded"/> and <see cref="Page.Unloaded"/> events.
-        /// </summary>
+        /// Sets up ViewModel binding and sets the <see cref="FrameworkElement.DataContext"/> of the page to the ViewModel.
         public BasePage()
         {
-            Loaded += BasePage_Loaded;
-            Unloaded += BasePage_Unloaded;
-
             DataContext = _viewModel;
         }
+
+        #endregion Constructors
+
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the ViewModel for this page.
@@ -44,6 +46,28 @@ namespace ChatCat.Desktop.Pages
                 DataContext = _viewModel;
             }
         }
+
+        #endregion Public Properties
+    }
+
+    /// <summary>
+    /// A base class for WPF pages that provides page animations on load and unload.
+    /// </summary>
+    public class BasePage : Page
+    {
+        #region Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BasePage{VM}"/> class.
+        /// Sets up ViewModel binding, and subscribes to the <see cref="Page.Loaded"/> and <see cref="Page.Unloaded"/> events.
+        /// </summary>
+        public BasePage()
+        {
+            Loaded += BasePage_Loaded;
+            Unloaded += BasePage_Unloaded;
+        }
+
+        #endregion Constructors
 
         #region Page Animations
 

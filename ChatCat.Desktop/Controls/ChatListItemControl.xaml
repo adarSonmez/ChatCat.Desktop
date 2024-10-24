@@ -1,8 +1,9 @@
-﻿<UserControl x:Class="ChatCat.Desktop.Controls.ChatListItemControl"
+﻿<local:BaseControl x:Class="ChatCat.Desktop.Controls.ChatListItemControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:ChatCat.Desktop.Controls"
              xmlns:vconv="clr-namespace:ChatCat.Desktop.Converters.ValueConverters"
              mc:Ignorable="d"
              d:DesignWidth="300">
@@ -59,4 +60,4 @@
     </UserControl.Resources>
 
     <ContentControl Style="{StaticResource ContentStyle}" />
-</UserControl>
+</local:BaseControl>

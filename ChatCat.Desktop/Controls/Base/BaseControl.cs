@@ -10,22 +10,25 @@ namespace ChatCat.Desktop.Controls
     /// A base class for WPF user controls that provides ViewModel binding, loading, and unloading animations.
     /// </summary>
     /// <typeparam name="VM">The type of the ViewModel that this user control will bind to. The ViewModel must inherit from <see cref="BaseViewModel"/>.</typeparam>
-    public class BaseControl<VM> : UserControl
+    public class BaseControl<VM> : BaseControl
         where VM : BaseViewModel, new()
     {
         private VM _viewModel = new();
 
+        #region Constructors
+
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseControl{VM}"/> class.
-        /// Sets up ViewModel binding and subscribes to the <see cref="UserControl.Loaded"/> and <see cref="UserControl.Unloaded"/> events.
+        /// Sets up ViewModel binding and sets the <see cref="FrameworkElement.DataContext"/> of the control to the ViewModel.
         /// </summary>
         public BaseControl()
         {
-            Loaded += BaseControl_Loaded;
-            Unloaded += BaseControl_Unloaded;
-
             DataContext = _viewModel;
         }
+
+        #endregion Constructors
+
+        #region Public Properties
 
         /// <summary>
         /// Gets or sets the ViewModel for this user control.
@@ -44,6 +47,25 @@ namespace ChatCat.Desktop.Controls
                 DataContext = _viewModel;
             }
         }
+
+        #endregion Public Properties
+    }
+
+    public class BaseControl : UserControl
+    {
+        #region Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BaseControl{VM}"/> class.
+        /// Sets up ViewModel binding and subscribes to the <see cref="UserControl.Loaded"/> and <see cref="UserControl.Unloaded"/> events.
+        /// </summary>
+        public BaseControl()
+        {
+            Loaded += BaseControl_Loaded;
+            Unloaded += BaseControl_Unloaded;
+        }
+
+        #endregion Constructors
 
         #region Control Animations
 
