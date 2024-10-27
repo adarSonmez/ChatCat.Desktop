@@ -16,6 +16,8 @@
     <FontFamily x:Key="LatoHairlineItalic">/Fonts/Lato/#Lato Hairline Italic</FontFamily>
 
     <!-- Font sizes -->
+    <system:Double x:Key="FontSizeXXXSmall">6</system:Double>
+    <system:Double x:Key="FontSizeXXSmall">8</system:Double>
     <system:Double x:Key="FontSizeXSmall">10</system:Double>
     <system:Double x:Key="FontSizeSmall">12</system:Double>
     <system:Double x:Key="FontSizeNormal">16</system:Double>

@@ -25,6 +25,7 @@
 
         <!-- Right Side (Main Content) -->
         <Grid Grid.Column="1" Background="Transparent">
+            <controls:MessageListControl />
         </Grid>
     </Grid>
 </local:BasePage>

@@ -19,7 +19,7 @@ namespace ChatCat.Desktop.Converters.ValueConverters
         /// <returns>A visibility value based on if the value is greater than the parameter.</returns>
         public override object? Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is double doubleValue && parameter is string stringParameter && double.TryParse(stringParameter, out double doubleParameter))
+            if (double.TryParse(value?.ToString(), out double doubleValue) && double.TryParse(parameter?.ToString(), out double doubleParameter))
             {
                 return doubleValue > doubleParameter ? Visibility.Visible : Visibility.Collapsed;
             }

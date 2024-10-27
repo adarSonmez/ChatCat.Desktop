@@ -93,6 +93,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Controls\MessageListControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\MessageListItemControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Pages\ChatPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -102,6 +108,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Update="Controls\MessageListControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\MessageListItemControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Pages\ChatPage.xaml">
       <SubType>Designer</SubType>
     </Page>
