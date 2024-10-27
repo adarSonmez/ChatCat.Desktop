@@ -1,8 +1,11 @@
 ﻿using ChatCat.Core.Commands;
 using ChatCat.Core.Constants.Enums;
 using ChatCat.Core.Utils.Locator;
+using ChatCat.Core.Utils.Navigation;
 using ChatCat.Core.ViewModels.Abstract;
 using System.Windows.Input;
+
+#pragma warning disable CA1822
 
 namespace ChatCat.Core.ViewModels.Concrete.Auth
 {
@@ -40,7 +43,7 @@ namespace ChatCat.Core.ViewModels.Concrete.Auth
 
         public ICommand LoginCommand => new RelayCommand(async (parameter) => await LoginAsync(parameter));
 
-        public ICommand NavigateToRegisterCommand => new RelayCommand((_) => NavigateToRegisterPage());
+        public ICommand NavigateToRegisterCommand => new RelayCommand((_) => NavigationHelper.NavigateTo(ApplicationPage.Register));
 
         #endregion Commands
 
@@ -59,11 +62,6 @@ namespace ChatCat.Core.ViewModels.Concrete.Auth
 
                 return await Task.FromResult(true);
             });
-        }
-
-        private void NavigateToRegisterPage()
-        {
-            CoreLocator.ApplicationVM.CurrentPage = ApplicationPage.Register;
         }
 
         #endregion Private Methods

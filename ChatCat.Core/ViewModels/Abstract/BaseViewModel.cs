@@ -27,10 +27,7 @@ namespace ChatCat.Core.ViewModels.Abstract
 
         #region INotifyPropertyChanged Implementation
 
-        /// <summary>
-        /// Event triggered whenever a property value changes.
-        /// This is used to notify the UI of changes in the view model.
-        /// </summary>
+        /// <inheritdoc/>
         public event PropertyChangedEventHandler? PropertyChanged
         {
             add
@@ -49,6 +46,10 @@ namespace ChatCat.Core.ViewModels.Abstract
             }
         }
 
+        #endregion INotifyPropertyChanged Implementation
+
+        #region Event Handlers
+
         /// <summary>
         /// Raises the <see cref="PropertyChanged"/> event for a given property.
         /// This method is typically called within property setters to notify the UI of a change.
@@ -65,9 +66,9 @@ namespace ChatCat.Core.ViewModels.Abstract
             handler?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        #endregion INotifyPropertyChanged Implementation
+        #endregion Event Handlers
 
-        #region Command Handling
+        #region Protected Methods
 
         /// <summary>
         /// Executes a command asynchronously, ensuring it cannot be run if the <paramref name="updatingFlag"/> is true.
@@ -100,6 +101,6 @@ namespace ChatCat.Core.ViewModels.Abstract
             }
         }
 
-        #endregion Command Handling
+        #endregion Protected Methods
     }
 }

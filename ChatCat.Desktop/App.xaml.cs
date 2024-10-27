@@ -1,11 +1,12 @@
-﻿using System.Windows;
-using ChatCat.Core.Extensions;
+﻿using ChatCat.Core.Extensions;
 using ChatCat.Core.Utils.IoC;
+using ChatCat.Desktop.Extensions;
 using ChatCat.Desktop.ViewModels;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using System.Windows;
 
 namespace ChatCat.Desktop
 {
@@ -16,9 +17,8 @@ namespace ChatCat.Desktop
     {
         private readonly IHost _host;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="App"/> class.
-        /// </summary>
+        #region Constructors
+
         public App()
         {
             _host = Host.CreateDefaultBuilder()
@@ -29,8 +29,7 @@ namespace ChatCat.Desktop
                 .ConfigureServices((context, services) =>
                 {
                     services.AddCoreServices();
-
-                    ConfigureDesktopServices(services);
+                    services.AddDesktopServices();
                 })
                 .ConfigureLogging(logging =>
                 {
@@ -39,6 +38,10 @@ namespace ChatCat.Desktop
                 })
                 .Build();
         }
+
+        #endregion Constructors
+
+        #region Application Lifecycle
 
         /// <inheritdoc/>
         protected override async void OnStartup(StartupEventArgs e)
@@ -64,13 +67,6 @@ namespace ChatCat.Desktop
             base.OnExit(e);
         }
 
-        /// <summary>
-        /// Configures the desktop services.
-        /// </summary>
-        /// <param name="services">The services.</param>
-        private void ConfigureDesktopServices(IServiceCollection services)
-        {
-            services.AddSingleton<MainWindowVM>();
-        }
+        #endregion Application Lifecycle
     }
 }

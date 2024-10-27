@@ -5,6 +5,9 @@ using ChatCat.Core.ViewModels.Concrete.Chat;
 
 namespace ChatCat.Core.Utils.Locator
 {
+    /// <summary>
+    /// Locates the view models in the core project
+    /// </summary>
     public class CoreLocator
     {
         #region View Model Locatings

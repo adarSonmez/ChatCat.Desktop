@@ -3,6 +3,9 @@ using System.Security;
 
 namespace ChatCat.Core.Extensions
 {
+    /// <summary>
+    /// Contains extension methods for the <see cref="SecureString"/> class.
+    /// </summary>
     public static class SecureStringExtensions
     {
         /// <summary>

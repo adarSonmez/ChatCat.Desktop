@@ -3,24 +3,17 @@
 namespace ChatCat.Core.Commands
 {
     /// <summary>
-    /// Represents a command that relays its functionality to delegates.
+    /// A command that relays its functionality to other objects by invoking delegates.
     /// </summary>
-    public class RelayCommand : ICommand
+    /// <param name="execute">The delegate to execute when the command is executed.</param>
+    /// <param name="canExecute">The delegate to determine if the command can be executed.</param>
+    /// <exception cref="ArgumentNullException">Thrown when the execute delegate is null.</exception>
+    public class RelayCommand(Action<object?> execute, Predicate<object?>? canExecute = null) : ICommand
     {
-        private readonly Predicate<object?>? _canExecute;
-        private readonly Action<object?> _execute;
+        private readonly Predicate<object?>? _canExecute = canExecute;
+        private readonly Action<object?> _execute = execute ?? throw new ArgumentNullException(nameof(execute));
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RelayCommand"/> class.
-        /// </summary>
-        /// <param name="execute">The delegate to execute when the command is executed.</param>
-        /// <param name="canExecute">The delegate to determine if the command can be executed.</param>
-        /// <exception cref="ArgumentNullException">Thrown when the execute delegate is null.</exception>
-        public RelayCommand(Action<object?> execute, Predicate<object?>? canExecute = null)
-        {
-            _execute = execute ?? throw new ArgumentNullException(nameof(execute));
-            _canExecute = canExecute;
-        }
+        #region ICommand Implementation
 
         /// <inheritdoc/>
         public event EventHandler? CanExecuteChanged;
@@ -36,5 +29,7 @@ namespace ChatCat.Core.Commands
         {
             _execute(parameter);
         }
+
+        #endregion ICommand Implementation
     }
 }

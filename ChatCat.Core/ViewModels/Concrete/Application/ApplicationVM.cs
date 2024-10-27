@@ -8,13 +8,7 @@ namespace ChatCat.Core.ViewModels.Concrete.Application
     /// </summary>
     public class ApplicationVM : BaseViewModel
     {
-        #region Private Fields
-
         private ApplicationPage _currentPage = ApplicationPage.Login;
-
-        #endregion Private Fields
-
-        #region Public Properties
 
         public ApplicationPage CurrentPage
         {
@@ -28,7 +22,5 @@ namespace ChatCat.Core.ViewModels.Concrete.Application
                 }
             }
         }
-
-        #endregion Public Properties
     }
 }

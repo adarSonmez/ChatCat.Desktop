@@ -1,5 +1,4 @@
 ﻿using ChatCat.Core.ViewModels.Concrete.Chat;
-using System.Windows.Controls;
 
 namespace ChatCat.Desktop.Controls
 {

@@ -9,7 +9,7 @@ namespace ChatCat.Desktop.Extensions
     /// </summary>
     public static class FrameworkElementExtensions
     {
-        #region FrameworkElement Animations
+        #region FrameworkElement Animation Definitions
 
         /// <summary>
         /// Animates the element by sliding in from the right while fading in.
@@ -123,7 +123,9 @@ namespace ChatCat.Desktop.Extensions
             element.Visibility = Visibility.Collapsed;
         }
 
-        #endregion FrameworkElement Animations
+        #endregion FrameworkElement Animation Definitions
+
+        #region FrameworkElement Animation Execution
 
         /// <summary>
         /// Begins the specified animation on the FrameworkElement.
@@ -163,5 +165,7 @@ namespace ChatCat.Desktop.Extensions
                     break;
             }
         }
+
+        #endregion FrameworkElement Animation Execution
     }
 }

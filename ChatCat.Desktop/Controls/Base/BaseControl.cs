@@ -17,10 +17,6 @@ namespace ChatCat.Desktop.Controls
 
         #region Constructors
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BaseControl{VM}"/> class.
-        /// Sets up ViewModel binding and sets the <see cref="FrameworkElement.DataContext"/> of the control to the ViewModel.
-        /// </summary>
         public BaseControl()
         {
             DataContext = _viewModel;
@@ -51,14 +47,13 @@ namespace ChatCat.Desktop.Controls
         #endregion Public Properties
     }
 
+    /// <summary>
+    /// A base class for WPF user controls that provides loading and unloading animations.
+    /// </summary>
     public class BaseControl : UserControl
     {
         #region Constructors
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BaseControl{VM}"/> class.
-        /// Sets up ViewModel binding and subscribes to the <see cref="UserControl.Loaded"/> and <see cref="UserControl.Unloaded"/> events.
-        /// </summary>
         public BaseControl()
         {
             Loaded += BaseControl_Loaded;
@@ -69,22 +64,8 @@ namespace ChatCat.Desktop.Controls
 
         #region Control Animations
 
-        /// <summary>
-        /// Gets or sets the duration in seconds for the animations (both load and unload animations).
-        /// The default value is 0.8 seconds.
-        /// </summary>
         protected virtual float SlideSeconds { get; set; } = 0.8f;
-
-        /// <summary>
-        /// Gets or sets the type of animation that should play when the control is loaded.
-        /// The default value is <see cref="FrameworkAnimationType.None"/>, meaning no animation will play.
-        /// </summary>
         protected virtual FrameworkAnimationType ControlLoadAnimation { get; set; } = FrameworkAnimationType.None;
-
-        /// <summary>
-        /// Gets or sets the type of animation that should play when the control is unloaded.
-        /// The default value is <see cref="FrameworkAnimationType.None"/>, meaning no animation will play.
-        /// </summary>
         protected virtual FrameworkAnimationType ControlUnloadAnimation { get; set; } = FrameworkAnimationType.None;
 
         #endregion Control Animations

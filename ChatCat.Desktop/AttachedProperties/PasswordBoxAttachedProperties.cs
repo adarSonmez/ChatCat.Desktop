@@ -69,36 +69,22 @@ namespace ChatCat.Desktop.AttachedProperties
 
         #region Setters and Getters
 
-        /// <summary>
-        /// Gets the value of the MonitorPasswordChanged attached property.
-        /// </summary>
-        /// <param name="passwordBox">The object from which to read the MonitorPasswordChanged value.</param>
-        /// <returns>A boolean value indicating whether the password is being monitored.</returns>
         public static bool GetMonitorPassword(PasswordBox passwordBox)
         {
             return (bool)passwordBox.GetValue(MonitorPasswordProperty);
         }
 
-        /// <summary>
-        /// Sets the value of the MonitorPasswordChanged attached property.
-        /// </summary>
         public static bool GetHasText(PasswordBox passwordBox)
         {
             return (bool)passwordBox.GetValue(HasTextProperty);
         }
 
-        /// <summary>
-        /// Sets the value of the MonitorPasswordChanged attached property.
-        /// </summary>
         public static void SetHasText(PasswordBox passwordBox)
         {
             passwordBox.SetValue(HasTextProperty, passwordBox.SecurePassword.Length > 0);
         }
 
-        /// <summary>
-        /// Sets the value of the MonitorPasswordChanged attached property.
-        /// </summary>
-        private static void SetMonitorPassword(PasswordBox passwordBox, bool value)
+        public static void SetMonitorPassword(PasswordBox passwordBox, bool value)
         {
             passwordBox.SetValue(MonitorPasswordProperty, value);
         }

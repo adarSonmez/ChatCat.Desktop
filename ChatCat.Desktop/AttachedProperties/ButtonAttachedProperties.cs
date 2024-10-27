@@ -44,22 +44,11 @@ namespace ChatCat.Desktop.AttachedProperties
 
         #region Setters and Getters
 
-        /// <summary>
-        /// Gets the value of the <see cref="IsBusyProperty"/> for the given <see cref="DependencyObject"/>.
-        /// </summary>
-        /// <param name="obj">The object from which to read the IsBusy value.</param>
-        /// <returns>A boolean value indicating whether the button is busy.</returns>
         public static bool GetIsBusy(DependencyObject obj)
         {
             return (bool)obj.GetValue(IsBusyProperty);
         }
 
-        /// <summary>
-        /// Sets the value of the <see cref="IsBusyProperty"/> for the given <see cref="DependencyObject"/>.
-        /// This will enable or disable the button based on the value.
-        /// </summary>
-        /// <param name="obj">The object on which to set the IsBusy value.</param>
-        /// <param name="value">True to mark the button as busy (disabled), false to mark it as not busy (enabled).</param>
         public static void SetIsBusy(DependencyObject obj, bool value)
         {
             obj.SetValue(IsBusyProperty, value);

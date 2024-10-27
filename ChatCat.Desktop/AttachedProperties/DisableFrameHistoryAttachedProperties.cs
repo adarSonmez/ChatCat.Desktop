@@ -62,21 +62,11 @@ namespace ChatCat.Desktop.AttachedProperties
 
         #region Setters and Getters
 
-        /// <summary>
-        /// Gets the value of the DisableFrameHistory attached property.
-        /// </summary>
-        /// <param name="obj">The object from which to read the DisableFrameHistory value.</param>
-        /// <returns>A boolean value indicating whether the frame history is disabled.</returns>
         public static bool GetDisableFrameHistory(DependencyObject obj)
         {
             return (bool)obj.GetValue(DisableFrameHistoryProperty);
         }
 
-        /// <summary>
-        /// Sets the value of the DisableFrameHistory attached property.
-        /// </summary>
-        /// <param name="obj">The object on which to set the DisableFrameHistory value.</param>
-        /// <param name="value">True to disable frame history, false to enable it.</param>
         public static void SetDisableFrameHistory(DependencyObject obj, bool value)
         {
             obj.SetValue(DisableFrameHistoryProperty, value);

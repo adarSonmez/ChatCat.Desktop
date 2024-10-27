@@ -17,9 +17,6 @@ namespace ChatCat.Desktop.Pages
 
         #region Constructors
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BasePage{VM}"/> class.
-        /// Sets up ViewModel binding and sets the <see cref="FrameworkElement.DataContext"/> of the page to the ViewModel.
         public BasePage()
         {
             DataContext = _viewModel;
@@ -57,10 +54,6 @@ namespace ChatCat.Desktop.Pages
     {
         #region Constructors
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BasePage{VM}"/> class.
-        /// Sets up ViewModel binding, and subscribes to the <see cref="Page.Loaded"/> and <see cref="Page.Unloaded"/> events.
-        /// </summary>
         public BasePage()
         {
             Loaded += BasePage_Loaded;
@@ -71,22 +64,8 @@ namespace ChatCat.Desktop.Pages
 
         #region Page Animations
 
-        /// <summary>
-        /// Gets or sets the duration in seconds for the page animations (both load and unload animations).
-        /// The default value is 0.8 seconds.
-        /// </summary>
         protected virtual float SlideSeconds { get; set; } = 0.8f;
-
-        /// <summary>
-        /// Gets or sets the type of animation that should play when the page is loaded.
-        /// The default value is <see cref="FrameworkAnimationType.None"/>, meaning no animation will play.
-        /// </summary>
         protected virtual FrameworkAnimationType PageLoadAnimation { get; set; } = FrameworkAnimationType.None;
-
-        /// <summary>
-        /// Gets or sets the type of animation that should play when the page is unloaded.
-        /// The default value is <see cref="FrameworkAnimationType.None"/>, meaning no animation will play.
-        /// </summary>
         protected virtual FrameworkAnimationType PageUnloadAnimation { get; set; } = FrameworkAnimationType.None;
 
         #endregion Page Animations
