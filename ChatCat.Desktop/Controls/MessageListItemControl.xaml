@@ -5,44 +5,48 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:ChatCat.Desktop.Controls"
              xmlns:vconv="clr-namespace:ChatCat.Desktop.Converters.ValueConverters"
-             mc:Ignorable="d"
-             d:DesignWidth="200">
+             mc:Ignorable="d">
 
     <local:BaseControl.Resources>
-        <Brush x:Key="SentMessageBubbleBrush">Teal</Brush>
+        <Brush x:Key="SentMessageBubbleBrush">MediumSlateBlue</Brush>
         <Brush x:Key="ReceivedMessageBubbleBrush">White</Brush>
-        <Brush x:Key="ReceivedMessageTextBrush">Teal</Brush>
+        <Brush x:Key="ReceivedMessageTextBrush">DarkSlateBlue</Brush>
         <Brush x:Key="SentMessageTextBrush">White</Brush>
+
+        <Style x:Key="MessageGridContainerStyle" TargetType="Grid">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsOwnMessage}" Value="True">
+                    <Setter Property="HorizontalAlignment" Value="Right" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
 
         <Style x:Key="MessageBubbleStyle" TargetType="Border">
             <Setter Property="Margin" Value="4" />
-            <Setter Property="MaxWidth" Value="500"/>
-            <Setter Property="MinWidth" Value="200"/>
-
+            <Setter Property="MaxWidth" Value="500" />
+            <Setter Property="MinWidth" Value="200" />
+            <Setter Property="CornerRadius" Value="15 15 15 0" />
+            <Setter Property="Background" Value="{StaticResource ReceivedMessageBubbleBrush}" />
             <Style.Triggers>
                 <DataTrigger Binding="{Binding IsOwnMessage}" Value="True">
                     <Setter Property="Background" Value="{StaticResource SentMessageBubbleBrush}" />
                     <Setter Property="CornerRadius" Value="15 15 0 15" />
-                    <Setter Property="HorizontalAlignment" Value="Right"/>
-                </DataTrigger>
-                <DataTrigger Binding="{Binding IsOwnMessage}" Value="False">
-                    <Setter Property="Background" Value="{StaticResource ReceivedMessageBubbleBrush}" />
-                    <Setter Property="CornerRadius" Value="15 15 15 0" />
-                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                    <Setter Property="HorizontalAlignment" Value="Right" />
                 </DataTrigger>
             </Style.Triggers>
         </Style>
 
         <Style x:Key="MessageContentTextBlockStyle" TargetType="TextBlock">
-            <Setter Property="Foreground" Value="{StaticResource SentMessageTextBrush}" />
+            <Setter Property="Foreground" Value="{StaticResource ReceivedMessageTextBrush}" />
             <Style.Triggers>
-                <DataTrigger Binding="{Binding IsOwnMessage}" Value="False">
-                    <Setter Property="Foreground" Value="{StaticResource ReceivedMessageTextBrush}" />
+                <DataTrigger Binding="{Binding IsOwnMessage}" Value="True">
+                    <Setter Property="Foreground" Value="{StaticResource SentMessageTextBrush}" />
                 </DataTrigger>
             </Style.Triggers>
         </Style>
 
-        <Style x:Key="MessageTimeTextBlockStyle" TargetType="TextBlock">
+        <Style x:Key="MessageTimeAgoTextBlockStyle" TargetType="TextBlock">
             <Setter Property="HorizontalAlignment" Value="Right" />
             <Setter Property="Foreground" Value="Gray" />
             <Setter Property="Margin" Value="0 5 0 0" />
@@ -52,33 +56,96 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+
+        <Style x:Key="MessageTimeDetailsStyle" TargetType="StackPanel">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Opacity" Value="0" />
+            <Setter Property="Margin" Value="8 0 0 4" />
+
+            <!-- Set initial opacity to 0 -->
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsOwnMessage}" Value="True">
+                    <Setter Property="HorizontalAlignment" Value="Right" />
+                    <Setter Property="Margin" Value="0 0 8 4" />
+                </DataTrigger>
+                <!-- Add DataTrigger for IsMouseOver on the parent Grid -->
+                <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Grid}}" Value="True">
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                                    Storyboard.TargetProperty="Opacity"
+                                    To="1"
+                                    Duration="0:0:0.2" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.EnterActions>
+                    <DataTrigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                                    Storyboard.TargetProperty="Opacity"
+                                    To="0"
+                                    Duration="0:0:0.2" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.ExitActions>
+                </DataTrigger>
+            </Style.Triggers>
+
+            <Style.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="FontSize" Value="{StaticResource FontSizeXXSmall}" />
+                    <Setter Property="Foreground" Value="Gray" />
+                    <Setter Property="HorizontalAlignment" Value="Left"/>
+
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsOwnMessage}" Value="True">
+                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Style.Resources>
+        </Style>
     </local:BaseControl.Resources>
 
-    <Border Padding="10 10 10 4" Style="{StaticResource MessageBubbleStyle}">
-        <Border.Effect>
-            <DropShadowEffect ShadowDepth="0" BlurRadius="2" Color="Gray" />
-        </Border.Effect>
+    <Grid Style="{StaticResource MessageGridContainerStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-        <Grid Height="Auto">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+        <Border Grid.Row="0" Padding="10 10 10 4" Style="{StaticResource MessageBubbleStyle}">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0" BlurRadius="2" Color="Gray" />
+            </Border.Effect>
 
-            <!-- Message Text -->
-            <TextBlock
+            <Grid Height="Auto">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!-- Message Text -->
+                <TextBlock
                 Grid.Row="0"
                 Text="{Binding Text}"
                 Style="{StaticResource MessageContentTextBlockStyle}"
                 FontSize="{StaticResource FontSizeNormal}"
                 TextWrapping="Wrap" />
 
-            <!-- Message Time -->
-            <TextBlock
+                <!-- Message Time -->
+                <TextBlock
                 Grid.Row="1"
-                Text="{Binding CreatedAt}"
-                Style="{StaticResource MessageTimeTextBlockStyle}"
+                Text="{Binding SentAt, Converter={vconv:DateTimeOffsetToTimeAgoValueConverter}}"
+                Style="{StaticResource MessageTimeAgoTextBlockStyle}"
                 FontSize="{StaticResource FontSizeXXSmall}" />
-        </Grid>
-    </Border>
+            </Grid>
+        </Border>
+
+        <StackPanel Grid.Row="1" Style="{StaticResource MessageTimeDetailsStyle}">
+            <TextBlock Text="{Binding SentAt, Converter={vconv:DateTimeOffsetToTimedMessageStatusValueConverter}, ConverterParameter=Sent}" />
+            <TextBlock Text="{Binding SeenAt, Converter={vconv:DateTimeOffsetToTimedMessageStatusValueConverter}, ConverterParameter=Seen}" Foreground="MediumPurple" />
+        </StackPanel>
+    </Grid>
 </local:BaseControl>

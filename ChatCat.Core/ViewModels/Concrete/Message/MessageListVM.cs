@@ -1,5 +1,4 @@
 ﻿using ChatCat.Core.ViewModels.Abstract;
-using ChatCat.Core.ViewModels.Concrete.Chat;
 
 namespace ChatCat.Core.ViewModels.Concrete.Message
 {
@@ -10,18 +9,67 @@ namespace ChatCat.Core.ViewModels.Concrete.Message
     {
         public IList<MessageListItemVM> Items { get; set; } =
         [
-            new MessageListItemVM { Text = "Hello", CreatedAt = DateTime.Now, IsOwnMessage = true },
-            new MessageListItemVM { Text = "Hi", CreatedAt = DateTime.Now, IsOwnMessage = false },
-            new MessageListItemVM { Text = "How are you?", CreatedAt = DateTime.Now, IsOwnMessage = true },
-            new MessageListItemVM { Text = "I'm fine", CreatedAt = DateTime.Now, IsOwnMessage = false },
-            new MessageListItemVM { Text = "Good to hear", CreatedAt = DateTime.Now, IsOwnMessage = true },
-            new MessageListItemVM { Text = "How about you?", CreatedAt = DateTime.Now, IsOwnMessage = false },
-            new MessageListItemVM { Text = "I'm good", CreatedAt = DateTime.Now, IsOwnMessage = true },
-            new MessageListItemVM { Text = "That's great", CreatedAt = DateTime.Now, IsOwnMessage = false },
-            new MessageListItemVM { Text = "What are you doing?", CreatedAt = DateTime.Now, IsOwnMessage = true },
-            new MessageListItemVM { Text = "Nothing much", CreatedAt = DateTime.Now, IsOwnMessage = false },
-            new MessageListItemVM { Text = "Just chilling", CreatedAt = DateTime.Now, IsOwnMessage = true },
-            new MessageListItemVM { Text = "Cool", CreatedAt = DateTime.Now, IsOwnMessage = false },
+            new MessageListItemVM
+            {
+                Text = "Hey, how are you?",
+                SentAt = DateTimeOffset.Now - TimeSpan.FromDays(500),
+                IsOwnMessage = false,
+                SeenAt = DateTimeOffset.Now - TimeSpan.FromDays(90),
+            },
+            new MessageListItemVM
+            {
+                Text = "I'm good, thanks! How are you?",
+                SentAt = DateTimeOffset.Now - TimeSpan.FromDays(15),
+                IsOwnMessage = true,
+                SeenAt = DateTimeOffset.Now - TimeSpan.FromDays(15),
+            },
+            new MessageListItemVM
+            {
+                Text = "I'm great, thanks for asking!",
+                SentAt = DateTimeOffset.Now - TimeSpan.FromDays(1),
+                IsOwnMessage = false,
+                SeenAt = DateTimeOffset.Now - TimeSpan.FromDays(1)
+            },
+            new MessageListItemVM
+            {
+                Text = "That's good to hear!",
+                SentAt = DateTimeOffset.Now - TimeSpan.FromHours(3),
+                IsOwnMessage = true,
+                SeenAt = DateTimeOffset.Now - TimeSpan.FromHours(2),
+            },
+            new MessageListItemVM
+            {
+                Text = "So, what are you up to today?",
+                SentAt = DateTimeOffset.Now - TimeSpan.FromMinutes(3),
+                IsOwnMessage = false,
+                SeenAt = DateTimeOffset.Now - TimeSpan.FromMinutes(2)
+            },
+            new MessageListItemVM
+            {
+                Text = "Not much, just relaxing at home.",
+                SentAt = DateTimeOffset.Now - TimeSpan.FromSeconds(60),
+                IsOwnMessage = true,
+                SeenAt = DateTimeOffset.Now - TimeSpan.FromSeconds(60),
+            },
+            new MessageListItemVM
+            {
+                Text = "Sounds nice, enjoy your day!",
+                SentAt = DateTimeOffset.Now - TimeSpan.FromSeconds(60),
+                IsOwnMessage = false,
+                SeenAt = DateTimeOffset.Now - TimeSpan.FromSeconds(60)
+            },
+            new MessageListItemVM
+            {
+                Text = "Thanks, you too!",
+                SentAt = DateTimeOffset.Now - TimeSpan.FromSeconds(20),
+                IsOwnMessage = true,
+            },
+            new MessageListItemVM
+            {
+                Text = "Bye!",
+                SentAt = DateTimeOffset.Now,
+                IsOwnMessage = true,
+            }
         ];
     }
 }

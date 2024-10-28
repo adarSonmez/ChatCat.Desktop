@@ -11,7 +11,9 @@ namespace ChatCat.Core.ViewModels.Concrete.Message
 
         public string Text { get; set; } = default!;
 
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTimeOffset SentAt { get; set; } = DateTimeOffset.Now;
+
+        public DateTimeOffset SeenAt { get; set; } = DateTimeOffset.MinValue;
 
         public bool IsOwnMessage { get; set; } = false;
 
