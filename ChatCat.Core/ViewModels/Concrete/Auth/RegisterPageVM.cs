@@ -16,7 +16,7 @@ namespace ChatCat.Core.ViewModels.Concrete.Auth
     {
         #region Private Fields
 
-        private bool _registerIsRunning;
+        private bool _isRegisterRunning;
 
         #endregion Private Fields
 
@@ -24,14 +24,14 @@ namespace ChatCat.Core.ViewModels.Concrete.Auth
 
         public string? Username { get; set; }
 
-        public bool RegisterIsRunning
+        public bool IsRegisterRunning
         {
-            get => _registerIsRunning;
+            get => _isRegisterRunning;
             set
             {
-                if (_registerIsRunning != value)
+                if (_isRegisterRunning != value)
                 {
-                    _registerIsRunning = value;
+                    _isRegisterRunning = value;
                     OnPropertyChanged();
                 }
             }
@@ -51,7 +51,7 @@ namespace ChatCat.Core.ViewModels.Concrete.Auth
 
         private async Task Register(object? parameter)
         {
-            await RunCommandAsync(() => RegisterIsRunning, async () =>
+            await RunCommandAsync(() => IsRegisterRunning, async () =>
             {
                 await Task.Delay(1000);
 

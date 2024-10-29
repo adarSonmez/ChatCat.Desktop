@@ -1,5 +1,9 @@
 ﻿using ChatCat.Core.Commands;
+using ChatCat.Core.Constants.Enums;
+using ChatCat.Core.Utils.Locator;
 using ChatCat.Core.ViewModels.Abstract;
+using ChatCat.Core.ViewModels.Concrete.Application;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 
@@ -12,9 +16,11 @@ namespace ChatCat.Desktop.ViewModels
     {
         #region Private Fields
 
+        private readonly ApplicationVM _applicationVM;
         private Window _mainWindow;
         private int _outerMarginSize = 10;
         private int _windowRadiusSize = 12;
+        private Visibility _minimizaMaximizeBtnVisibility = Visibility.Visible;
 
         #endregion Private Fields
 
@@ -52,6 +58,19 @@ namespace ChatCat.Desktop.ViewModels
             set => _outerMarginSize = value;
         }
 
+        public Visibility MinimizaMaximizeBtnVisibility
+        {
+            get => _minimizaMaximizeBtnVisibility;
+            set
+            {
+                if (_minimizaMaximizeBtnVisibility != value)
+                {
+                    _minimizaMaximizeBtnVisibility = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         #endregion Public Properties
 
         #region Commands
@@ -68,7 +87,6 @@ namespace ChatCat.Desktop.ViewModels
         public MainWindowVM(Window mainWindow)
         {
             _mainWindow = mainWindow;
-
             _mainWindow.StateChanged += (sender, e) =>
             {
                 OnPropertyChanged(nameof(OuterMarginSize));
@@ -77,9 +95,25 @@ namespace ChatCat.Desktop.ViewModels
                 OnPropertyChanged(nameof(BorderRadiusThickness));
                 OnPropertyChanged(nameof(WindowCornerRadius));
             };
+
+            _applicationVM = CoreLocator.ApplicationVM;
+            _applicationVM.PropertyChanged += ApplicationVM_PropertyChanged;
+            UpdateWindowResizability();
         }
 
         #endregion Constructors
+
+        #region Event Handlers
+
+        private void ApplicationVM_PropertyChanged(object? sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(ApplicationVM.CurrentPage))
+            {
+                UpdateWindowResizability();
+            }
+        }
+
+        #endregion Event Handlers
 
         #region Private Methods
 
@@ -87,6 +121,23 @@ namespace ChatCat.Desktop.ViewModels
         {
             var position = Mouse.GetPosition(_mainWindow);
             return new Point(position.X + _mainWindow.Left, position.Y + _mainWindow.Top);
+        }
+
+        private void UpdateWindowResizability()
+        {
+            switch (_applicationVM.CurrentPage)
+            {
+                case ApplicationPage.Login:
+                case ApplicationPage.Register:
+                    _mainWindow.ResizeMode = ResizeMode.NoResize;
+                    MinimizaMaximizeBtnVisibility = Visibility.Collapsed;
+                    break;
+
+                default:
+                    _mainWindow.ResizeMode = ResizeMode.CanResize;
+                    MinimizaMaximizeBtnVisibility = Visibility.Visible;
+                    break;
+            }
         }
 
         #endregion Private Methods

@@ -8,7 +8,7 @@ namespace ChatCat.Core.ViewModels.Concrete.Application
     /// </summary>
     public class ApplicationVM : BaseViewModel
     {
-        private ApplicationPage _currentPage = ApplicationPage.Chat;
+        private ApplicationPage _currentPage = ApplicationPage.Login;
 
         public ApplicationPage CurrentPage
         {
