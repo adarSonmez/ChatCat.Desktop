@@ -1,5 +1,6 @@
 ﻿using ChatCat.Desktop.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using System.Windows;
 
 namespace ChatCat.Desktop.Extensions
 {
@@ -20,6 +21,12 @@ namespace ChatCat.Desktop.Extensions
             services.AddSingleton<MainWindowVM>();
 
             #endregion View Model Injections
+
+            #region View Injections
+
+            services.AddSingleton<MainWindow>();
+
+            #endregion View Injections
 
             return services;
         }

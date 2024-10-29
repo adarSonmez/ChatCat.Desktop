@@ -8,10 +8,12 @@ namespace ChatCat.Desktop
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(MainWindowVM viewModel)
         {
             InitializeComponent();
-            DataContext = new MainWindowVM(this);
+
+            DataContext = viewModel;
+            viewModel.MainWindow = this;
         }
     }
 }

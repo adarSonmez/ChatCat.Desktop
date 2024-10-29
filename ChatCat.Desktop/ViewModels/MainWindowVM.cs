@@ -17,7 +17,7 @@ namespace ChatCat.Desktop.ViewModels
         #region Private Fields
 
         private readonly ApplicationVM _applicationVM;
-        private Window _mainWindow;
+        private Window _mainWindow = null!;
         private int _outerMarginSize = 10;
         private int _windowRadiusSize = 12;
         private Visibility _minimizaMaximizeBtnVisibility = Visibility.Visible;
@@ -36,6 +36,17 @@ namespace ChatCat.Desktop.ViewModels
                     _mainWindow = value;
                     OnPropertyChanged();
                 }
+
+                _mainWindow.StateChanged += (sender, e) =>
+                {
+                    OnPropertyChanged(nameof(OuterMarginSize));
+                    OnPropertyChanged(nameof(OuterMarginSizeThickness));
+                    OnPropertyChanged(nameof(WindowRadiusSize));
+                    OnPropertyChanged(nameof(BorderRadiusThickness));
+                    OnPropertyChanged(nameof(WindowCornerRadius));
+                };
+
+                UpdateWindowResizability();
             }
         }
 
@@ -84,21 +95,10 @@ namespace ChatCat.Desktop.ViewModels
 
         #region Constructors
 
-        public MainWindowVM(Window mainWindow)
+        public MainWindowVM()
         {
-            _mainWindow = mainWindow;
-            _mainWindow.StateChanged += (sender, e) =>
-            {
-                OnPropertyChanged(nameof(OuterMarginSize));
-                OnPropertyChanged(nameof(OuterMarginSizeThickness));
-                OnPropertyChanged(nameof(WindowRadiusSize));
-                OnPropertyChanged(nameof(BorderRadiusThickness));
-                OnPropertyChanged(nameof(WindowCornerRadius));
-            };
-
             _applicationVM = CoreLocator.ApplicationVM;
             _applicationVM.PropertyChanged += ApplicationVM_PropertyChanged;
-            UpdateWindowResizability();
         }
 
         #endregion Constructors

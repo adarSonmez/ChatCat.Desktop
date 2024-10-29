@@ -50,7 +50,7 @@ namespace ChatCat.Desktop
 
             await _host.StartAsync();
 
-            Current.MainWindow = new MainWindow();
+            Current.MainWindow = _host.Services.GetRequiredService<MainWindow>();
             Current.MainWindow.Show();
 
             base.OnStartup(e);

@@ -8,15 +8,19 @@
     xmlns:vm="clr-namespace:ChatCat.Core.ViewModels.Concrete.Auth;assembly=ChatCat.Core"
     xmlns:attcp="clr-namespace:ChatCat.Desktop.AttachedProperties"
     xmlns:local="clr-namespace:ChatCat.Desktop.Pages"
+    xmlns:locator="clr-namespace:ChatCat.Desktop.Utils.Locators"
+    xmlns:vconv="clr-namespace:ChatCat.Desktop.Converters.ValueConverters"
+    xmlns:enums="clr-namespace:ChatCat.Core.Constants.Enums;assembly=ChatCat.Core"
     mc:Ignorable="d"
     d:DesignHeight="600" d:DesignWidth="600"
     Title="RegisterPage">
 
-    <Grid MaxWidth="600" MaxHeight="600">
-        <Grid.Background>
+    <Border MaxWidth="600" MaxHeight="600" CornerRadius="{Binding WindowCornerRadius, Source={x:Static locator:WpfLocator.MainWindowVM}, Converter={vconv:CornerRadiusValueConverter}, ConverterParameter={x:Static enums:CornerType.Bottom}}">
+
+        <Border.Background>
             <ImageBrush
                 ImageSource="/Images/Backgrounds/login-bg.png" />
-        </Grid.Background>
+        </Border.Background>
 
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <StackPanel
@@ -28,7 +32,7 @@
                     MinWidth="350"
                     MinHeight="300"
                     CornerRadius="10"
-                    Margin="0 0 0 60"
+                    Margin="0 0 0 40"
                     Padding="20">
 
                     <Border.Effect>
@@ -60,7 +64,7 @@
                             Command="{Binding LoginCommand}"
                             CommandParameter="{Binding ElementName=PasswordBox}"
                             attcp:ButtonAttachedProperties.IsBusy="{Binding LoginIsRunning, Mode=TwoWay}"
-                            Content="Login"
+                            Content="Register"
                             Margin="0,10,0,10" />
 
                         <TextBlock
@@ -76,5 +80,5 @@
                 </Border>
             </StackPanel>
         </ScrollViewer>
-    </Grid>
+    </Border>
 </local:BasePage>
