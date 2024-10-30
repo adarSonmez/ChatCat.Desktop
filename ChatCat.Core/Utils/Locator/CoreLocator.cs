@@ -6,16 +6,14 @@ using ChatCat.Core.ViewModels.Concrete.Chat;
 namespace ChatCat.Core.Utils.Locator
 {
     /// <summary>
-    /// Locates the view models in the core project
+    /// A locator class to resolve and locate core services.
     /// </summary>
     public class CoreLocator
     {
         #region View Model Locatings
 
         public static ApplicationVM ApplicationVM => DependencyResolver.Resolve<ApplicationVM>()!;
-        public static ChatPageVM ChatPageVM => DependencyResolver.Resolve<ChatPageVM>()!;
         public static ChatListVM ChatListVM => DependencyResolver.Resolve<ChatListVM>()!;
-        public static ChatListItemVM ChatListItemVM => DependencyResolver.Resolve<ChatListItemVM>()!;
         public static LoginPageVM LoginPageVM => DependencyResolver.Resolve<LoginPageVM>()!;
         public static RegisterPageVM RegisterPageVM => DependencyResolver.Resolve<RegisterPageVM>()!;
 
