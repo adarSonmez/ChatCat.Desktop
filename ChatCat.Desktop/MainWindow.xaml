@@ -61,8 +61,8 @@
 
                                         <!-- Window buttons -->
                                         <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
-                                            <Button Command="{Binding MinimizeCommand}" Content="_" Style="{StaticResource WindowControlButtonStyle}" Visibility="{Binding MinimizaMaximizeBtnVisibility}" />
-                                            <Button Command="{Binding MaximizeCommand}" Content="□" Style="{StaticResource WindowControlButtonStyle}" Visibility="{Binding MinimizaMaximizeBtnVisibility}" />
+                                            <Button Command="{Binding MinimizeCommand}" Content="_" Style="{StaticResource WindowControlButtonStyle}" Visibility="{Binding MinimizeMaximizeBtnVisibility}" />
+                                            <Button Command="{Binding MaximizeCommand}" Content="□" Style="{StaticResource WindowControlButtonStyle}" Visibility="{Binding MinimizeMaximizeBtnVisibility}" />
                                             <Button Command="{Binding CloseCommand}" Content="x" Style="{StaticResource WindowCloseControlButtonStyle}" />
                                         </StackPanel>
                                     </Grid>
