@@ -13,7 +13,7 @@ namespace ChatCat.Core.ViewModels.Concrete.Application
         public ApplicationPage CurrentPage
         {
             get => _currentPage;
-            set
+            private set
             {
                 if (_currentPage != value)
                 {
@@ -22,5 +22,18 @@ namespace ChatCat.Core.ViewModels.Concrete.Application
                 }
             }
         }
+
+        #region Public Methods
+
+        /// <summary>
+        /// Navigates to the specified page.
+        /// </summary>
+        /// <param name="page">The page to navigate to.</param>
+        public void NavigateTo(ApplicationPage page)
+        {
+            CurrentPage = page;
+        }
+
+        #endregion Public Methods
     }
 }

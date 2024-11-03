@@ -1,7 +1,6 @@
 ﻿using ChatCat.Core.Commands;
 using ChatCat.Core.Constants.Enums;
 using ChatCat.Core.Utils.Locator;
-using ChatCat.Core.Utils.Navigation;
 using ChatCat.Core.ViewModels.Abstract;
 using System.Windows.Input;
 
@@ -43,7 +42,7 @@ namespace ChatCat.Core.ViewModels.Concrete.Auth
 
         public ICommand RegisterCommand => new RelayCommand(async (parameter) => await Register(parameter));
 
-        public ICommand NavigateToLoginCommand => new RelayCommand((_) => NavigationHelper.NavigateTo(ApplicationPage.Login));
+        public ICommand NavigateToLoginCommand => new RelayCommand((_) => CoreLocator.ApplicationVM.NavigateTo(ApplicationPage.Login));
 
         #endregion Commands
 

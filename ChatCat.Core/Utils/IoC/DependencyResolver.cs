@@ -33,6 +33,7 @@ namespace ChatCat.Core.Utils.IoC
         /// </summary>
         /// <param name="serviceType">The type of the service.</param>
         /// <returns>The service instance, or null if not found.</returns>
+        /// <remarks>This method is not type-safe and should be used with caution.</remarks>
         public static object? Resolve(Type serviceType)
         {
             return _serviceProvider.GetService(serviceType);

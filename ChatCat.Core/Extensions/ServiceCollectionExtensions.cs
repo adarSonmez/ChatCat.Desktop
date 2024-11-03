@@ -14,7 +14,7 @@ namespace ChatCat.Core.Extensions
         /// Adds core services to the service collection.
         /// </summary>
         /// <param name="services">The service collection.</param>
-        /// <returns>The service collection.</returns>
+        /// <returns>The service collection with the core services added.</returns>
         public static IServiceCollection AddCoreServices(this IServiceCollection services)
         {
             #region View Model Injections
@@ -22,9 +22,7 @@ namespace ChatCat.Core.Extensions
             services.AddSingleton<ApplicationVM>();
             services.AddSingleton<LoginPageVM>();
             services.AddSingleton<RegisterPageVM>();
-            services.AddSingleton<ChatPageVM>();
             services.AddSingleton<ChatListVM>();
-            services.AddSingleton<ChatPageVM>();
 
             #endregion View Model Injections
 
