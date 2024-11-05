@@ -1,14 +1,10 @@
 ﻿# ChatCat
 
-### Main Window
-
-![Main Window](Images/Screenshots/main-window.png)
-
 ### Login View
 
 ![Login View](Images/Screenshots/login-view.png)
 
 
-#### Comming Soon...
+#### Chat View
 
-![ChatCat Logo](Images/Logos/logo-small.png)
+![ChatCat Logo](Images/Screenshots/chat-view.png)
