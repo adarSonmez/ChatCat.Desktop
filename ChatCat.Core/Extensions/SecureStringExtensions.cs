@@ -11,7 +11,7 @@ namespace ChatCat.Core.Extensions
         /// <summary>
         /// Converts a SecureString to an unsecure string.
         /// </summary>
-        /// <param name="secureString">The SecureString to convert.</param>
+        /// <param name="secureString">The SecureString to convert unsecurely.</param>
         /// <returns>The unsecure string representation of the SecureString.</returns>
         public static string? ToUnsecureString(this SecureString secureString)
         {

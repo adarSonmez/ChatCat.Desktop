@@ -2,6 +2,7 @@
 using ChatCat.Desktop.Converters.ValueConverters.Base;
 using System.Globalization;
 using System.Windows;
+using System.Windows.Data;
 
 namespace ChatCat.Desktop.Converters.ValueConverters
 {
@@ -20,6 +21,11 @@ namespace ChatCat.Desktop.Converters.ValueConverters
         /// <returns>The converted <see cref="CornerRadius"/> value.</returns>
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            if (value == null || parameter == null)
+            {
+                return new CornerRadius(0);
+            }
+
             if (value is CornerRadius cornerRadius && parameter is CornerType cornerType)
             {
                 switch (cornerType)
@@ -31,13 +37,13 @@ namespace ChatCat.Desktop.Converters.ValueConverters
                         return new CornerRadius(0, cornerRadius.TopRight, 0, 0);
 
                     case CornerType.BottomLeft:
-                        return new CornerRadius(0, 0, cornerRadius.BottomLeft, 0);
+                        return new CornerRadius(0, 0, 0, cornerRadius.BottomLeft);
 
                     case CornerType.BottomRight:
-                        return new CornerRadius(0, 0, 0, cornerRadius.BottomRight);
+                        return new CornerRadius(0, 0, cornerRadius.BottomRight, 0);
 
                     case CornerType.Bottom:
-                        return new CornerRadius(0, 0, cornerRadius.BottomLeft, cornerRadius.BottomRight);
+                        return new CornerRadius(0, 0, cornerRadius.BottomRight, cornerRadius.BottomLeft);
 
                     case CornerType.Top:
                         return new CornerRadius(cornerRadius.TopLeft, cornerRadius.TopRight, 0, 0);
@@ -62,14 +68,7 @@ namespace ChatCat.Desktop.Converters.ValueConverters
             return new CornerRadius(0, 0, 0, 0);
         }
 
-        /// <summary>
-        /// Converts a <see cref="CornerRadius"/> value back to the original value. This method is not implemented.
-        /// </summary>
-        /// <param name="value">The <see cref="CornerRadius"/> value to convert back.</param>
-        /// <param name="targetType">The type of the binding target property.</param>
-        /// <param name="parameter">The converter parameter to use.</param>
-        /// <param name="culture">The culture to use in the converter.</param>
-        /// <returns>The converted back <see cref="CornerRadius"/> value.</returns>
+        /// <exception cref="NotImplementedException">This method is not implemented.</exception>
         public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();

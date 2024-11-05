@@ -1,16 +1,18 @@
-﻿<local:BaseControl x:Class="ChatCat.Desktop.Controls.MessageListItemControl"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="clr-namespace:ChatCat.Desktop.Controls"
-             xmlns:vconv="clr-namespace:ChatCat.Desktop.Converters.ValueConverters"
-             mc:Ignorable="d">
+﻿<base:BaseControl x:Class="ChatCat.Desktop.Controls.MessageListItemControl"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:vm="clr-namespace:ChatCat.Core.ViewModels.Concrete.Message;assembly=ChatCat.Core"
+                  xmlns:base="clr-namespace:ChatCat.Desktop.Controls.Base"
+                  xmlns:vconv="clr-namespace:ChatCat.Desktop.Converters.ValueConverters"
+                  d:DataContext="{d:DesignInstance Type=vm:MessageListItemVM}"
+                  mc:Ignorable="d">
 
-    <local:BaseControl.Resources>
-        <Brush x:Key="SentMessageBubbleBrush">MediumSlateBlue</Brush>
+    <UserControl.Resources>
+        <Brush x:Key="SentMessageBubbleBrush">Teal</Brush>
         <Brush x:Key="ReceivedMessageBubbleBrush">White</Brush>
-        <Brush x:Key="ReceivedMessageTextBrush">DarkSlateBlue</Brush>
+        <Brush x:Key="ReceivedMessageTextBrush">Teal</Brush>
         <Brush x:Key="SentMessageTextBrush">White</Brush>
 
         <Style x:Key="MessageGridContainerStyle" TargetType="Grid">
@@ -97,17 +99,17 @@
                 <Style TargetType="TextBlock">
                     <Setter Property="FontSize" Value="{StaticResource FontSizeXXSmall}" />
                     <Setter Property="Foreground" Value="Gray" />
-                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                    <Setter Property="HorizontalAlignment" Value="Left" />
 
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding IsOwnMessage}" Value="True">
-                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                            <Setter Property="HorizontalAlignment" Value="Right" />
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
             </Style.Resources>
         </Style>
-    </local:BaseControl.Resources>
+    </UserControl.Resources>
 
     <Grid Style="{StaticResource MessageGridContainerStyle}">
         <Grid.RowDefinitions>
@@ -129,15 +131,15 @@
                 <!-- Message Text -->
                 <TextBlock
                 Grid.Row="0"
-                Text="{Binding Text}"
+                Text="{Binding Text, FallbackValue='Loading...'}"
                 Style="{StaticResource MessageContentTextBlockStyle}"
-                FontSize="{StaticResource FontSizeNormal}"
+                FontSize="14"
                 TextWrapping="Wrap" />
 
                 <!-- Message Time -->
                 <TextBlock
                 Grid.Row="1"
-                Text="{Binding SentAt, Converter={vconv:DateTimeOffsetToTimeAgoValueConverter}}"
+                Text="{Binding SentAt, Converter={vconv:DateTimeOffsetToTimeAgoValueConverter}, FallbackValue='Just Now'}"
                 Style="{StaticResource MessageTimeAgoTextBlockStyle}"
                 FontSize="{StaticResource FontSizeXXSmall}" />
             </Grid>
@@ -145,7 +147,7 @@
 
         <StackPanel Grid.Row="1" Style="{StaticResource MessageTimeDetailsStyle}">
             <TextBlock Text="{Binding SentAt, Converter={vconv:DateTimeOffsetToTimedMessageStatusValueConverter}, ConverterParameter=Sent}" />
-            <TextBlock Text="{Binding SeenAt, Converter={vconv:DateTimeOffsetToTimedMessageStatusValueConverter}, ConverterParameter=Seen}" Foreground="MediumPurple" />
+            <TextBlock Text="{Binding SeenAt, Converter={vconv:DateTimeOffsetToTimedMessageStatusValueConverter}, ConverterParameter=Seen}" Foreground="Green" />
         </StackPanel>
     </Grid>
-</local:BaseControl>
+</base:BaseControl>

@@ -1,5 +1,6 @@
 ﻿using ChatCat.Desktop.Converters.ValueConverters.Base;
 using System.Globalization;
+using System.Windows.Data;
 
 namespace ChatCat.Desktop.Converters.ValueConverters
 {
@@ -32,14 +33,7 @@ namespace ChatCat.Desktop.Converters.ValueConverters
             return null;
         }
 
-        /// <summary>
-        /// ConvertBack is not implemented for this converter.
-        /// </summary>
-        /// <param name="value">The value to be converted back.</param>
-        /// <param name="targetType">The type of the target property.</param>
-        /// <param name="parameter">An optional parameter for the conversion.</param>
-        /// <param name="culture">The culture to be used for the conversion.</param>
-        /// <returns>NotImplementedException.</returns>
+        /// <exception cref="NotImplementedException">This method is not implemented.</exception>
         public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();

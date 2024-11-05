@@ -1,56 +1,64 @@
-﻿<local:BaseControl x:Class="ChatCat.Desktop.Controls.SideMenuControl"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="clr-namespace:ChatCat.Desktop.Controls"
-             mc:Ignorable="d"
-             d:DesignHeight="450" d:DesignWidth="260">
+﻿<base:BaseControl x:Class="ChatCat.Desktop.Controls.SideMenuControl"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:base="clr-namespace:ChatCat.Desktop.Controls.Base"
+                  xmlns:locator="clr-namespace:ChatCat.Desktop.Utils.Locators"
+                  xmlns:vconv="clr-namespace:ChatCat.Desktop.Converters.ValueConverters"
+                  xmlns:enums="clr-namespace:ChatCat.Core.Constants.Enums;assembly=ChatCat.Core"
+                  mc:Ignorable="d"
+                  d:DesignHeight="450" d:DesignWidth="260">
 
     <UserControl.Template>
-        <ControlTemplate TargetType="UserControl">
+        <ControlTemplate TargetType="{x:Type UserControl}">
             <Grid>
                 <Border>
                     <Border.Effect>
                         <DropShadowEffect ShadowDepth="2" BlurRadius="7" Color="Black" Opacity=".2" Direction="0" />
                     </Border.Effect>
-                    <Grid Grid.Column="0" Background="White">
+                    <Grid Grid.Column="0">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
 
-                        <!-- Top Chat Menu -->
-                        <Grid Grid.Row="0" Background="{StaticResource TopChatMenuIconColorBrush}" Height="46">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-
-                            <!-- Chat Icons -->
-                            <StackPanel Orientation="Horizontal" Grid.Column="0">
-                                <Button Style="{StaticResource IconButtonStyle}">
-                                    <TextBlock Text="&#xf086;" />
-                                </Button>
-                                <Button Style="{StaticResource IconButtonStyle}">
-                                    <TextBlock Text="&#xf0c0;" />
-                                </Button>
-                                <Button Style="{StaticResource IconButtonStyle}">
-                                    <TextBlock Text="&#xf15b;" />
-                                </Button>
-                            </StackPanel>
-
-                            <Button Grid.Column="2" Style="{StaticResource IconButtonStyle}">
-                                <TextBlock Text="&#xf013;" Foreground="{StaticResource TopChatMenuIconColorBrushDark}" />
-                            </Button>
-                        </Grid>
-
                         <!-- Chat List -->
-                        <ContentPresenter Grid.Row="1" />
+                        <ContentPresenter Grid.Row="0" />
+
+                        <!-- Chat Icon Menu -->
+                        <Border
+                            Background="Teal"
+                            Grid.Row="1"
+                            CornerRadius="0 0 0 10">
+                            <Grid Height="46">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Chat Icons -->
+                                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                                    <Button Style="{StaticResource IconButtonStyle}">
+                                        <TextBlock Text="&#xf086;" />
+                                    </Button>
+                                    <Button Style="{StaticResource IconButtonStyle}">
+                                        <TextBlock Text="&#xf0c0;" />
+                                    </Button>
+                                    <Button Style="{StaticResource IconButtonStyle}">
+                                        <TextBlock Text="&#xf15b;" />
+                                    </Button>
+                                </StackPanel>
+
+                                <Button Grid.Column="2" Style="{StaticResource IconButtonStyle}">
+                                    <TextBlock Text="&#xf013;" Foreground="#FFFF44" />
+                                </Button>
+                            </Grid>
+                        </Border>
                     </Grid>
                 </Border>
             </Grid>
         </ControlTemplate>
     </UserControl.Template>
-</local:BaseControl>
+</base:BaseControl>

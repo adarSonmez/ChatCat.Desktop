@@ -21,8 +21,14 @@ namespace ChatCat.Core.ViewModels.Concrete.Auth
 
         #region Public Properties
 
+        /// <summary>
+        /// The username of the user. Entered by the user in the login screen
+        /// </summary>
         public string? Username { get; set; }
 
+        /// <summary>
+        /// A flag indicating if the login command is running
+        /// </summary>
         public bool IsLoginRunning
         {
             get => _isLoginRunning;
@@ -40,8 +46,14 @@ namespace ChatCat.Core.ViewModels.Concrete.Auth
 
         #region Commands
 
+        /// <summary>
+        /// The cammand to start the login process
+        /// </summary>
         public ICommand LoginCommand => new RelayCommand(async (parameter) => await LoginAsync(parameter));
 
+        /// <summary>
+        /// The command to navigate to the register page
+        /// </summary>
         public ICommand NavigateToRegisterCommand => new RelayCommand((_) => CoreLocator.ApplicationVM.NavigateTo(ApplicationPage.Register));
 
         #endregion Commands

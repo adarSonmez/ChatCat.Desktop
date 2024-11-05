@@ -1,5 +1,6 @@
 ﻿using ChatCat.Core.Constants.Enums;
 using ChatCat.Core.ViewModels.Concrete.Auth;
+using System.Windows.Input;
 
 namespace ChatCat.Desktop.Pages
 {
@@ -14,6 +15,12 @@ namespace ChatCat.Desktop.Pages
             PageUnloadAnimation = FrameworkAnimationType.FadeOut;
 
             InitializeComponent();
+        }
+
+        private void BasePage_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+            UsernameTextBox.Focus();
+            Keyboard.Focus(UsernameTextBox);
         }
     }
 }

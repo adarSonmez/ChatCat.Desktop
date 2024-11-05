@@ -10,6 +10,10 @@ namespace ChatCat.Core.ViewModels.Concrete.Application
     {
         private ApplicationPage _currentPage = ApplicationPage.Login;
 
+        /// <summary>
+        /// The current page of the application.
+        /// </summary>
+        /// <remarks>To change the current page, use the <see cref="NavigateTo"/> method.</remarks>
         public ApplicationPage CurrentPage
         {
             get => _currentPage;

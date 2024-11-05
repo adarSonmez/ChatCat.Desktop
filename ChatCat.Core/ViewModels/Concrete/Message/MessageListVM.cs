@@ -7,6 +7,9 @@ namespace ChatCat.Core.ViewModels.Concrete.Message
     /// </summary>
     public class MessageListVM : BaseViewModel
     {
+        /// <summary>
+        /// The list of message list items.
+        /// </summary>
         public IList<MessageListItemVM> Items { get; set; } =
         [
             new MessageListItemVM

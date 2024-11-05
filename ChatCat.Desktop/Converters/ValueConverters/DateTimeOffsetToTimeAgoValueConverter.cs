@@ -1,5 +1,6 @@
 ﻿using ChatCat.Desktop.Converters.ValueConverters.Base;
 using System.Globalization;
+using System.Windows.Data;
 
 namespace ChatCat.Desktop.Converters.ValueConverters
 {
@@ -37,15 +38,7 @@ namespace ChatCat.Desktop.Converters.ValueConverters
             };
         }
 
-        /// <summary>
-        /// Converts a value back to a <see cref="DateTimeOffset"/> (not implemented).
-        /// </summary>
-        /// <param name="value">The value produced by the binding target.</param>
-        /// <param name="targetType">The type to convert to.</param>
-        /// <param name="parameter">Optional parameter for the conversion.</param>
-        /// <param name="culture">The culture to use in the converter.</param>
-        /// <returns>A <see cref="DateTimeOffset"/> value.</returns>
-        /// <exception cref="NotImplementedException">Thrown always as this method is not implemented.</exception>
+        /// <exception cref="NotImplementedException">This method is not implemented.</exception>
         public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();

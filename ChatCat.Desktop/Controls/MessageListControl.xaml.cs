@@ -1,5 +1,5 @@
-﻿using ChatCat.Core.ViewModels.Concrete.Chat;
-using ChatCat.Core.ViewModels.Concrete.Message;
+﻿using ChatCat.Core.ViewModels.Concrete.Message;
+using ChatCat.Desktop.Controls.Base;
 
 namespace ChatCat.Desktop.Controls
 {

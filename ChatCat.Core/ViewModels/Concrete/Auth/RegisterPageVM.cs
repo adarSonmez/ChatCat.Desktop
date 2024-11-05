@@ -9,7 +9,7 @@ using System.Windows.Input;
 namespace ChatCat.Core.ViewModels.Concrete.Auth
 {
     /// <summary>
-    /// The View Model for a login screen
+    /// The View Model for a register screen
     /// </summary>
     public class RegisterPageVM : BaseViewModel
     {
@@ -21,8 +21,14 @@ namespace ChatCat.Core.ViewModels.Concrete.Auth
 
         #region Public Properties
 
+        /// <summary>
+        /// The username of the user. Entered by the user in the register screen
+        /// </summary>
         public string? Username { get; set; }
 
+        /// <summary>
+        /// A flag indicating if the register command is running
+        /// </summary>
         public bool IsRegisterRunning
         {
             get => _isRegisterRunning;
@@ -40,8 +46,14 @@ namespace ChatCat.Core.ViewModels.Concrete.Auth
 
         #region Commands
 
+        /// <summary>
+        /// The command to start the register process
+        /// </summary>
         public ICommand RegisterCommand => new RelayCommand(async (parameter) => await Register(parameter));
 
+        /// <summary>
+        /// The command to navigate to the login page
+        /// </summary>
         public ICommand NavigateToLoginCommand => new RelayCommand((_) => CoreLocator.ApplicationVM.NavigateTo(ApplicationPage.Login));
 
         #endregion Commands

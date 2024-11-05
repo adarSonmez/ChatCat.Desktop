@@ -7,6 +7,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>Images\Logos\favicon.ico</ApplicationIcon>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
@@ -94,6 +95,9 @@
 
   <ItemGroup>
     <Compile Update="Controls\MessageListControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\ChatTitleBarControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Controls\MessageListItemControl.xaml.cs">

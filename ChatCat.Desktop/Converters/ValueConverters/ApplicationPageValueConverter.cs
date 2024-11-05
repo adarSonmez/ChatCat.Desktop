@@ -3,6 +3,7 @@ using ChatCat.Desktop.Converters.ValueConverters.Base;
 using ChatCat.Desktop.Pages;
 using System.Diagnostics;
 using System.Globalization;
+using System.Windows.Data;
 
 namespace ChatCat.Desktop.Converters.ValueConverters
 {
@@ -38,14 +39,7 @@ namespace ChatCat.Desktop.Converters.ValueConverters
             }
         }
 
-        /// <summary>
-        /// Converts the specified page object back to its corresponding enum value.
-        /// </summary>
-        /// <param name="value">The page object to be converted back.</param>
-        /// <param name="targetType">The type of the target property.</param>
-        /// <param name="parameter">An optional parameter for the conversion.</param>
-        /// <param name="culture">The culture to be used for the conversion.</param>
-        /// <returns>The corresponding enum value.</returns>
+        /// <exception cref="NotImplementedException">This method is not implemented.</exception>
         public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();

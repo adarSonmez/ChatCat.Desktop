@@ -5,15 +5,13 @@ namespace ChatCat.Desktop.AttachedProperties
 {
     /// <summary>
     /// Provides attached properties for <see cref="Button"/> controls.
-    /// This class includes functionality to disable a button when it is marked as 'busy'.
     /// </summary>
     public class ButtonAttachedProperties
     {
         #region Dependency Properties
 
         /// <summary>
-        /// Identifies the IsBusy attached property. When set to true, the button will be disabled;
-        /// when false, the button will be enabled.
+        /// Identifies the IsBusy attached property.
         /// </summary>
         public static readonly DependencyProperty IsBusyProperty = DependencyProperty.RegisterAttached(
             "IsBusy",
@@ -44,15 +42,9 @@ namespace ChatCat.Desktop.AttachedProperties
 
         #region Setters and Getters
 
-        public static bool GetIsBusy(DependencyObject obj)
-        {
-            return (bool)obj.GetValue(IsBusyProperty);
-        }
+        public static bool GetIsBusy(DependencyObject obj) => (bool)obj.GetValue(IsBusyProperty);
 
-        public static void SetIsBusy(DependencyObject obj, bool value)
-        {
-            obj.SetValue(IsBusyProperty, value);
-        }
+        public static void SetIsBusy(DependencyObject obj, bool value) => obj.SetValue(IsBusyProperty, value);
 
         #endregion Setters and Getters
     }

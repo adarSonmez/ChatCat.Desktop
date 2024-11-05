@@ -1,6 +1,7 @@
 ﻿using ChatCat.Core.Constants.Enums;
 using ChatCat.Core.ViewModels.Abstract;
 using ChatCat.Desktop.Extensions;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -27,8 +28,7 @@ namespace ChatCat.Desktop.Pages
         #region Public Properties
 
         /// <summary>
-        /// Gets or sets the ViewModel for this page.
-        /// When the ViewModel is set, it automatically updates the <see cref="FrameworkElement.DataContext"/> of the page.
+        /// The ViewModel that this user control will bind to.
         /// </summary>
         public VM ViewModel
         {
@@ -56,6 +56,10 @@ namespace ChatCat.Desktop.Pages
 
         public BasePage()
         {
+            // Do not run animations in design mode
+            if (DesignerProperties.GetIsInDesignMode(this))
+                return;
+
             Loaded += BasePage_Loaded;
             Unloaded += BasePage_Unloaded;
         }
@@ -64,8 +68,19 @@ namespace ChatCat.Desktop.Pages
 
         #region Page Animations
 
+        /// <summary>
+        /// The duration of the slide animation in seconds.
+        /// </summary>
         protected virtual float SlideSeconds { get; set; } = 0.8f;
+
+        /// <summary>
+        /// The type of animation to run when the page is loaded.
+        /// </summary>
         protected virtual FrameworkAnimationType PageLoadAnimation { get; set; } = FrameworkAnimationType.None;
+
+        /// <summary>
+        /// The type of animation to run when the page is unloaded.
+        /// </summary>
         protected virtual FrameworkAnimationType PageUnloadAnimation { get; set; } = FrameworkAnimationType.None;
 
         #endregion Page Animations

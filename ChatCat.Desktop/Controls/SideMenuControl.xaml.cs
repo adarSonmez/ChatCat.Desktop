@@ -1,4 +1,4 @@
-﻿using ChatCat.Core.Constants.Enums;
+﻿using ChatCat.Desktop.Controls.Base;
 
 namespace ChatCat.Desktop.Controls
 {
@@ -10,8 +10,6 @@ namespace ChatCat.Desktop.Controls
         public SideMenuControl()
         {
             InitializeComponent();
-            ControlLoadAnimation = FrameworkAnimationType.SlideAndFadeInFromLeft;
-            ControlUnloadAnimation = FrameworkAnimationType.SlideAndFadeOutToLeft;
         }
     }
 }

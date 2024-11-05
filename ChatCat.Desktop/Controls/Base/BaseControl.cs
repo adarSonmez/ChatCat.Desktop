@@ -1,10 +1,11 @@
 ﻿using ChatCat.Core.Constants.Enums;
 using ChatCat.Core.ViewModels.Abstract;
 using ChatCat.Desktop.Extensions;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace ChatCat.Desktop.Controls
+namespace ChatCat.Desktop.Controls.Base
 {
     /// <summary>
     /// A base class for WPF user controls that provides ViewModel binding, loading, and unloading animations.
@@ -13,22 +14,28 @@ namespace ChatCat.Desktop.Controls
     public class BaseControl<VM> : BaseControl
         where VM : BaseViewModel, new()
     {
+        #region Private Fields
+
         private VM _viewModel = new();
+
+        #endregion Private Fields
 
         #region Constructors
 
         public BaseControl()
         {
-            DataContext = _viewModel;
+            if (!InheritsDataContext)
+            {
+                DataContext = ViewModel;
+            }
         }
 
         #endregion Constructors
 
-        #region Public Properties
+        #region Public/Protected Properties
 
         /// <summary>
-        /// Gets or sets the ViewModel for this user control.
-        /// When the ViewModel is set, it automatically updates the <see cref="FrameworkElement.DataContext"/> of the control.
+        /// The ViewModel that this user control will bind to.
         /// </summary>
         public VM ViewModel
         {
@@ -39,12 +46,16 @@ namespace ChatCat.Desktop.Controls
                     return;
 
                 _viewModel = value;
-
-                DataContext = _viewModel;
             }
         }
 
-        #endregion Public Properties
+        /// <summary>
+        /// Determines whether the control should inherit the DataContext from the parent control.
+        /// </summary>
+        ///<remarks>Default is <see langword="false"/>. Please override this property in derived classes to change the behavior.</remarks>
+        protected virtual bool InheritsDataContext => false;
+
+        #endregion Public/Protected Properties
     }
 
     /// <summary>
@@ -56,6 +67,10 @@ namespace ChatCat.Desktop.Controls
 
         public BaseControl()
         {
+            // Do not run animations in design mode
+            if (DesignerProperties.GetIsInDesignMode(this))
+                return;
+
             Loaded += BaseControl_Loaded;
             Unloaded += BaseControl_Unloaded;
         }
@@ -64,8 +79,22 @@ namespace ChatCat.Desktop.Controls
 
         #region Control Animations
 
+        /// <summary>
+        /// The duration of the slide animation when the control is loaded or unloaded.
+        /// </summary>
+        /// <remarks>Default is 0.8 seconds.</remarks>
         protected virtual float SlideSeconds { get; set; } = 0.8f;
+
+        /// <summary>
+        /// The animation to play when the control is loaded.
+        /// </summary>
+        /// <remarks>Default is <see cref="FrameworkAnimationType.None"/>.</remarks>
         protected virtual FrameworkAnimationType ControlLoadAnimation { get; set; } = FrameworkAnimationType.None;
+
+        /// <summary>
+        /// The animation to play when the control is unloaded.
+        /// </summary>
+        /// <remarks>Default is <see cref="FrameworkAnimationType.None"/>.</remarks>
         protected virtual FrameworkAnimationType ControlUnloadAnimation { get; set; } = FrameworkAnimationType.None;
 
         #endregion Control Animations

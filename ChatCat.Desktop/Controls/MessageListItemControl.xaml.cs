@@ -1,4 +1,6 @@
-﻿namespace ChatCat.Desktop.Controls
+﻿using ChatCat.Desktop.Controls.Base;
+
+namespace ChatCat.Desktop.Controls
 {
     /// <summary>
     /// Interaction logic for MessageListItemControl.xaml

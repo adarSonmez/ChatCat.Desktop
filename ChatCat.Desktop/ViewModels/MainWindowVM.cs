@@ -178,6 +178,9 @@ namespace ChatCat.Desktop.ViewModels
 
         #region Private Methods
 
+        /// <summary>
+        /// Gets the current mouse position relative to the screen.
+        /// </summary>
         private Point GetMousePosition()
         {
             var position = Mouse.GetPosition(_mainWindow);

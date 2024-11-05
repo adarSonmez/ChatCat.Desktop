@@ -1,7 +1,6 @@
 ﻿using ChatCat.Core.Extensions;
 using ChatCat.Core.Utils.IoC;
 using ChatCat.Desktop.Extensions;
-using ChatCat.Desktop.ViewModels;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;

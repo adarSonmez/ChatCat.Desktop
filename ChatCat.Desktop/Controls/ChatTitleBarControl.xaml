@@ -7,7 +7,7 @@
                   mc:Ignorable="d"
                   d:DesignWidth="800">
 
-        <Grid Background="#F0f3f3">
+    <Grid Background="#F0f3f3">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="50" />
@@ -15,15 +15,15 @@
         </Grid.ColumnDefinitions>
 
         <Button Grid.Column="1"
-                    Style="{StaticResource IconButtonStyle}"
-                    VerticalAlignment="Center"
-                    Foreground="LightSeaGreen"
-                    Content="&#xf002;" />
+                Style="{StaticResource IconButtonStyle}"
+                VerticalAlignment="Center"
+                Foreground="LightSeaGreen"
+                Content="&#xf002;" />
 
-            <Button Grid.Column="2"
-                    Style="{StaticResource IconButtonStyle}"
-                    Foreground="LightSeaGreen"
-                    Padding="0 0 20 0"
-                    Content="&#xf142;" />
-        </Grid>
+        <Button Grid.Column="2"
+                Style="{StaticResource IconButtonStyle}"
+                Foreground="LightSeaGreen"
+                Padding="0 0 20 0"
+                Content="&#xf142;" />
+    </Grid>
 </base:BaseControl>
