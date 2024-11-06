@@ -9,6 +9,19 @@
                 mc:Ignorable="d"
                 d:DesignHeight="700" d:DesignWidth="1000"
                 Title="Chat">
+
+    <local:BasePage.Resources>
+        <!-- Chat Input TextBox style -->
+        <Style x:Key="ChatInputTextBoxStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="BorderBrush" Value="LightGray" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="0 0 0 0" />
+        </Style>
+    </local:BasePage.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="350" />
@@ -23,12 +36,14 @@
         <!-- Right Side (Main Content) -->
         <Grid Grid.Column="1" Background="Transparent">
             <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="46" />
+                <RowDefinition Height="60" MaxHeight="180" />
             </Grid.RowDefinitions>
 
-            <controls:ChatTitleBarControl Grid.Row="1" />
-            <controls:MessageListControl Grid.Row="0" />
+            <controls:ChatTitleBarControl Grid.Row="0" />
+            <controls:MessageListControl Grid.Row="1" />
+            <controls:ChatInputControl Grid.Row="2" />
         </Grid>
     </Grid>
 </local:BasePage>

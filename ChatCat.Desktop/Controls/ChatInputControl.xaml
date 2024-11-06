@@ -1,0 +1,45 @@
+﻿<base:BaseControl x:Class="ChatCat.Desktop.Controls.ChatInputControl"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:base="clr-namespace:ChatCat.Desktop.Controls.Base"
+                  mc:Ignorable="d"
+                  d:Height="60"
+                  d:Width="700">
+
+    <Border Grid.Row="2" Background="White" Padding="10">
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="4" BlurRadius="4" Color="Gray" Opacity=".25" Direction="270" />
+        </Border.Effect>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="60" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0"
+                    FontSize="20"
+                    Style="{StaticResource IconButtonStyle}"
+                    VerticalAlignment="Center"
+                    Foreground="LightSeaGreen"
+                    Content="&#xf0c6;" />
+
+            <TextBox Grid.Column="1"
+                     Tag="Write a message..."
+                     AcceptsReturn="True"
+                     AcceptsTab="True"
+                     VerticalScrollBarVisibility="Auto"
+                     BorderThickness="0"
+                     Style="{StaticResource BaseTextBoxStyle}" />
+
+            <Button Grid.Column="2"
+                    FontSize="20"
+                    Style="{StaticResource IconButtonStyle}"
+                    VerticalAlignment="Center"
+                    Foreground="LightSeaGreen"
+                    Content="&#xf1d8;" />
+        </Grid>
+    </Border>
+</base:BaseControl>

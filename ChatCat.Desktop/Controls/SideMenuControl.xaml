@@ -20,7 +20,7 @@
                     <Grid Grid.Column="0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
-                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="60" />
                         </Grid.RowDefinitions>
 
                         <!-- Chat List -->

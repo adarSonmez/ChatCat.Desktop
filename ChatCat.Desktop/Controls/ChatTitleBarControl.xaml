@@ -5,25 +5,28 @@
                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                   xmlns:base="clr-namespace:ChatCat.Desktop.Controls.Base"
                   mc:Ignorable="d"
-                  d:DesignWidth="800">
+                  d:Height="60"
+                  d:Width="700">
 
-    <Grid Background="#F0f3f3">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="50" />
-            <ColumnDefinition Width="50" />
-        </Grid.ColumnDefinitions>
+    <Border>
+        <Grid Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="50" />
+            </Grid.ColumnDefinitions>
 
-        <Button Grid.Column="1"
+            <Button Grid.Column="1"
                 Style="{StaticResource IconButtonStyle}"
                 VerticalAlignment="Center"
                 Foreground="LightSeaGreen"
                 Content="&#xf002;" />
 
-        <Button Grid.Column="2"
+            <Button Grid.Column="2"
                 Style="{StaticResource IconButtonStyle}"
                 Foreground="LightSeaGreen"
                 Padding="0 0 20 0"
                 Content="&#xf142;" />
-    </Grid>
+        </Grid>
+    </Border>
 </base:BaseControl>
