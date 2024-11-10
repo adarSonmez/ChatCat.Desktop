@@ -8,10 +8,8 @@
                   d:Height="60"
                   d:Width="700">
 
-    <Border Grid.Row="2" Background="White" Padding="10">
-        <Border.Effect>
-            <DropShadowEffect ShadowDepth="4" BlurRadius="4" Color="Gray" Opacity=".25" Direction="270" />
-        </Border.Effect>
+    <Border Grid.Row="2" Background="White" Padding="10" BorderBrush="#BBB" BorderThickness="0 .6 0 0">
+
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="60" />

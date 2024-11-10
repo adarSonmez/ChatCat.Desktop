@@ -11,7 +11,7 @@
                   d:DataContext="{d:DesignInstance Type=vm:ChatListVM, IsDesignTimeCreatable=True}"
                   d:DesignHeight="450" d:DesignWidth="300">
 
-    <Grid Background="{StaticResource BackgroundColorBrush}">
+    <Border Background="White" BorderBrush="#BBB" BorderThickness="0 0 .6 0">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <ItemsControl ItemsSource="{Binding Items}">
                 <ItemsControl.ItemTemplate>
@@ -21,5 +21,5 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
-    </Grid>
+    </Border>
 </base:BaseControl>

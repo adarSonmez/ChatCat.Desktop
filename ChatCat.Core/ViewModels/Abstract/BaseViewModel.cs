@@ -68,6 +68,15 @@ namespace ChatCat.Core.ViewModels.Abstract
 
         #endregion Event Handlers
 
+        #region Public Properties
+
+        /// <summary>
+        /// Gets or sets a flag indicating if design-time data should be shown in the UI.
+        /// </summary>
+        public bool ShowDesignTimeData { get; set; } = true;
+
+        #endregion Public Properties
+
         #region Protected Methods
 
         /// <summary>

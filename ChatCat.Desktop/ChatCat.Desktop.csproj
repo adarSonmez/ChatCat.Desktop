@@ -97,6 +97,9 @@
     <Compile Update="Controls\ChatInputControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Controls\VerticalMenuControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Controls\MessageListControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -46,6 +46,7 @@ namespace ChatCat.Desktop.Controls.Base
                     return;
 
                 _viewModel = value;
+                _viewModel.ShowDesignTimeData = false;
             }
         }
 
