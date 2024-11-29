@@ -1,32 +1,29 @@
-﻿using ChatCat.Core.ViewModels.Concrete.Application;
-using ChatCat.Core.ViewModels.Concrete.Auth;
-using ChatCat.Core.ViewModels.Concrete.Chat;
+﻿using ChatCat.Core.ViewModels.Concrete;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace ChatCat.Core.Extensions
+namespace ChatCat.Core.Extensions;
+
+/// <summary>
+/// Extension methods for IServiceCollection to add dependency resolvers.
+/// </summary>
+public static class ServiceCollectionExtensions
 {
     /// <summary>
-    /// Extension methods for IServiceCollection to add dependency resolvers.
+    /// Adds core services to the service collection.
     /// </summary>
-    public static class ServiceCollectionExtensions
+    /// <param name="services">The service collection.</param>
+    /// <returns>The service collection with the core services added.</returns>
+    public static IServiceCollection AddCoreServices(this IServiceCollection services)
     {
-        /// <summary>
-        /// Adds core services to the service collection.
-        /// </summary>
-        /// <param name="services">The service collection.</param>
-        /// <returns>The service collection with the core services added.</returns>
-        public static IServiceCollection AddCoreServices(this IServiceCollection services)
-        {
-            #region View Model Injections
+        #region View Model Injections
 
-            services.AddSingleton<ApplicationVM>();
-            services.AddSingleton<LoginPageVM>();
-            services.AddSingleton<RegisterPageVM>();
-            services.AddSingleton<ChatListVM>();
+        services.AddSingleton<ApplicationVM>();
+        services.AddSingleton<LoginPageVM>();
+        services.AddSingleton<RegisterPageVM>();
+        services.AddSingleton<ChatListVM>();
 
-            #endregion View Model Injections
+        #endregion View Model Injections
 
-            return services;
-        }
+        return services;
     }
 }

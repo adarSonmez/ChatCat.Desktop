@@ -1,15 +1,17 @@
-﻿using ChatCat.Desktop.Controls.Base;
+﻿using ChatCat.Core.ViewModels.Concrete;
+using ChatCat.Desktop.Controls.Base;
 
-namespace ChatCat.Desktop.Controls
+namespace ChatCat.Desktop.Controls;
+
+/// <summary>
+/// Interaction logic for MessageListItemControl.xaml
+/// </summary>
+public partial class MessageListItemControl : BaseControl<MessageListItemVM>
 {
-    /// <summary>
-    /// Interaction logic for MessageListItemControl.xaml
-    /// </summary>
-    public partial class MessageListItemControl : BaseControl
+    public MessageListItemControl()
     {
-        public MessageListItemControl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
+
+    protected override bool InheritsDataContext => true;
 }

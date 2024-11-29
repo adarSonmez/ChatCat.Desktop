@@ -1,15 +1,14 @@
 ﻿using ChatCat.Desktop.Controls.Base;
 
-namespace ChatCat.Desktop.Controls
+namespace ChatCat.Desktop.Controls;
+
+/// <summary>
+/// Interaction logic for SideMenuControl.xaml
+/// </summary>
+public partial class SideMenuControl : BaseControl
 {
-    /// <summary>
-    /// Interaction logic for SideMenuControl.xaml
-    /// </summary>
-    public partial class SideMenuControl : BaseControl
+    public SideMenuControl()
     {
-        public SideMenuControl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

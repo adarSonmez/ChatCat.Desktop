@@ -1,26 +1,25 @@
 ﻿using ChatCat.Core.Constants.Enums;
-using ChatCat.Core.ViewModels.Concrete.Auth;
+using ChatCat.Core.ViewModels.Concrete;
 using System.Windows.Input;
 
-namespace ChatCat.Desktop.Pages
+namespace ChatCat.Desktop.Pages;
+
+/// <summary>
+/// Interaction logic for LoginPage.xaml
+/// </summary>
+public partial class LoginPage : BasePage<LoginPageVM>
 {
-    /// <summary>
-    /// Interaction logic for LoginPage.xaml
-    /// </summary>
-    public partial class LoginPage : BasePage<LoginPageVM>
+    public LoginPage()
     {
-        public LoginPage()
-        {
-            PageLoadAnimation = FrameworkAnimationType.FadeIn;
-            PageUnloadAnimation = FrameworkAnimationType.FadeOut;
+        PageLoadAnimation = FrameworkAnimationType.FadeIn;
+        PageUnloadAnimation = FrameworkAnimationType.FadeOut;
 
-            InitializeComponent();
-        }
+        InitializeComponent();
+    }
 
-        private void BasePage_Loaded(object sender, System.Windows.RoutedEventArgs e)
-        {
-            UsernameTextBox.Focus();
-            Keyboard.Focus(UsernameTextBox);
-        }
+    private void BasePage_Loaded(object sender, System.Windows.RoutedEventArgs e)
+    {
+        UsernameTextBox.Focus();
+        Keyboard.Focus(UsernameTextBox);
     }
 }

@@ -1,13 +1,12 @@
-﻿namespace ChatCat.Desktop.Pages
+﻿namespace ChatCat.Desktop.Pages;
+
+/// <summary>
+/// Interaction logic for ChatPage.xaml
+/// </summary>
+public partial class ChatPage : BasePage
 {
-    /// <summary>
-    /// Interaction logic for ChatPage.xaml
-    /// </summary>
-    public partial class ChatPage : BasePage
+    public ChatPage()
     {
-        public ChatPage()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

@@ -5,7 +5,7 @@
                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                 xmlns:local="clr-namespace:ChatCat.Desktop.Pages"
                 xmlns:controls="clr-namespace:ChatCat.Desktop.Controls"
-                xmlns:vm="clr-namespace:ChatCat.Core.ViewModels.Concrete.Chat;assembly=ChatCat.Core"
+                xmlns:vm="clr-namespace:ChatCat.Core.ViewModels.Concrete;assembly=ChatCat.Core"
                 mc:Ignorable="d"
                 d:DesignHeight="700" d:DesignWidth="1000"
                 Title="Chat">

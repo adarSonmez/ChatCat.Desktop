@@ -1,0 +1,10 @@
+﻿[*.{cs,vb}]
+
+# IDE0130: Namespace does not match folder structure
+dotnet_diagnostic.IDE0130.severity = none
+
+# IDE0022: Use block body for method
+csharp_style_expression_bodied_methods = when_on_single_line
+
+# IDE0160: Convert to block scoped namespace
+csharp_style_namespace_declarations = file_scoped

@@ -1,34 +1,32 @@
 ﻿using ChatCat.Desktop.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
-using System.Windows;
 
-namespace ChatCat.Desktop.Extensions
+namespace ChatCat.Desktop.Extensions;
+
+/// <summary>
+/// Extension methods for IServiceCollection to add dependency resolvers.
+/// </summary>
+public static class ServiceCollectionExtensions
 {
     /// <summary>
-    /// Extension methods for IServiceCollection to add dependency resolvers.
+    /// Adds desktop services to the service collection.
     /// </summary>
-    public static class ServiceCollectionExtensions
+    /// <param name="services">The service collection.</param>
+    /// <returns>The service collection.</returns>
+    public static IServiceCollection AddDesktopServices(this IServiceCollection services)
     {
-        /// <summary>
-        /// Adds desktop services to the service collection.
-        /// </summary>
-        /// <param name="services">The service collection.</param>
-        /// <returns>The service collection.</returns>
-        public static IServiceCollection AddDesktopServices(this IServiceCollection services)
-        {
-            #region View Model Injections
+        #region View Model Injections
 
-            services.AddSingleton<MainWindowVM>();
+        services.AddSingleton<MainWindowVM>();
 
-            #endregion View Model Injections
+        #endregion View Model Injections
 
-            #region View Injections
+        #region View Injections
 
-            services.AddSingleton<MainWindow>();
+        services.AddSingleton<MainWindow>();
 
-            #endregion View Injections
+        #endregion View Injections
 
-            return services;
-        }
+        return services;
     }
 }

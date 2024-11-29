@@ -4,7 +4,7 @@
                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                xmlns:vm="clr-namespace:ChatCat.Core.ViewModels.Concrete.Auth;assembly=ChatCat.Core"
+                xmlns:vm="clr-namespace:ChatCat.Core.ViewModels.Concrete;assembly=ChatCat.Core"
                 xmlns:attcp="clr-namespace:ChatCat.Desktop.AttachedProperties"
                 xmlns:local="clr-namespace:ChatCat.Desktop.Pages"
                 xmlns:locator="clr-namespace:ChatCat.Desktop.Utils.Locators"
