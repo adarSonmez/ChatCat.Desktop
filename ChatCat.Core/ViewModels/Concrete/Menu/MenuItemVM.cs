@@ -6,7 +6,7 @@ namespace ChatCat.Core.ViewModels.Concrete;
 /// <summary>
 /// A view model for the menu item
 /// </summary>
-public class MenuItemViewModel : BaseViewModel
+public class MenuItemVM : BaseViewModel
 {
     /// <summary>
     /// The text to display in the menu item

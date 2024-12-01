@@ -12,6 +12,42 @@ public static class FrameworkElementExtensions
     #region FrameworkElement Animation Definitions
 
     /// <summary>
+    /// Fades the element in, making it visible.
+    /// </summary>
+    /// <param name="element">The FrameworkElement to animate.</param>
+    /// <param name="seconds">The duration of the fade-in animation in seconds.</param>
+    /// <returns>A task representing the asynchronous operation.</returns>
+    public static async Task FadeInAsync(this FrameworkElement element, float seconds)
+    {
+        var sb = new Storyboard();
+
+        sb.AddFadeIn(seconds);
+        sb.Begin(element);
+
+        element.Visibility = Visibility.Visible;
+
+        await Task.Delay((int)(seconds * 1000));
+    }
+
+    /// <summary>
+    /// Fades the element out, making it invisible.
+    /// </summary>
+    /// <param name="element">The FrameworkElement to animate.</param>
+    /// <param name="seconds">The duration of the fade-out animation in seconds.</param>
+    /// <returns>A task representing the asynchronous operation.</returns>
+    public static async Task FadeOutAsync(this FrameworkElement element, float seconds)
+    {
+        var sb = new Storyboard();
+
+        sb.AddFadeOut(seconds);
+        sb.Begin(element);
+
+        // Wait for the animation to complete before changing visibility
+        await Task.Delay((int)(seconds * 1000));
+        element.Visibility = Visibility.Collapsed;
+    }
+
+    /// <summary>
     /// Animates the element by sliding in from the right while fading in.
     /// </summary>
     /// <param name="element">The FrameworkElement to animate.</param>
@@ -88,37 +124,33 @@ public static class FrameworkElementExtensions
     }
 
     /// <summary>
-    /// Fades the element in, making it visible.
+    /// Animates the element by sliding in from the bottom while fading in.
     /// </summary>
     /// <param name="element">The FrameworkElement to animate.</param>
-    /// <param name="seconds">The duration of the fade-in animation in seconds.</param>
+    /// <param name="seconds">The duration of the animation in seconds.</param>
     /// <returns>A task representing the asynchronous operation.</returns>
-    public static async Task FadeInAsync(this FrameworkElement element, float seconds)
+    public static async Task SlideAndFadeInFromBottomAsync(this FrameworkElement element, float seconds)
     {
         var sb = new Storyboard();
-
+        sb.AddSlideFromBottom(seconds, element.ActualHeight);
         sb.AddFadeIn(seconds);
         sb.Begin(element);
-
         element.Visibility = Visibility.Visible;
-
         await Task.Delay((int)(seconds * 1000));
     }
 
     /// <summary>
-    /// Fades the element out, making it invisible.
+    /// Animates the element by sliding out to the bottom while fading out.
     /// </summary>
     /// <param name="element">The FrameworkElement to animate.</param>
-    /// <param name="seconds">The duration of the fade-out animation in seconds.</param>
+    /// <param name="seconds">The duration of the animation in seconds.</param>
     /// <returns>A task representing the asynchronous operation.</returns>
-    public static async Task FadeOutAsync(this FrameworkElement element, float seconds)
+    public static async Task SlideAndFadeOutToBottomAsync(this FrameworkElement element, float seconds)
     {
         var sb = new Storyboard();
-
+        sb.AddSlideToBottom(seconds, element.ActualHeight);
         sb.AddFadeOut(seconds);
         sb.Begin(element);
-
-        // Wait for the animation to complete before changing visibility
         await Task.Delay((int)(seconds * 1000));
         element.Visibility = Visibility.Collapsed;
     }
@@ -159,6 +191,18 @@ public static class FrameworkElementExtensions
 
             case FrameworkAnimationType.SlideAndFadeInFromLeft:
                 await element.SlideAndFadeInFromLeftAsync(seconds);
+                break;
+
+            case FrameworkAnimationType.SlideAndFadeOutToRight:
+                await element.SlideAndFadeOutToRightAsync(seconds);
+                break;
+
+            case FrameworkAnimationType.SlideAndFadeInFromBottom:
+                await element.SlideAndFadeInFromBottomAsync(seconds);
+                break;
+
+            case FrameworkAnimationType.SlideAndFadeOutToBottom:
+                await element.SlideAndFadeOutToBottomAsync(seconds);
                 break;
 
             default:

@@ -11,4 +11,7 @@ public enum FrameworkAnimationType
     SlideAndFadeInFromRight,
     SlideAndFadeOutToLeft,
     SlideAndFadeInFromLeft,
+    SlideAndFadeOutToRight,
+    SlideAndFadeInFromBottom,
+    SlideAndFadeOutToBottom,
 }

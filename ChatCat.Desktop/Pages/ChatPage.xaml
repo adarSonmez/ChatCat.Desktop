@@ -43,6 +43,7 @@
 
             <controls:ChatTitleBarControl Grid.Row="0" />
             <controls:MessageListControl Grid.Row="1" />
+            <controls:AttachmentMenuControl Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" />
             <controls:ChatInputControl Grid.Row="2" />
         </Grid>
     </Grid>
