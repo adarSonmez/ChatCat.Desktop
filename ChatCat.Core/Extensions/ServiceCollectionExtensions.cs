@@ -21,6 +21,12 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<LoginPageVM>();
         services.AddSingleton<RegisterPageVM>();
         services.AddSingleton<ChatListVM>();
+        services.AddSingleton<ChatListItemVM>();
+        services.AddSingleton<ChatInputVM>();
+        services.AddSingleton<AttachmentMenuVM>();
+        services.AddSingleton<MenuItemVM>();
+        services.AddSingleton<MessageListVM>();
+        services.AddSingleton<MessageListItemVM>();
 
         #endregion View Model Injections
 

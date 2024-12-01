@@ -7,7 +7,6 @@
                 xmlns:vm="clr-namespace:ChatCat.Core.ViewModels.Concrete;assembly=ChatCat.Core"
                 xmlns:attcp="clr-namespace:ChatCat.Desktop.AttachedProperties"
                 xmlns:local="clr-namespace:ChatCat.Desktop.Pages"
-                xmlns:locator="clr-namespace:ChatCat.Desktop.Utils.Locators"
                 xmlns:vconv="clr-namespace:ChatCat.Desktop.Converters.ValueConverters"
                 xmlns:enums="clr-namespace:ChatCat.Core.Constants.Enums;assembly=ChatCat.Core"
                 mc:Ignorable="d"

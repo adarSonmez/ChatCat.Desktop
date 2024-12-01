@@ -8,3 +8,9 @@ csharp_style_expression_bodied_methods = when_on_single_line
 
 # IDE0160: Convert to block scoped namespace
 csharp_style_namespace_declarations = file_scoped
+
+# CA1805: Do not initialize unnecessarily
+dotnet_diagnostic.CA1805.severity = warning
+
+# CA1822: Mark members as static
+dotnet_diagnostic.CA1822.severity = silent
