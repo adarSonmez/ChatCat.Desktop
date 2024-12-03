@@ -16,6 +16,9 @@ public class AttachmentMenuVM : BaseViewModel
 
     #region Public Properties
 
+    /// <summary>
+    /// Indicates if attachment menu is visible
+    /// </summary>
     public bool IsMenuVisible
     {
         get => _isMenuVisible;
@@ -39,13 +42,9 @@ public class AttachmentMenuVM : BaseViewModel
         {
             Items =
              [
-                new MenuItemVM { Text = "Header 1", ItemType = MenuItemType.Header },
-                new MenuItemVM { Text = "Item 1", ItemType = MenuItemType.TextAndIcon, Icon = "\uf015" },
-                new MenuItemVM { Text = "Item 2", ItemType = MenuItemType.TextAndIcon, Icon = "\uf002" },
-                new MenuItemVM { Text = "Item 3", ItemType = MenuItemType.TextAndIcon, Icon = "\uf007" },
-                new MenuItemVM { ItemType = MenuItemType.Divider },
-                new MenuItemVM { Text = "Header 2", ItemType = MenuItemType.Header },
-                new MenuItemVM { Text = "Item 4", ItemType = MenuItemType.TextAndIcon, Icon = "\uf008" },
+                new MenuItemVM { Text = "Attach a File", ItemType = MenuItemType.Header },
+                new MenuItemVM { Text = "From Computer", ItemType = MenuItemType.TextAndIcon, Icon = "\uf0c7" },
+                new MenuItemVM { Text = "From OneDrive", ItemType = MenuItemType.TextAndIcon, Icon = "\uf0c2" },
             ];
         }
     }

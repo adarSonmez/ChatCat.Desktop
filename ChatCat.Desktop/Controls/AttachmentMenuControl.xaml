@@ -4,89 +4,106 @@
                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                  xmlns:vm="clr-namespace:ChatCat.Core.ViewModels.Concrete;assembly=ChatCat.Core"
-                  xmlns:vconv="clr-namespace:ChatCat.Desktop.Converters.ValueConverters"
                   xmlns:enums="clr-namespace:ChatCat.Core.Constants.Enums;assembly=ChatCat.Core"
-                  xmlns:locator="clr-namespace:ChatCat.Desktop.Utils.Locators"
-                  xmlns:local="clr-namespace:ChatCat.Desktop.Controls"
+                  xmlns:vm="clr-namespace:ChatCat.Core.ViewModels.Concrete;assembly=ChatCat.Core"
                   xmlns:base="clr-namespace:ChatCat.Desktop.Controls.Base"
+                  xmlns:vconv="clr-namespace:ChatCat.Desktop.Converters.ValueConverters"
+                  xmlns:locator="clr-namespace:ChatCat.Desktop.Utils.Locators"
                   d:DataContext="{d:DesignInstance Type=vm:AttachmentMenuVM, IsDesignTimeCreatable=True}"
                   mc:Ignorable="d">
 
-    <Border
-        Padding="10"
-        CornerRadius="10"
-        Background="#f5f5f5"
-        Width="200" Height="200"
-        Visibility="{Binding IsMenuVisible, Source={x:Static locator:WpfLocator.AttachmentMenuVM}, Converter={vconv:BooleanToVisibilityConverter}}"
-        Margin="10">
+    <Border Padding="10"
+            CornerRadius="10"
+            Background="White"
+            Width="190" Height="124"
+            Visibility="{Binding IsMenuVisible, Source={x:Static locator:WpfLocator.AttachmentMenuVM}, Converter={vconv:BooleanToVisibilityConverter}}"
+            Margin="10">
+
         <Border.Effect>
             <DropShadowEffect ShadowDepth="0" BlurRadius="2" Color="Black" Opacity=".5" />
         </Border.Effect>
+
         <ItemsControl ItemsSource="{Binding Items}">
             <ItemsControl.Resources>
                 <Style x:Key="ConditionalIconButtonStyle" TargetType="Button" BasedOn="{StaticResource IconButtonStyle}">
+                    <Setter Property="Padding" Value="0 10 10 10" />
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding ItemType}" Value="{x:Static enums:MenuItemType.Header}">
                             <Setter Property="Visibility" Value="Collapsed" />
                         </DataTrigger>
+                    </Style.Triggers>
+                </Style>
 
-                        <!-- Remove hover effect -->
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Opacity" Value="1" />
-                        </Trigger>
+                <Style x:Key="MenuItemBorderStyle" TargetType="Border">
+                    <Setter Property="Padding" Value="3" />
+                    <Setter Property="CornerRadius" Value="4" />
+                    <Setter Property="Margin" Value="0 0 0 0" />
+                    <Setter Property="Background" Value="Transparent" />
+                    <Style.Triggers>
+                        <!-- Existing DataTrigger for cursor -->
+                        <DataTrigger Binding="{Binding ItemType}" Value="{x:Static enums:MenuItemType.TextAndIcon}">
+                            <Setter Property="Cursor" Value="Hand" />
+                        </DataTrigger>
+
+                        <!-- Updated MultiDataTrigger -->
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding ItemType}" Value="{x:Static enums:MenuItemType.TextAndIcon}" />
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsMouseOver}" Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Background" Value="Aquamarine" />
+                        </MultiDataTrigger>
+                    </Style.Triggers>
+                </Style>
+
+                <Style x:Key="MenuItemNameStyle" TargetType="TextBlock">
+                    <Setter Property="Foreground" Value="#222" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="FontWeight" Value="Normal" />
+                    <Setter Property="Grid.ColumnSpan" Value="1" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ItemType}" Value="{x:Static enums:MenuItemType.Header}">
+                            <Setter Property="FontWeight" Value="{x:Static FontWeights.DemiBold}" />
+                            <Setter Property="Grid.ColumnSpan" Value="2" />
+                        </DataTrigger>
                     </Style.Triggers>
                 </Style>
             </ItemsControl.Resources>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <!--Source is parent DataContext-->
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
+                    <Border Style="{StaticResource MenuItemBorderStyle}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
 
-                        <!-- Icon Button -->
-                        <Button Grid.Column="0"
+                            <!-- Icon Button -->
+                            <Button Grid.Column="0"
                                 FontSize="12"
                                 Foreground="Gray"
                                 Style="{StaticResource ConditionalIconButtonStyle}"
                                 Content="{Binding Icon}" />
 
-                        <!-- TextBlock for Text -->
-                        <TextBlock Grid.Column="1"
-                                   Text="{Binding Text}"
-                                   Foreground="#222"
-                                   VerticalAlignment="Center">
-                            <TextBlock.Style>
-                                <Style TargetType="TextBlock">
-                                    <Setter Property="FontWeight" Value="Normal" />
-                                    <Setter Property="Grid.ColumnSpan" Value="1" />
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding ItemType}" Value="{x:Static enums:MenuItemType.Header}">
-                                            <Setter Property="FontWeight" Value="{x:Static FontWeights.DemiBold}" />
-                                            <Setter Property="Grid.ColumnSpan" Value="2" />
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </TextBlock.Style>
-                        </TextBlock>
+                            <!-- TextBlock for Text -->
+                            <TextBlock Grid.Column="1" Text="{Binding Text}" Style="{StaticResource MenuItemNameStyle}" />
 
-                        <!-- Divider -->
-                        <Border Grid.ColumnSpan="20" Height="1" Background="Silver" Margin="0,5">
-                            <Border.Style>
-                                <Style TargetType="Border">
-                                    <Setter Property="Visibility" Value="Collapsed" />
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding ItemType}" Value="{x:Static enums:MenuItemType.Divider}">
-                                            <Setter Property="Visibility" Value="Visible" />
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Border.Style>
-                        </Border>
-                    </Grid>
+                            <!-- Divider -->
+                            <Border Grid.ColumnSpan="20" Height="1" Background="Silver" Margin="0,5">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ItemType}" Value="{x:Static enums:MenuItemType.Divider}">
+                                                <Setter Property="Visibility" Value="Visible" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                            </Border>
+                        </Grid>
+                    </Border>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

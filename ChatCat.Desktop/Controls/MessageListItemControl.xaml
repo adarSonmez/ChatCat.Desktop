@@ -11,7 +11,7 @@
                   mc:Ignorable="d">
 
     <UserControl.Resources>
-        <Brush x:Key="SentMessageBubbleBrush">Teal</Brush>
+        <Brush x:Key="SentMessageBubbleBrush">SlateBlue</Brush>
         <Brush x:Key="ReceivedMessageBubbleBrush">White</Brush>
         <Brush x:Key="ReceivedMessageTextBrush">Teal</Brush>
         <Brush x:Key="SentMessageTextBrush">White</Brush>
@@ -131,11 +131,11 @@
 
                 <!-- Message Text -->
                 <TextBlock
-                Grid.Row="0"
-                Text="{Binding Text, FallbackValue='Loading...'}"
-                Style="{StaticResource MessageContentTextBlockStyle}"
-                FontSize="14"
-                TextWrapping="Wrap" />
+                    Grid.Row="0"
+                    Text="{Binding Text, FallbackValue='Loading...'}"
+                    Style="{StaticResource MessageContentTextBlockStyle}"
+                    FontSize="14"
+                    TextWrapping="Wrap" />
 
                 <!-- Message Time -->
                 <TextBlock

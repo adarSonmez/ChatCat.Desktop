@@ -10,7 +10,7 @@
                   d:DataContext="{d:DesignInstance Type=vm:MessageListVM, IsDesignTimeCreatable=True}"
                   mc:Ignorable="d" d:DesignWidth="700">
 
-    <Grid Background="White">
+    <Grid Background="GhostWhite">
         <ScrollViewer VerticalScrollBarVisibility="Visible">
             <Border Padding="20">
                 <ItemsControl ItemsSource="{Binding Items}">

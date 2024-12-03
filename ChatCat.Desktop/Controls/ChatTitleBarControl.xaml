@@ -9,7 +9,7 @@
                   d:Width="700">
 
     <Border>
-        <Grid Background="White">
+        <Grid Background="MidnightBlue">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="50" />
@@ -19,12 +19,12 @@
             <Button Grid.Column="1"
                 Style="{StaticResource IconButtonStyle}"
                 VerticalAlignment="Center"
-                Foreground="LightSeaGreen"
+                Foreground="Azure"
                 Content="&#xf002;" />
 
             <Button Grid.Column="2"
                 Style="{StaticResource IconButtonStyle}"
-                Foreground="LightSeaGreen"
+                Foreground="Azure"
                 Padding="0 0 20 0"
                 Content="&#xf142;" />
         </Grid>
