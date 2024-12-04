@@ -15,6 +15,8 @@
     <Border Padding="10"
             CornerRadius="10"
             Background="White"
+            Panel.ZIndex="2"
+            PreviewMouseLeftButtonDown="Popup_PreviewMouseLeftButtonDown"
             Width="190" Height="124"
             Visibility="{Binding IsMenuVisible, Source={x:Static locator:WpfLocator.AttachmentMenuVM}, Converter={vconv:BooleanToVisibilityConverter}}"
             Margin="10">
