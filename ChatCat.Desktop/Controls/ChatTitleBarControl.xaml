@@ -9,7 +9,7 @@
                   d:Width="700">
 
     <Border>
-        <Grid Background="MidnightBlue">
+        <Grid Background="RoyalBlue">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="50" />

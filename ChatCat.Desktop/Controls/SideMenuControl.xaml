@@ -26,7 +26,7 @@
 
                         <!-- Chat Icon Menu -->
                         <Border
-                            Background="MidnightBlue"
+                            Background="RoyalBlue"
                             Grid.Row="1"
                             CornerRadius="0 0 0 10">
                             <Grid Height="46">
