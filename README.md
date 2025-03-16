@@ -1,6 +1,9 @@
 # ChatCat
 
 ### Login View
+
 ![Login View](Images/login_view.png)
+
 #### Chat View
-![ChatCat Logo](Images/chat__view.png)
+
+![Chat View](Images/chat_view.png)
