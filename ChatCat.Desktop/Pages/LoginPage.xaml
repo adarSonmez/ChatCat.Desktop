@@ -35,7 +35,7 @@
                     <StackPanel>
                         <TextBlock
                             Text="Login"
-                            Style="{StaticResource TitleTextBlockStyle}"
+                            Style="{StaticResource GradientTitleTextBlockStyle}"
                             FontSize="{StaticResource FontSizeLarge}"
                             Margin="0,0,0,20" />
                         <TextBox

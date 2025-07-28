@@ -7,14 +7,14 @@
     </ResourceDictionary.MergedDictionaries>
 
     <!-- Base TextBlock Style -->
-    <Style TargetType="{x:Type TextBlock}" x:Key="BaseTextBlockStyle">
+    <Style x:Key="BaseTextBlockStyle" TargetType="{x:Type TextBlock}">
         <Setter Property="FontFamily" Value="{StaticResource LatoRegular}" />
     </Style>
 
     <!-- Title TextBlock Style -->
-    <Style TargetType="{x:Type TextBlock}" x:Key="TitleTextBlockStyle" BasedOn="{StaticResource BaseTextBlockStyle}">
+    <Style x:Key="GradientTitleTextBlockStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlockStyle}">
         <Setter Property="Padding" Value="6" />
         <Setter Property="FontFamily" Value="{StaticResource LatoRegular}" />
-        <Setter Property="Foreground" Value="{StaticResource TitleTextGradientBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource DefaultGradientBrush}" />
     </Style>
 </ResourceDictionary>

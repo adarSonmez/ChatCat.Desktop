@@ -19,11 +19,6 @@
     <Color x:Key="LightGrayColor">#FFE0E0E0</Color>
     <Color x:Key="DarkGrayColor">#FF616161</Color>
 
-    <!-- Component Specific Colors -->
-    <Color x:Key="TopChatMenuIconColor">#01BBD1</Color>
-    <Color x:Key="TopChatMenuIconColorHover">#008AA8</Color>
-    <Color x:Key="TopChatMenuIconColorDark">#005D6A</Color>
-
     <!-- Primary Brushes -->
     <SolidColorBrush x:Key="PrimaryColorBrush" Color="{StaticResource PrimaryColor}" />
     <SolidColorBrush x:Key="SecondaryColorBrush" Color="{StaticResource SecondaryColor}" />
@@ -43,23 +38,10 @@
     <SolidColorBrush x:Key="LightGrayColorBrush" Color="{StaticResource LightGrayColor}" />
     <SolidColorBrush x:Key="DarkGrayColorBrush" Color="{StaticResource DarkGrayColor}" />
 
-    <!-- Component Specific Brushes -->
-    <SolidColorBrush x:Key="TopChatMenuIconColorBrush" Color="{StaticResource TopChatMenuIconColor}" />
-    <SolidColorBrush x:Key="TopChatMenuIconColorBrushHover" Color="{StaticResource TopChatMenuIconColorHover}" />
-    <SolidColorBrush x:Key="TopChatMenuIconColorBrushDark" Color="{StaticResource TopChatMenuIconColorDark}" />
-
     <!-- Gradient Brushes -->
-    <LinearGradientBrush x:Key="TitleTextGradientBrush" StartPoint="0,0" EndPoint="1,1">
+    <LinearGradientBrush x:Key="DefaultGradientBrush" StartPoint="0,0" EndPoint="1,1">
         <GradientStop Offset="0" Color="{StaticResource PrimaryColor}" />
         <GradientStop Offset="0.5" Color="{StaticResource SecondaryColor}" />
         <GradientStop Offset="1" Color="{StaticResource AccentColor}" />
-    </LinearGradientBrush>
-
-    <LinearGradientBrush x:Key="HorizantalLineGradientBrush" StartPoint="0,0" EndPoint="1,0">
-        <GradientStop Offset="0" Color="{StaticResource BackgroundColor}" />
-        <GradientStop Offset="0.25" Color="{StaticResource PrimaryColor}" />
-        <GradientStop Offset="0.5" Color="{StaticResource SecondaryColor}" />
-        <GradientStop Offset="0.75" Color="{StaticResource AccentColor}" />
-        <GradientStop Offset="1" Color="{StaticResource BackgroundColor}" />
     </LinearGradientBrush>
 </ResourceDictionary>

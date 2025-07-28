@@ -5,14 +5,8 @@
         xmlns:attcp="clr-namespace:ChatCat.Desktop.AttachedProperties"
         xmlns:vconv="clr-namespace:ChatCat.Desktop.Converters.ValueConverters">
 
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Colors.xaml" />
-        <ResourceDictionary Source="Fonts.xaml" />
-        <ResourceDictionary Source="Texts.xaml" />
-    </ResourceDictionary.MergedDictionaries>
-
     <!-- Base Button Style -->
-    <Style TargetType="{x:Type Button}" x:Key="BaseButtonStyle">
+    <Style x:Key="BaseButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}" />
         <Setter Property="Padding" Value="10,5" />
         <Setter Property="Background" Value="{StaticResource PrimaryColorBrush}" />
@@ -36,16 +30,17 @@
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Cursor" Value="Hand" />
+                <Setter Property="Opacity" Value="0.8" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Background" Value="{StaticResource DisabledColorBrush}" />
-                <Setter Property="Foreground" Value="Black" />
+                <Setter Property="Foreground" Value="{StaticResource DarkGrayColorBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>
 
     <!-- Hoverless Button Style -->
-    <Style TargetType="{x:Type Button}" x:Key="HoverlessButtonStyle" BasedOn="{StaticResource BaseButtonStyle}">
+    <Style x:Key="HoverlessButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource BaseButtonStyle}">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Template">
@@ -70,70 +65,20 @@
     </Style>
 
     <!-- System Icon Button Style -->
-    <Style TargetType="{x:Type Button}" x:Key="SystemIconButtonStyle" BasedOn="{StaticResource HoverlessButtonStyle}">
-        <Setter Property="Margin" Value="6 0 0 0" />
+    <Style x:Key="SystemIconButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource HoverlessButtonStyle}">
+        <!-- Allows interaction with the button in the window chrome -->
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
-    </Style>
-
-    <!-- Window Control Button Style -->
-    <Style TargetType="{x:Type Button}" x:Key="WindowControlButtonStyle" BasedOn="{StaticResource BaseButtonStyle}">
-        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Foreground" Value="{StaticResource ForegroundColorBrush}" />
-        <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
-        <Setter Property="FontFamily" Value="{StaticResource LatoThin}" />
-        <Setter Property="Width" Value="40" />
-        <Setter Property="Padding" Value="6" />
-        <Setter Property="VerticalAlignment" Value="Stretch" />
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Background="{TemplateBinding Background}"
-                            Padding="{TemplateBinding Padding}">
-                        <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#EEEEEE" />
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-
-    <Style TargetType="{x:Type Button}" x:Key="WindowCloseControlButtonStyle" BasedOn="{StaticResource WindowControlButtonStyle}">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Background="{TemplateBinding Background}"
-                            Padding="{TemplateBinding Padding}"
-                            CornerRadius="{Binding DataContext.WindowCornerRadius, RelativeSource={RelativeSource AncestorType=Window}, Converter={vconv:CornerRadiusValueConverter}, ConverterParameter={x:Static enums:CornerType.TopRight}}">
-                        <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#FFEE0000" />
-                <Setter Property="Foreground" Value="White" />
-            </Trigger>
-        </Style.Triggers>
     </Style>
 
     <!-- Icon Button Style -->
-    <Style TargetType="{x:Type Button}" x:Key="IconButtonStyle" BasedOn="{StaticResource BaseButtonStyle}">
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderThickness" Value="0" />
+    <Style x:Key="IconButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource HoverlessButtonStyle}">
         <Setter Property="Padding" Value="10" />
         <Setter Property="Width" Value="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" />
         <Setter Property="FontFamily" Value="{StaticResource FontAwesomeSolid }" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Background="{TemplateBinding Background}"
-                            Padding="{TemplateBinding Padding}"
+                    <Border Padding="{TemplateBinding Padding}"
                             CornerRadius="0">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>

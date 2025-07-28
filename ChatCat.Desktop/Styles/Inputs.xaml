@@ -2,14 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:attcp="clr-namespace:ChatCat.Desktop.AttachedProperties"
                     xmlns:vconv="clr-namespace:ChatCat.Desktop.Converters.ValueConverters">
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Colors.xaml" />
-        <ResourceDictionary Source="Fonts.xaml" />
-        <ResourceDictionary Source="Texts.xaml" />
-    </ResourceDictionary.MergedDictionaries>
 
     <!-- Base styles -->
-    <Style TargetType="{x:Type Control}" x:Key="BaseControlStyle">
+    <Style x:Key="BaseControlStyle" TargetType="{x:Type Control}">
         <Setter Property="FontFamily" Value="{StaticResource LatoRegular}" />
         <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}" />
         <Setter Property="Padding" Value="4" />
@@ -28,7 +23,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Control}">
-                    <Border Background="White"
+                    <Border Background="{StaticResource BackgroundColorBrush}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Padding="{TemplateBinding Padding}">
@@ -36,7 +31,7 @@
                             <ScrollViewer x:Name="PART_ContentHost" />
                             <TextBlock
                                 Text="{TemplateBinding Tag}"
-                                Foreground="Gray"
+                                Foreground="{StaticResource DarkGrayColorBrush}"
                                 Margin="{TemplateBinding Padding}"
                                 VerticalAlignment="Center"
                                 IsHitTestVisible="False"
@@ -54,22 +49,22 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type PasswordBox}">
-                    <Border Background="White"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        Padding="{TemplateBinding Padding}">
+                    <Border Background="{StaticResource BackgroundColorBrush}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Padding="{TemplateBinding Padding}">
                         <Grid>
                             <ScrollViewer x:Name="PART_ContentHost" />
-                            <TextBlock
-                            Text="{TemplateBinding Tag}"
-                            Foreground="Gray"
-                            Margin="{TemplateBinding Padding}"
-                            VerticalAlignment="Center"
-                            IsHitTestVisible="False">
+                            <TextBlock Text="{TemplateBinding Tag}"
+                                       Foreground="{StaticResource DarkGrayColorBrush}"
+                                       Margin="{TemplateBinding Padding}"
+                                       VerticalAlignment="Center"
+                                       IsHitTestVisible="False">
                                 <TextBlock.Style>
                                     <Style TargetType="{x:Type TextBlock}">
                                         <Setter Property="Visibility" Value="Visible" />
                                         <Style.Triggers>
+                                            <!-- DataTrigger was used intentionally instead of BooleanToVisibilityConverter, just to have an example of that as well. -->
                                             <DataTrigger Binding="{Binding Path=(attcp:PasswordBoxAttachedProperty.HasText), RelativeSource={RelativeSource TemplatedParent}}" Value="True">
                                                 <Setter Property="Visibility" Value="Collapsed" />
                                             </DataTrigger>
