@@ -144,15 +144,12 @@ public class MainWindowVM : BaseViewModel
     /// <summary>
     /// Gets the command to display the system menu at the current mouse position.
     /// </summary>
-    public ICommand MenuCommand => new RelayCommand(_ => SystemCommands.ShowSystemMenu(_mainWindow, GetMousePosition()));
+    public ICommand ShowSystemMenuCommand => new RelayCommand(_ => SystemCommands.ShowSystemMenu(_mainWindow, GetMousePosition()));
 
     #endregion Commands
 
     #region Constructors
 
-    /// <summary>
-    /// Initializes a new instance of the <see cref="MainWindowVM"/> class.
-    /// </summary>
     public MainWindowVM()
     {
         _applicationVM = CoreLocator.ApplicationVM;
@@ -181,6 +178,7 @@ public class MainWindowVM : BaseViewModel
     /// <summary>
     /// Gets the current mouse position relative to the screen.
     /// </summary>
+    /// <returns>A <see cref="Point"/> representing the mouse position on the screen.</returns>
     private Point GetMousePosition()
     {
         var position = Mouse.GetPosition(_mainWindow);

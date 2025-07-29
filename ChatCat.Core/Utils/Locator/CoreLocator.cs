@@ -10,16 +10,27 @@ public class CoreLocator
 {
     #region View Model Locatings
 
-    public static ApplicationVM ApplicationVM => DependencyResolver.Resolve<ApplicationVM>()!;
-    public static LoginPageVM LoginPageVM => DependencyResolver.Resolve<LoginPageVM>()!;
-    public static RegisterPageVM RegisterPageVM => DependencyResolver.Resolve<RegisterPageVM>()!;
-    public static ChatListVM ChatListVM => DependencyResolver.Resolve<ChatListVM>()!;
-    public static ChatListItemVM ChatListItemVM => DependencyResolver.Resolve<ChatListItemVM>()!;
-    public static ChatInputVM ChatInputVM => DependencyResolver.Resolve<ChatInputVM>()!;
-    public static AttachmentMenuVM AttachmentMenuVM => DependencyResolver.Resolve<AttachmentMenuVM>()!;
-    public static MenuItemVM MenuItemVM => DependencyResolver.Resolve<MenuItemVM>()!;
-    public static MessageListVM MessageListVM => DependencyResolver.Resolve<MessageListVM>()!;
-    public static MessageListItemVM MessageListItemVM => DependencyResolver.Resolve<MessageListItemVM>()!;
+    public static ApplicationVM ApplicationVM => ResolveViewModel<ApplicationVM>();
+    public static LoginPageVM LoginPageVM => ResolveViewModel<LoginPageVM>();
+    public static RegisterPageVM RegisterPageVM => ResolveViewModel<RegisterPageVM>();
+    public static ChatListVM ChatListVM => ResolveViewModel<ChatListVM>();
+    public static ChatListItemVM ChatListItemVM => ResolveViewModel<ChatListItemVM>();
+    public static ChatInputVM ChatInputVM => ResolveViewModel<ChatInputVM>();
+    public static AttachmentMenuVM AttachmentMenuVM => ResolveViewModel<AttachmentMenuVM>();
+    public static MenuItemVM MenuItemVM => ResolveViewModel<MenuItemVM>();
+    public static MessageListVM MessageListVM => ResolveViewModel<MessageListVM>();
+    public static MessageListItemVM MessageListItemVM => ResolveViewModel<MessageListItemVM>();
 
     #endregion View Model Locatings
+
+    /// <summary>
+    /// Resolves a view model of type T. If the application is in design mode, it returns a new instance of T.
+    /// Otherwise, it uses the DependencyResolver to resolve the view model.
+    /// </summary>
+    /// <typeparam name="T">The type of the view model to resolve.</typeparam>
+    /// <returns>An instance of the view model of type T.</returns>
+    protected static T ResolveViewModel<T>() where T : class, new()
+    {
+        return SharedObject.InDesignMode ? new T() : DependencyResolver.Resolve<T>()!;
+    }
 }

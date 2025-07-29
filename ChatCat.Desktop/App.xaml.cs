@@ -1,10 +1,12 @@
 ﻿using ChatCat.Core.Extensions;
+using ChatCat.Core.Utils;
 using ChatCat.Core.Utils.IoC;
 using ChatCat.Desktop.Extensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using System.ComponentModel;
 using System.Windows;
 
 namespace ChatCat.Desktop;
@@ -42,10 +44,10 @@ public partial class App : Application
 
     #region Application Lifecycle
 
-    /// <inheritdoc/>
     protected override async void OnStartup(StartupEventArgs e)
     {
         DependencyResolver.SetServiceProvider(_host.Services);
+        SharedObject.InDesignMode = DesignerProperties.GetIsInDesignMode(new());
 
         await _host.StartAsync();
 
@@ -55,7 +57,6 @@ public partial class App : Application
         base.OnStartup(e);
     }
 
-    /// <inheritdoc/>
     protected override async void OnExit(ExitEventArgs e)
     {
         using (_host)

@@ -1,5 +1,4 @@
-﻿using ChatCat.Core.Utils.IoC;
-using ChatCat.Core.Utils.Locator;
+﻿using ChatCat.Core.Utils.Locator;
 using ChatCat.Desktop.ViewModels;
 
 namespace ChatCat.Desktop.Utils.Locators;
@@ -11,7 +10,7 @@ public class WpfLocator : CoreLocator
 {
     #region View Model Locatings
 
-    public static MainWindowVM MainWindowVM => DependencyResolver.Resolve<MainWindowVM>()!;
+    public static MainWindowVM MainWindowVM => ResolveViewModel<MainWindowVM>()!;
 
     #endregion View Model Locatings
 }

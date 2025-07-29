@@ -1,4 +1,5 @@
 ﻿using ChatCat.Core.Constants.Enums;
+using ChatCat.Core.Utils;
 using ChatCat.Core.ViewModels.Abstract;
 using ChatCat.Desktop.Extensions;
 using System.ComponentModel;
@@ -69,7 +70,7 @@ public class BaseControl : UserControl
     public BaseControl()
     {
         // Do not run animations in design mode
-        if (DesignerProperties.GetIsInDesignMode(this))
+        if (SharedObject.InDesignMode)
             return;
 
         Loaded += BaseControl_Loaded;
